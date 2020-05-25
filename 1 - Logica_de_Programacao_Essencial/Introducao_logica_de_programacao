@@ -1,0 +1,84 @@
+Introdução a logica de programacao
+
+1 - Entendendo o que é lógica
+
+Logica
+
+"Coerencia de raciocinio, de ideias"
+
+"sequencia coerente, regular e necessária de acontecimentos, coisas"
+
+
+Logica de programação
+
+"Conextualizar a logica na programação de computadores, buscando a melhor sequencia de ações para solucionar um problema"
+
+Exemplo na planilha
+
+Abstração
+
+"habilidade de concetrar nos aspectos essenciais de um contexto qualquer, ignorando características menos importantes ou acidentais"
+
+
+2 - Algoritmos e pseudocodigos
+
+o que é um algoritmo
+
+"sequencia de passos para resolver um problema."
+
+
+pseudocodigo
+
+"forma generica de escrever um algoritmo, utilizando uma linguagem simples (nativa, ou seja, eem português a quem o escreve, de forma a ser entendida por qualquer pessoa)"
+
+3 - Fluxograma, variaveis e constantes
+
+fluxograma:
+
+"ferramenta utilizada para representar graficamente o algoritmo, isto é, a sequencia logica e coerente do fluxo de dados."
+
+
+"é um tipo de diagrama e pode ser entendido como uma representação esquemática de um processo. Podemos entendê-lo, na pratica, como a documentação dos passos necessários para a execução de um processo qualquer."
+
+variaveis:
+
+"na programação, uma variavel é um objeto (uma posição, frequentemente localizada na memoria) apaz de reter e representar um valor ou expressão."
+
+"uma variavel é um espaço na memoria do computador destinado a um dado que é alterado durante a execução do programa."
+
+tipos de variaveis - 4 tipos: 
+numericas, caracteres, alfanumericas ou logicas
+
+constantes:
+
+valores imutaveis e não são alterados durante a vida util do programa.
+
+4 - tomadas de decisoes e expressoes
+
+Expressoes aritmeticas:
+
+"expressoes que utilizam operadores aritmeticos e funcoes aritmeticas envolvendo constantes e veriaveis"
+
+Expressoes literais:
+
+"expressoes com constantes e/ou veriaveis que tem como resultado valores literais. Iremos utilizar as expressoes literais na atrribuição de valor para uma variavel ou constante."
+
+
+Expressoes relacionais:
+
+"expressoes compostas por outras expressoes ou variaveis numericas com operadores relacionais. As expressoes relacionais retornam valores logicos (verdadeiro / falso)"
+
+
+Tomada de decisao:
+
+"necessidade de decidir o que fazer dependendo de alguma condição durante a execução."
+
+5 - Concatenação
+
+Concatenação:
+
+"termo usado para designar a operação de unir o conteudo de duas strings (sequencia de caracteres)."
+
+"agrupamento de duas ou mais celulas que, incluindo formulas, textos ou outras informaçoes contida no seu interior, dá origem a um unico resultado."
+
+
