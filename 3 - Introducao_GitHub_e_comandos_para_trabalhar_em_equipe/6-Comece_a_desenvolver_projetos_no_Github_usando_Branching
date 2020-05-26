@@ -1,0 +1,42 @@
+Comece a desenvolver projetos no Github usando Branching
+
+git merge <<nome branch>> = mesclar alterações de uma branch, a uma branch ativa, por exemplo a branch master.
+
+'resetar' as alterações de um arquivo = git checkout -- <<nome do arquivo>>
+
+retirar um arquivo adicionado para commitar (após utilizar git add) = git reset HEAD <<nome do arquivo>>7
+
+ 'git log'= Id, branch, data, o e-mail e o nome do autor.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

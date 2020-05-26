@@ -1,0 +1,21 @@
+Enviando projetos para o repositório remoto no Github
+
+git push origin <<nome branch>> = enviar branch atual do repo local para o repo remoto.
+
+Solicita usuario e senha, informa que enviou e informa o link.
+
+No github pode trocar direto pelo botão branch.
+Na aba branchs mostra as branchs e qual esta ativa no momento.
+
+Listar repos remotos = git remote -v
+
+add arquivo e fazer commit = git commit -a -m <comentario>
+
+git log --stat
+
+git clone user esta incorreto*
+
+marcar compromissos especificos = git tag 'TEXTO'
+
+Enviando projetos para o repositório remoto no Github = git rebase <<nome arquivo>>
+

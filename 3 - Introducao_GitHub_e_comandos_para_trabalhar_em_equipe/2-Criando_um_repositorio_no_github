@@ -1,0 +1,12 @@
+Criando um repositorio no github
+
+pelo site: new repository -> visibilidade se é publica ou privada
+
+Ideal que tenha mesmo nome na pasta local e repositorio no github.
+
+consegue pegar o link e clonar o repo.
+
+git remote add -> adicionando uma origem de repositorio local ao meu controle de versão.
+
+git remote rm origin -> remover uma origiem de repo remota.
+

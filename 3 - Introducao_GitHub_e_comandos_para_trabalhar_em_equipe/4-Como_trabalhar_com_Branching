@@ -1,0 +1,27 @@
+Como trabalhar com Branching
+
+Criando arquvore de grafos e organizando as informações.
+Quando precisamos criar nova feature, podemos criar um branch novo
+
+Nomear conforme o cenário que estamos trabalhando.
+
+Quando criada uma nova branch todos os arquivos na branch master são clonados para a nova branch.
+
+"Branches permitem que diferentes versões do mesmo conteúdo se desenvolvam ao mesmo tempo, porém de forma independente, enquanto você recombina periodimante as contribuições de diferentes branches em um processo chamado de "fusão" merging. (GIT Guia prático, O'Reilly)"
+
+
+git log = todos os commits que tiveram push.
+
+git branch <<nome branch>> (apenas cria nova branch, head do origini continua apontando para a master.)
+ou
+git checkout -b <<nome branch>> (pegar o nome da branch e trocar o head do origin para o branch atual)
+
+git branch = mostra as branchs criadas no repo local.
+git checkout <<nome da branch>> = trocar de branch.
+git branch -D <<nome da branch>> = deletar uma branch.
+git checkout -b <<nome da branch>> = criar branch e ir para nova branch criada.
+
+git status = em qual branch esta
+
+Repositorio ainda nao possui arquivos comitados em outras branchs na branch master pois os arquivos somente foram comitados nas branchs secundarias.
+

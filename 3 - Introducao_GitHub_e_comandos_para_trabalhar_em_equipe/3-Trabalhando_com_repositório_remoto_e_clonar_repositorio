@@ -1,0 +1,25 @@
+Trabalhando com repositório remoto e clonar repositório
+
+Copia segura e estavel do seu codigo, e é possivel clonar e continuar a trabalhar com o codigo.
+
+adicionar readme
+clonar o repo -> .zip
+branch master -> principal
+configurações -> colaboradores
+pull requests -> adicionar pull requests
+estrelas -> forma de qualificar o projeto
+
+commit -> pequenos commits
+
+git push -> qual branch conseguiu add
+
+Clicando no commit consegue ver o que foi alterado no arquivo.
+
+
+Adicionando um arquivo no repositório do github:
+
+git remote add origin = dizer ao git qual a origem do repo remoto.
+<<link do repositório>>
+git push -u origin master
+
+
