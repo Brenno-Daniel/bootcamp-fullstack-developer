@@ -1,0 +1,69 @@
+Utilizando comandos Git em um projeto de software
+
+Iniciando um repositório GIT:
+
+mkdir projeto-curso-git
+cd projeto-curso-git
+git init
+
+Primeiro é criado um diretório para organizarmos os arquivos de nosso projeto;
+Em seguida acessamos esse diretório usando comando do CD do linux;
+E finalmente o comando git init irá iniciar um repositório vazio;
+
+
+Verificandoo status em um repositório GIT:
+
+git status
+
+O comando irá mostrar o status atual do nosso repositório, se existem arquivos sendo rastreados, alterações ou exclusões de arquivos.
+
+
+Criando arquivo e verificando o status em um repositório GIT:
+
+touch index.html
+git status
+
+O comando TOUCH irá criar um novo arquivo no diretório do repositório chamado index.html;
+
+O comando git status irá mostrar o que foi alterado no diretório;
+
+
+Criando arquivo e verificando o status em um repositório GIT:
+
+git add .
+git add index.html
+git status
+
+O git add . irá incluir todos os arquivos existentes naquele diretório, já o comando git add index.html irá incluir apenas o arquivo index.html para ser monitorado pelo git, esse comando também serve caso que irá adicionar um diretório inteiro.
+
+Comitando em um repositório GIT:
+
+git commit -m 'Meu primeiro commit'
+
+Comitar alterações significa salvar o estado em que o código fonte está naquele momento, evitando que trabalhos de implementações e alterações sejam perdidas, através dos commits podemos identifciar todo o percurso de alterção do código fonte.
+
+quando comitar irá mostrar um identificador para o commit
+
+
+Verificando histórico de commits:
+
+git log
+
+O comando exibe um histórico listando todos os commits que o projeto sofreu até o momento atual.
+
+mostra informações do tipo: usuário que comitou, dia e hora, e mensagem de commit.
+
+
+Utilizando o GIT em repositório remoto:
+
+
+Para ser capaz de colaborar com qualquer projeto no GIT, você precisa saber gerenciar seus repositórios remotos. Repositórios remotos são versões do seu projeto que estão hospedados na internet ou em uma rede em algum lugar. Voce pode ter vários deles, geralmente cada um é somente leitura ou leitura/escrita pra voce.
+
+Colaborar com outros envolve gerenciar esses repositorios remotos e fazer o push e pull de dados neles quando voce precisa compartilhar trabalho. Gerenciar repositorios remotos inclui saber como adicionar repositorio remoto, remover remotos que nao sao mais validos, gerenciar varios branches remotors e defini-los como monitorados ou nao, e mais. Nesta seção, vamos cobrir essas habilidades de gerenciamento remoto.
+
+
+Ferramentas GIT:
+
+Bitbucket, gitlab, github
+
+

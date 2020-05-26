@@ -1,0 +1,33 @@
+Principais comandos Git
+
+git init = inicializar um repositorio dentro do projeto.
+
+git clone = obter estrutura de projeto de um servidor remoto, por exemplo, pegar um projeto do git, ou seja, "clonar" o repositorio.
+
+git add . = adicionando arquivos, no caso todos os arquivos
+git add <<nome_arquivo>> = adicionar um arquivo
+
+git commit -m 'mensagem de commit' = juntar alterações e tornar rastreaveis, o -m é para especificar uma mensagem para o commit.
+
+git push =  forma de publicar as alterações num servidor remoto (intranet)
+
+repo local = aquele que vc criou na sua maquina
+repo remoto = é aquele que esta no servidor, aquele que esta sendo compartilhado para o time.
+
+sempre fazer os commits no repo local e um push para o servidor remoto.
+
+git pull = vai atualizar o repo local conforme o servidor remoto.
+
+git merge = juntar as branchs em que esta realizando a alteração, ou quando pensar em resolução de conflitos, quando o git nao consegue indetnificar quem realizou alteração ou qual a alteração é válida para o arquivo.
+
+git status = prover informações sobre o status/ estado atual do projeto.
+
+git log = historico de alterações que o projeto sofreu.
+
+git branch <<nome da branch>> = quando voce cria um novo ramo.
+
+implementar novas features no projeto através de novas branchs, novos ramos separados para estar trabalhando.
+
+https://git-scm.com/docs
+
+
