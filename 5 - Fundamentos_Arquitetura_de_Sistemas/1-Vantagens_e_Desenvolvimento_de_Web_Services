@@ -1,0 +1,180 @@
+1 - O que são Web Services
+
+Serviços web ou web services são soluções para aplicações se comunicarem independen de linguagem, software e hardwaress utilizados.
+
+Inicialment serviços web foram criados para troca de mensagens utilizando a lingugem XML (Extensible Markup Language) sobre o protocolo HTTP sendo indentificado por URI (Uniforma Resource Identifier).
+
+Prodemos dizer que serviços web são API's que se comunicam por meio de redes sobre o protocolo HTTP.
+
+"Todos os serviço web é uma API mas nem toda API é um serviço web."
+
+
+XML e JSON
+
+Vantagens:
+Linguamgem comum, integração, reutilização de implementação, segurança, custos.
+
+Principais tecnologias (abordadas no curso):
+SOAP, REST, XML, JSON
+
+
+2 - Estrutura SOAP
+
+SOAP - Simple Object Access Protocol
+
+É um protocolo baseado em XML para acessar serviços web principalmente por HTTP.
+
+Pode-ser dizer que SOAP é uma definição de como serviços web se comunicam.
+
+Foi desenvolvido para facilitar integrações entre aplicações.
+
+Vantagens:
+
+Permite integrações entre aplicações, independentes de linguagem, pois usa como linguagem comum o XML.
+
+É independente de plataforma e software.
+
+Meio de transporte genérico, ou seja, pode ser usado por outros protocolos além do HTTP.
+
+
+XML - Extensible Markup Language*
+
+É uma linguagem de marcação criada na década de 90 pela W3C.
+
+Facilita a separação de conteúdo.
+
+Não tem limitação de criação de tags.
+
+Linguagem comum para integrações entre aplicações.
+
+
+
+Estrutura SOAP
+O "SOAP Message" possui uma estrutura única que deve sempre ser seguida.
+
+SOAP Envelope é o primeiro elemento do documento e é usado para encapsular toda a mensagem SOAP.
+
+SOAP Header é o elemento onde possui informações de atributos e metadados da requisição (IP de origem, DNS, credenciais de autenticação, token...)
+
+SOAP Body é o elemento que contém os detalhes da mensagem.
+
+Mensagem SOAP (estrutura básica):
+<soap:Envelope ... >
+	<soap:Header>
+	</soap:Header>
+	<soap:Body>
+	</soap:Body>
+</soap:Envelope>
+
+
+3 - Entendendo o que é WSDL e XSD
+
+WSDL - Web Services Description Language
+
+Basicamente é um contrato, um contrato que é definido pelo serviço.
+
+Usado para descrever Web Services, funciona como um contrato do serviço.
+
+A descrição é feito em um documento XML, onde é descrito o serviço, especificações de acesso, operações e métodos.
+
+XSD - XML Schema Definition
+
+É um schema no formato XML usado para definir a estrutura de dados que será validada no XML.
+
+O XSD funciona como uma documentação de como deve ser montado o SOAP Message (XML) que será enviado através de Web Service.
+
+
+Web service publico:
+soapclient.com/xml/soapresponder.wsdl
+
+SoapUI = ferramenta para facilitar a leitura dos XML
+
+Exemplo em python (arquivo soap.py), utilizando biblioteca Zeep, para ver a integração de um código com um serviço soap.
+
+
+4 - O que são REST, API e JSON
+
+REST - Representational State Transfer
+
+É um estilo de arquitetura de software que define a implementação de um serviço web.
+
+Podem trabalhar com os formatos XML, JSON ou outros.
+
+
+Vantagens do REST
+
+Permite integrações entre aplicações e também entre cliente e servidor em páginas web e aplicações.
+
+Utiliza dos métodos HTTP para definir a operação que está sendo efetuada.
+
+Arquitetura de fácil compreensão.
+
+
+Estrutura do REST
+
+Quando uma aplicação web disponibiliza um conjunto de rotinas e padrões através de serviços web podemos chamar esse conjunto de API.
+
+API - Application Programming Interface.
+
+Sõ conjuntos de rotinas documentados e disponibilizados por uma aplicação para que outras aplicações possam consumir suas funcionalidades.
+
+Ficou popular com o aumento dos serviços web.
+
+As maiores plataformas de tecnologia disponibilizam APIs para acessos de suas funcionalidades, algumas delas são: Facebook, Twitter, Telegram, Whatsapp, GitHub...
+
+
+Principais Métodos HTTP:
+
+GET - Solicita a representação de um recurso 
+(É o objeto como esta agora, buscar uma informação).
+POST - Solicita a criação de um recurso
+(solicitar a criação de um recurso).
+DELETE - Solicita a exclusão de um recurso
+(solicitar a exclusão de um recurso).
+PUT - Solicita a atualização de um recurso 
+(solicitar a atualização de um recurso).
+
+
+JSON - JavaScript Object Notation.
+
+Formatação leve utilizada para troca de mensagens entre sistemas.
+
+Usa-se de uma estrutura de chave e valor e também de listas ordenadas.
+
+Um dos formatos mais populares e mais utilizados para troca de mensagens entre sistemas.
+
+
+
+5 - Integração com REST e métodos HTTP na prática
+
+Código de Estado:
+
+Usado pelo servidor para avisar o cliente sobre o estado da operação solicitada.
+
+1xx - Informativo	(range do 100)
+2xx - Sucesso		(range do 200)
+3xx - Redirecionamento	(range do 300)
+4xx - Erro do Cliente	(range do 400)
+5xx - Erro do Servidor	(range do 500)
+
+
+1xx - Informativo: informa que recebeu a solicitação porém ainda não tem uma resposta, esta em processamento.
+
+2xx - Sucesso: recebeu a solicitação e foi processada com sucesso.
+
+3xx - Redirecionamento: quando o usuário está fazendo a requisição precisa realizar alguma outra ação além daquela, ex: redirecionamento de uri que foi trocada.
+
+4xx - Erro do Cliente: quando o cliente colocou alguma informação errada ou indevida, ex: erro 404 not found.
+
+5xx - Erro do Servidor: quando vai processar a mensagem ocorre algum erro interno no servidor.
+
+
+Pratica:
+
+Mozilla http code (Códigos de status de respostas HTTP)
+
+Aplicação Postman (https://www.postman.com/)
+
+Biblioteca python Requests.
+
+
