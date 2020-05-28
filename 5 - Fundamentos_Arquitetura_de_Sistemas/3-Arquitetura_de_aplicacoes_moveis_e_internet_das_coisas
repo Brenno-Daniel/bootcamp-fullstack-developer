@@ -1,0 +1,197 @@
+Arquitetura de aplicações móveis e internet das coisas
+
+1 - Coneitos da Internet das Coisas
+
+A internet começou com o ARPANET, que priorizava conectar os computadores dos centros de pesquisas.
+
+Surgem os aplicativos -> email, browser, navegadores, ecommerce.
+Com a chegada do smartphone houve uma explosão dos apps.
+
+Internet é uma rede de pessoas conectadas trocando informações constantemente.
+
+Internet das Coisas:
+
+Quando coisas utilizam essa rede para trocar dados e enviar informações.
+
+Por que conectar as coisas?
+- Embutir sensores em objetos do dia-a-dia
+- Coletar dados dos sensores
+- Usar o dado para tomar decisão.
+
+Conceitos básicos de IoT:
+Things: coisas (onde quer colocar sensores e coletar dados)
+Cloud: Nuvem (colocar os dados e processar os dados)
+Intelligence: Inteligencia (utilizar os dados e usá-los de forma inteligente)
+
+
+Exemplos de onde podemos empregar o IoT:
+
+Smart Buildings (Exemplo um edifício, um predio comercial, uma industria..)
+
+Capacidade de coletar dados desses componentes e utilizá-los para melhorar os processos.
+
+
+Smart Home -> Coletar dados de diversos sensores, a diferença é que ele também prevê a presença do morador da casa.
+
+
+Wearables (vestíveis) -> componentes que colocamos em nosso corpo e são coletados dados, como saúde, habitos, locais em que frenquentamos.
+
+
+Agriculture -> empregado principalmente em ter processos produtivos mais sustentáveis, pode ter a cada plantio um sensor para medir a umidade do solo.
+
+
+Smart Transportation -> veiculos passam a coletar dados de trânsito (exemplo empresa Tesla).
+
+
+RFID Supply Chain -> onde o IoT nasceu, onde nasceu a tecnologia RFID (etiquetas por radio frequencia), consegue ter todo o processo produtivo e de armazenamento, no centro de distribuição, nas lojas e até o cliente final, pode ser rastreavel pelos RFIDs.
+
+
+Energy Efficiency -> é possivel coletar dados de fontes coletoras e consumidoras de energia, criando rede informação para tomada de decisão.
+
+
+
+Computação Ubíqua:
+
+Mark Weiser
+"A computação ubíqua é a terceira onda da computação que está apenas começando. Primeiro tivemos as mainframes compartilhados por várias pessoas. Estamos na era da computação pessoal com pessoas e máquinas estranhando umas às outras. A seguir vem a computação ubíqua, a era da tecnologia 'calma', quando a tecnologia recua para o pano de fundo de nossas vidas."
+
+"As tecnologias mais importantes são aquelas que desaparecem. Elas se integram à vida do dia a dia, ao nosso cotidiano, até serem indistinguíveis dele."
+
+
+é quando so computadores saem do nosso campo de visão, quando a tecnologia recua para um plano de fundo e se torna tão importante pois não a vemos de uma forma mais fácil, então com o crescimento de IoT vai acelerar, bilhões/ trilhões de dispositivos conectados em nossa rede.
+
+"Quando a tecnologia se torna realmente eficaz"
+
+
+Desafios da IoT:
+
+- Privacidade e Segurança.
+- Quantidade exponencial de dispositivos conectadas na rede.
+- Ser capaz de processar e armazenar uma enorme quantidade de informações.
+- Gerar valor a partir dos dados coletados.
+
+
+
+2 - Arquitetura da IoT
+
+Produtos out of the box -> produtos que voce ja não vê mais o 'hardware'.
+
+
+Considere esses atributos na escolha:
+- baixo consumo de energia
+- rede de dados limitado
+- resiliencia
+- segurança
+- customização
+- baixo custo
+
+
+Arduino <3
+
+- plataforma de prototipagem
+- com entradas/saídas
+- desenvolvedor escreve em C/C++
+- interface serial ou USB
+- shields
+
+
+Embarcados:
+
+- MCUs -> Microcontrolador de chip único
+- Sistema operacional real time (SO que fala diretamente com o hardware e tempo de resposta rapido)
+- Embarcado
+- Uso industrial, médico, militar, transporte.
+
+
+Minicomputadores:
+
+Raspberry Pi
+- Computador completo
+- Hardware integrado em uma única placa
+- Roda SO Linux ou Windows
+- Uso doméstico e comercial
+
+
+O protocolo de comunicação:
+
+GPS Tracker - é um embarcado e tem mais controle.
+Smartphone/ app.
+
+O protocolo MQTT
+
+é a linguagem que tanto o app no smartphone quando o embarcado vai utilizar para se comunicar com a nuvem.
+
+
+MQTT (Message Queue Telemetry Transport)
+
+- Base na pilha do TCP/IP
+- Protocolo de mensagem assíncrona (M2M - Machine to Machine)
+- Criado pelo IBM para conectar sensores de pipelines de petróleo a satélites.
+- Padrão OASIS suportado pelas linguagens de programação mais populares.
+
+
+(Modelo Cliente Servidor)
+Cliente -> request (HTTP) -> Server -> response (HTTP) -> Client
+
+
+Modelo Publish/Subscribe
+
+Separa quem é o fornecedor da mensagem do consumidor da mensagem (separação desse client).
+
+Middleware -> MQTT broker: somente entrega a mesnagem.
+
+
+Esse modelo possui a possibilidade de escalabilidade de lidar com dados muito maior que a client/server, pois houve o desacoplamente de quem publica e quem consome.
+
+Um dispositivo publicando mensagem pode alimentar outros dispositivos que querem ouvir a mensagem.
+
+Publish:
+Tem que ter o endereço do Broker (que possui endereço, dns, host).
+
+Especificar o protocolo (mqtt), depois o host, depois vem o tópico, que é como se fosse endereço onde irá entregar a informação.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

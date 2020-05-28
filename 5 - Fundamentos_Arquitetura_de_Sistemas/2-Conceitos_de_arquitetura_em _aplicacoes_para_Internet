@@ -1,0 +1,144 @@
+Conceitos de arquitetura em aplicações para Internet
+
+Objetivos:
+
+1. Tipos de arquitetura.
+2. Comparativo entre os tipos de arquitetura.
+3. Gerenciamento de erros e volume de acesso.
+
+
+1 - Tipos de arquitetura:
+
+Monolito:
+
+Uma unica aplicação que tem acesso a banco de dados e outros serviços.
+
+Aplcações web e mobile conversando com o serviço atraves de protocolo HTTP (proxy HTTP).
+
+Aplicação pode ter mais de uma instância da mesma aplicação.
+Pode ter mais de um banco de dados.
+
+
+Microserviços #1:
+
+Um serviço para cada operação.
+O serviço 1 pode chamar o servidor 2, pode ser por protocolo HTTP.
+Aplicação web/ mobile irá acessar o serviço pelo proxy HTTP que irá redirecionar conforme cada serviço.
+Conforme a quantidade de serviços pode se tornar uma arquitetura caótica.
+
+Microserviços #2:
+
+Possui basicamente o mesmo esquema da anterior porém os serviços não se comunicam diretamente entre si, existe um Message Broker que realiza esse gerenciamento de mensagens entre os serviços.
+Vantangem, não se tem comunicação direta e faz com que os serviços fiquem desacoplados, pode realizar manutenção no serviço e os outros continuam funcionando normalmente.
+Desvantagem que a plataforma fica dependente do message broker.
+
+
+Microserviços #3:
+
+Clientes fazendo comunicação HTTP, irá passar diretamente para um gerenciador de pipelina (kamuda, serviço da aws).
+Aplicações separadas, cada serviço com sua dependencia diferente.
+Menor codigo possivel, e usar melhor tecnologia para o determinado stack.
+Saber trabalhar com o rollback do gerenciador de pipeline.
+Desvantagem é estar dependente do pipeline.
+
+
+2 - Comparando os modelos Monolito e Microserviços
+
+***
+Monolito:
+
+Pros:
+
+Baixa complexidade;
+Monitoramento simplificado;
+
+Contra:
+
+Stack única;
+Compartilhamento de recursos;
+Acoplamento;
+Mais complexo a escalabilidade;
+
+***
+Microserviços #1:
+
+Pros:
+
+Stack dinâmica;
+Simples escalabilidade;
+
+Contras:
+
+Acoplamento;
+Monitoramento mais complexo;
+Provisionamento mais complexo;
+
+***
+Microserviços #2:
+
+Pros:
+
+Stack dinâmica;
+Simples escalabilidade;
+Desacoplamento;
+
+
+Contra:
+
+Monitoramento mais complexo;
+Provisionamento mais complexo;
+
+***
+Microserviços #3:
+
+Pros:
+
+Stack dinâmica;
+Simples escalabilidade;
+Desacoplamento;
+Menor complexidade;
+
+
+Contra:
+
+Provisionamento mais complexo;
+Plataforma inteira depende do gerenciador de pipeline;
+
+
+3 - Gerenciamento de erros e volume de acesso
+
+Onde é mais complexo:
+
+Processos asíncronos (Microserviços #2);
+Pipeline; (realizar o rollback dos passos é complexo)
+
+Solução:
+
+Dead letter queue; 
+Filas de re-tentativas;
+
+Cria uma fila separada, gerado o erro pega o erro e joga na fila para tentar reprocessar a mensasgem novamente.
+
+
+Suporte aos exercícios
+Github: https://github.com/jeffhsta/fundamentos_arquitetura
+
+
+
+Respostas de algumas questões:
+
+microsserviços:
+
+Microsserviços desenvolvem sistemas mais flexíveis, escaláveis e com fácil manutenção comparado aos sistemas tradicionais.
+
+
+Sobre o monolito, é incorreto afirmar:
+
+Possui alta complexidade.
+
+
+Monolito?
+
+Um navegador WEB faz uma requisição ao Proxy HTTP na qual chega até uma determinada instância da aplicação para retornar determinado dado.
+
+
