@@ -59,15 +59,19 @@ Outros modelos:
 - Big Data (engloba varias carcteristicas de dados com grande volume de informação)
 
 
+
+
+
+
 2 - Banco de Dados Relacionais
 
 sistemas que gerenciam
-SGDBR (sistema de basncos de dados relacionais) - RDBMS
+SGDBR (sistemas gerenciais de bancos de dados relacionais) - RDBMS
 
 Composto por entidades que agrupam as informações.
 Entidades = tabelas
 
-Tableas possuem as linhas que contem aas informações.
+Tableas possuem as linhas que contem as informações.
 
 Linhas = Registros ou Tuplas
 
@@ -123,16 +127,28 @@ pode transformar em nova entidade.
 Você só esta na 2a forma normal se já estiver na 1a forma normal, e assim por diante.
 
 
+
+
+
+
 3 - SGDBR - SQL (Structured Query Language)
+
+
+SGDBR - Vários processo que atuam gravando em disco, e memoria, extraindo e protegendo dados, verificando segurança de acesso, entre outros.
+
+Existe uma necessidade maior de gerenciar o modelo, realizar a muntençao dos dados e recuperar esses dados.
+
 
 SQL pilares:
 
 - DDL - Data Definition Language - Linguagem que utiliza para definir o banco.
+Alterar os dados fisicamente no banco.
 
 - DML - Data Monipulation Language - Linguagem responsavel pela manipulação dos dados em termos físicos.
+Incluir dados, alterar as informações, remover linhas na tabela.
 
 - DQL - Data Query Language - Liguagem de consulta aos dados.
-
+Extração e exibição da informação.
 
 
 DDL:
@@ -189,7 +205,7 @@ Query:
 
 Utilizar o select com o Union entre os selects.
 
-Regra basica nas teorias de conjunto = precisar ter equivalencia nas suas colunas entre os conjuntos que quer aplicar a operação, seja de union, intersecção ou subtração.
+Regra basica nas teorias de conjunto = precisa ter equivalencia nas suas colunas entre os conjuntos que quer aplicar a operação, seja de union, intersecção ou subtração.
 
 
 Select Codigo,
@@ -215,6 +231,7 @@ where valor > 5
 
 
 Funções de Conjunto:
+Funções que eu posso aplicar em cima desse conjunto.
 
 Select Sum(ven.Quantidade) as QTotal
 	, Sum(ven.Valor) as VTotal
@@ -224,35 +241,115 @@ JOIN Produto pro
 ON pro.Codigo = ven.Cod_Produto
 where ven.Valor > 5
 Group by pro.Descricao
+Having Sum(ven.Valor) >= 10
+
+
+No 'from' não pode haver o alias "as".**
+
+Todas as colunas que eu colocar no meu select e que não estão encapsuladas em uma função de conjunto, devem ser colocadas na clausula 'Group by' **
+
+Em 'sun' tem outras funções de conjunto:
+
+min = menor valor
+max = maior valor
+avg = media
+
+
+Clausula 'Having', serve para filtrar o resultado de minha função de conjunto, não posso usar ela sem o 'Group by'
+
+
+Index:
+
+Select ...
+Where Profissao = 1
+and Genero = "M"
+
+Para realizar a consulta acima em um banco de dados real, poderia demorar muito essa consulta, para solucionar este problema temos o Index.
+
+O Index é uma pequena tabela extraida da original com apenas as colunas que queremos verificar.
+
+Essa pequena tabela é física e memória.
+
+No caso de dar shutdown na maquina e precisar iniciar o bd não deve esperar que ele crie novamente a tabela, e tem que estar alocado na memoria pois é mais rápido no computador.
+
+
+Index pode ter quantas colunas precisar.
+
+Index afeta a performance do DML.*
+
+
+
+
+4 - Transactions
+
+SGDBR deve permitir que muitos usuários acessem os mesmos recursos ao mesmo tempo.
+
+Aquilo que você pode fazer dentro de uma sessão.
+
+Read commited - Ler o que já foi aplicado no banco.
+
+Uma transaction possui inicio, resolução e fim.
+
+Inicio = Insert, delete, update
+Resolução = Commit, Rollback
+Fim = Novos dados ou dados originais
+
+
+ACID - Transactions
+
+Atomicidade = Todas as operaçoes sejam executadas com sucesso, commit ou rollback.
+
+Consistência = Unicidade de chaves, restrições de integridade lógica, etc.
+
+Isolamento = várias transações podem acessar simultaneamente o mesmo registro (ou parte do registro)
+
+Durabilidade = depois do commit, mesmo com erros, queda de energia, etc. As alterações devem ser aplicadas. (mantem log transacional)
+
+
+
+
+5 - SGDBR na prática
+
+SGDBs - R
+
+Versões que são relacionais e comerciais:
+
+- Oracle: um dos mais utilizados no mundo, possui uma gama de ferramentas.
+
+- MS Sql Server: mesma linha que o anterior
+
+- IBM DB2
+
+DBs Gratuitos:
+
+- PostgreSQL
+
+- MySQL: websites e apps leves, não tem algumas regras estabelecidas no banco, atentar-se a estes fatos.
+
+- SQLite: utilizado principalmente em softwares embarcados, rapido acesso aos dados.
+
+
+Instalando Postgres:
+
+Ubuntu
+$ sudo apt update
+$ sudo apt install postgresql postgresql-contrib
+
+
+
+6 - Criando banco de dados
+
+Criando banco de dados via terminal.
 
 
 
 
 
 
+Erros do teste de conhecimento:
 
+Qual afirmação é correta para DDL?
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+É responsável pela alteração do dicionário de dados.
 
 
