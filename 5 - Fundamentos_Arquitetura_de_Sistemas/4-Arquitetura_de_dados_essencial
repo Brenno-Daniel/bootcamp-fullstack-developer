@@ -1,0 +1,258 @@
+Arquitetura de dados essencial
+
+Objetivos:
+1. Conceitos de Dados
+2. O que é um Banco de Dados
+3. Banco de Dados Relacionais
+4. Exemplo prático
+
+
+Dados?
+Valores + ocorrências -> Dados
+
+Importância = de dados podemos obter informações e com ela conhecimento.
+
+Dados digitais (um arquivo txt pode ser um formato de dado digital)
+
+Modelo sustentável:
+- Estruturação 
+- Durabilidade 
+- Velocidade = imagine uma grande empresa com milhares de registro.
+- Controle de Acesso = acesso restrito a algumas pessoas.
+- Isolamento
+
+
+Banco de Dados:
+
+Abstração
+Pegar a informação do meio físico (organizado ou não), e transformar numa visão pratica para transfirmar em conhecimento aos usuários.
+
+SGDBs
+
+- Linguagem de definição = liguagem onde pode definir a estrutura dos dados
+- Linguagem de manipulação = onde recupera ou altera a informação.
+- Dicionário de dados = banco de dados dentro do banco que guarda a estrutura.
+
+
+Modelos do banco de dados:
+
+Modelo Flat (um dos mais comuns):
+
+é uma tabela, como excel
+
+Modelo Hierárquico (o primeiro a surgir):
+
+Divisão de certos grupos em árvore hieraquica, modelo que quase já não é mais utilizado.
+Registro do windows é baseado em modelo hirarquico.
+
+
+Modelo Relacional (mais utilizado no mercado):
+
+Um conjunto de tabelas que se relacionam entre si, obedecendo algumas regras.
+
+
+Outros modelos:
+
+- Redes - Grapho
+- Orientado a Objetos
+- Objeto-Relacional
+- Big Data (engloba varias carcteristicas de dados com grande volume de informação)
+
+
+2 - Banco de Dados Relacionais
+
+sistemas que gerenciam
+SGDBR (sistema de basncos de dados relacionais) - RDBMS
+
+Composto por entidades que agrupam as informações.
+Entidades = tabelas
+
+Tableas possuem as linhas que contem aas informações.
+
+Linhas = Registros ou Tuplas
+
+Colunas, que é a definição do que significa cada informação vertical.
+
+Chaves PK/FK, PK são unicas e nao tem duplicidades, FK chaves estrangeiras, que cria a relação entre as tabelas.
+
+
+Modelagem:
+
+- Modelo conceitual - MER - Modelo Entidade Relacionamento.
+
+- Modelo Lógico - Implementação
+
+
+MER - DER (Diagrama Entidade Relacionamento)
+
+Diagrama facilita a compreensão de como o modelo deve se comportar, aplicando conceitos de normalização.
+
+Diagrama grafico onde podemos representar as entidades (tabelas), nome, atributos, relacionamentos da entidade.
+
+Relações diretas e indiretas.
+
+Entidade Forte = entidade que não depende de outra para existir.
+
+Entidade Fraca = tabela ou entidade que dependem de outra para existir.
+
+
+Relacionamento M -> N
+
+Entidade associativa
+
+
+
+Normalização:
+
+1a .. 5a - Formas normais
+1, 2 e 3a - Mais comum
+
+
+modelo relacional permite criar sem ter normalização.
+
+1a - tem a ver com a existencia de valores unicos em cada coluna.
+
+uma vez que tenha duas informações, precisa ser quebrada em uma nova coluna ou uma nova entidade.
+
+2a - resolve problema da digitação ou duplicidade em linhas.
+
+pode transformar em nova entidade.
+
+3a - os valores precisam ser totalmente dependentes da chave primaria, e não pode depender de valores que não são chave e numero conjunto.
+
+Você só esta na 2a forma normal se já estiver na 1a forma normal, e assim por diante.
+
+
+3 - SGDBR - SQL (Structured Query Language)
+
+SQL pilares:
+
+- DDL - Data Definition Language - Linguagem que utiliza para definir o banco.
+
+- DML - Data Monipulation Language - Linguagem responsavel pela manipulação dos dados em termos físicos.
+
+- DQL - Data Query Language - Liguagem de consulta aos dados.
+
+
+
+DDL:
+
+Create Table Cliente
+(
+Codigo number(10) Not Null Primary Key,
+Nome varchar(50) Not Null,
+Telefone varchar(15)
+)
+
+Pode criar uma tabela sem primary key (não é recomendado), mas pode criar para ter um pouco mais de performance.
+
+
+DML:
+
+Insert into Cliente (codigo, nome, telefone)
+values (1, "texto", "(12)99999")
+
+Pode omitir colunas no insert, porém se for coluna obrigatoria vai dar erro.
+
+Null (padrão) = não ocupa espaço de storage, problemas de indexação..
+Espaço em branco = ocupa um espaço de memória para essa coluna.
+
+Delete from cliente
+where codigo = 1
+
+Update cliente
+set nome = "texto"
+where codigo = 1
+
+É permitido executar sem where, porem no caso do Delete pode apagar tudo, no Update pode atualizar tudo com o mesmo dado.
+
+
+DQL:
+
+Select codigo,
+	nome
+from cliente
+<where> codigo = 1
+ <group by> profissao
+ <having> count(1) > 0
+<order by> nome, codigo
+
+Pode colocar quantos Where são necessários, sempre adicionando o AND.
+
+
+Postgres sql deixa fazer o select sem from.
+
+
+Algebra Relacional:
+
+Query:
+
+Utilizar o select com o Union entre os selects.
+
+Regra basica nas teorias de conjunto = precisar ter equivalencia nas suas colunas entre os conjuntos que quer aplicar a operação, seja de union, intersecção ou subtração.
+
+
+Select Codigo,
+	nome
+from cliente
+where codigo = 2
+	Union
+Select codigo,
+	nome
+from cliente
+where nome = "texto"
+
+
+Outro exemplo de utilização da teoria de conjuntos é numa query unica.
+
+Select quantidade,
+	valor,
+	descrição (outra tabela)
+from item_valor
+JOIN Produto (outra tabela)
+ON Codigo = Cod_Produto
+where valor > 5
+
+
+Funções de Conjunto:
+
+Select Sum(ven.Quantidade) as QTotal
+	, Sum(ven.Valor) as VTotal
+	, pro.Descricao
+from Item_vnda ven
+JOIN Produto pro
+ON pro.Codigo = ven.Cod_Produto
+where ven.Valor > 5
+Group by pro.Descricao
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

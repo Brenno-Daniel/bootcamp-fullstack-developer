@@ -58,7 +58,7 @@ Mark Weiser
 "As tecnologias mais importantes são aquelas que desaparecem. Elas se integram à vida do dia a dia, ao nosso cotidiano, até serem indistinguíveis dele."
 
 
-é quando so computadores saem do nosso campo de visão, quando a tecnologia recua para um plano de fundo e se torna tão importante pois não a vemos de uma forma mais fácil, então com o crescimento de IoT vai acelerar, bilhões/ trilhões de dispositivos conectados em nossa rede.
+é quando os computadores saem do nosso campo de visão, quando a tecnologia recua para um plano de fundo e se torna tão importante pois não a vemos de uma forma mais fácil, então com o crescimento de IoT vai acelerar, bilhões/ trilhões de dispositivos conectados em nossa rede.
 
 "Quando a tecnologia se torna realmente eficaz"
 
@@ -78,6 +78,7 @@ Produtos out of the box -> produtos que voce ja não vê mais o 'hardware'.
 
 
 Considere esses atributos na escolha:
+
 - baixo consumo de energia
 - rede de dados limitado
 - resiliencia
@@ -119,7 +120,7 @@ Smartphone/ app.
 
 O protocolo MQTT
 
-é a linguagem que tanto o app no smartphone quando o embarcado vai utilizar para se comunicar com a nuvem.
+é a linguagem que tanto o app no smartphone quanto o embarcado vao utilizar para se comunicar com a nuvem.
 
 
 MQTT (Message Queue Telemetry Transport)
@@ -136,12 +137,12 @@ Cliente -> request (HTTP) -> Server -> response (HTTP) -> Client
 
 Modelo Publish/Subscribe
 
-Separa quem é o fornecedor da mensagem do consumidor da mensagem (separação desse client).
+Separa quem é o fornecedor da mensagem, do consumidor da mensagem (separação desse client).
 
 Middleware -> MQTT broker: somente entrega a mesnagem.
 
 
-Esse modelo possui a possibilidade de escalabilidade de lidar com dados muito maior que a client/server, pois houve o desacoplamente de quem publica e quem consome.
+Esse modelo (publish/subscribe) possui a possibilidade de escalabilidade de lidar com dados muito maior que a client/server, pois houve o desacoplamento de quem publica e quem consome.
 
 Um dispositivo publicando mensagem pode alimentar outros dispositivos que querem ouvir a mensagem.
 
@@ -152,46 +153,140 @@ Especificar o protocolo (mqtt), depois o host, depois vem o tópico, que é como
 
 
 
+3 - Flexibilidade dos tópicos e Cloud
+
+A flexibilidade dos tópicos
+
+mqtt (protocolo) :// broker.io (broker) / a6g3l9 (user indentifier) / gps (sensor) / position (information type)
+
+outros tópicos:
+
+mqtt://broker/user/accelerometer -> acelerometro
+mqtt://broker/user/gps/position -> posição de um usuário
+mqtt://broker/user/gps/velocity -> velicidade do usuário
+
+
+Subscribe:
+
+Capacidade que um client mqtt, software, um device, etc, tem de se conectar ao broker e passar a ouvir um tópico.
+
+
+mqtt://broker/+/gps/position -> posição de todos os users
+
+mqtt://broker/user/gps/+ -> todas as posições do user
+
+mqtt://broker/+/# -> buascar as mensagens de todos os users, e de todas informações dos sensores.
+
+
+
+Níveis de serviço - 3 niveis
+
+QoS 0 - Quality of Service
+
+- Nivel minimo de menor esforço
+- Sem garantia de entrega
+- Mensagem não é transmitida
+
+QoS 1 (mecanismo padrão - mais comum usado)
+
+- Garante que a mensagem foi entregue no mínimo uma vez ao recebedor
+- Mensagem pode ser retransmitida se não houver confirmação de entrega
+
+QoS 2 (2 pares de entrega)
+
+- Garante que a mensagem foi entregue no mínimo uma vez ao recebedor
+- Mensagem pode ser retransmitida se não houver confirmação de entrega
+
+
+Cloud:
+
+- Grande e cada vez maior número de devices conectados;
+- TBs ou PBs de informações;
+- Potencial de escala global;
+
+
+Empresas provedoras de serviços na nuvem:
+Amazon, microsoft, Google, IBM, Oracle, Alibaba Cloud
+
+
+4 - Estudo de caso
+
+Arquitetura é uma questão de escolha.
+
+Broker é o middleware. (somente entrega a mensagem)
+
+Worker é quem vai receber os dados e vai armazenar no data store.
+
+
+Prova de conceito (somente para testar o funcionamento):
+
+Gps -> App Android
+
+Broker -> Eclipse Mosquitto
+
+Worker -> Node.js (aplicação em Node.js)
+
+Data store -> Banco de dados MySQL
+
+
+
+Mínimo Produto Viável (solução mais robusta):
+
+GPS -> GPS Embarcado
+
+Broker -> HiveMQ
+
+Worker -> Akka Scala JVM
+
+Data store -> Banco de Dados noSQL - mongoDB
+
+
+
+Outra Solução (Solução Cloud Native) (custo alto):
+
+GPS -> GPS Embarcado
+
+Broker -> AWS IoT Core
+
+Worker -> AWS Kinesis Firehose (data stream)
+
+Data store -> AWS S3
+
+
+
+IoT na prática:
+
+gps -> broker -> worker -> cache -> interface grafica/ aplicação web
+
+GPS Embarcado -> AWS IoT Core -> AWS Data Stream -> AWS Lambda (recebe o dado e alimenta uma chave do redis) -> AWS ElasticCache Redis
+
+AWS Lambda = é uma função.
+AWS ElasticCache Redis = banco de dados in memory (chave e valor).
+
+
+Precisa entregar a informação para o usuário final:
+
+AWS ElasticCache -> AWS EC2 -> FeathersJS Backend -> Dashboard
+
+AWS EC2 = são VMs, servidores na amazon onde você pode ter um servidor seu.
+FeathersJS = Framework desenhado para que você pode fornecer informações real time para um client.
+
+
+Um exemplo de entrega seria através de socket passar essa informação quase que real time para o dashboard.
 
 
 
 
+Duvidas do questionário:
 
 
+A coleta de dados é obtida com ________ alterações.
+
+natureza dinamica.
 
 
+Qual desafio surge quando usamos muitos dispositivos na mesma rede?
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+consumo de energia.
 
 
