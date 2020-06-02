@@ -1,0 +1,131 @@
+Conceitos de integração de sistemas e mensageria.
+
+Objetivos da aula:
+
+1. O que é arquitetura em mensageria.
+2. Comunicação assíncrona entre serviços.
+3. Gerenciamento de erros.
+
+
+O que é uma arquitetura em mensageria?
+
+Arquitetura utilizando mensageria:
+
+Arquitetura onde possui o broker como mediador entre as mensagens para os serviços.
+
+
+Pros:
+
+- desacoplamento; 
+
+Serviços não comunicam diretamente entre si, comunicação assíncrona.
+
+- facil plug & play;
+
+Se quiser colocar serviço novo, plugar no message broker e escutar as mensagens. Sem precisar alterar os demais serviços.
+
+- comunicação assíncrona;
+
+Fazer operações sem fazer a aplicação ficar esperando uma resposta. Menos recurso do servidor e da maquina que consome o serviço.
+
+- simples escalabilidade; (Ex: Apache kafka)
+
+Fila aumentando, basta aumentar o número de instâncias.
+
+- broadcasting;
+
+Produzir mensagem em um lugar e todos serviços interessados conseguem escutar.
+
+- Permite Event Source;
+
+Ter uma fila de eventos onde determinam um estado.
+
+
+Contras:
+
+- Single point of failure;
+
+Arquitetura acaba sendo comprometida se o Message Broker cai.
+
+- Dificil monitoramento;
+
+Complicado conseguir fazer o rastreamento de uma determinada operação, de um determinado fluxo que envolve mais de um serviço.
+
+
+
+Comunicação Assíncrona entre serviços:
+
+Comunicação:
+
+Passo 1: Web app -> Proxy HTTP -> Serviço 1 -> Message Broker
+
+Passo 2: Message Broker -> Serviço 2 -> Message Broker
+
+Passo 3: Message Broker -> Serviço 3
+
+Exemplo de como funcionaria a comunicação assincrona, porém parece mais uma comunicação linear, um pipeline.
+
+
+Outra maneira mais complexa:
+
+Passo 1: Serviço 1 -> (...msg...) 
+
+Passo 2: (...msg...) serv. 1 -> Serviço 2 // -> Serviço 3
+
+Passo 3: (...msg...) Serv. 2 -> (..msg..) -> Serviço 4 e Serviço 5 // Serv. 3 -> (..msg..) -> Serviço 6 e Serviço 7
+
+Mais difícil de identificar em qual ponto houve a falha na mensagem.
+
+
+2 - Gerenciando erros em uma arquitetura assíncrona
+
+Gerenciamento de erros:
+
+- Dead letter queue (Filas de re-tentativas);
+- Monitoramento entre serviços;
+- Rastreamento de fluxo;
+
+
+Inconsistência de dados:
+
+Web app -> Proxy HTTP -> (adicionar cartão de crédito) -> Serviço de Carteira -> Message Broker
+
+
+Web app -> Proxy HTTP -> (adquirir plano) -> Serviço de Planos -> Message Broker
+
+
+Message Broker -> (aquisição de plano) -> Serviço de Cobrança -> (aquisição de plano) -> Dead letter queue -> Banco de dados
+
+
+Rastreamento de fluxo:
+
+Web app -> Proxy HTTP -> Serviço1(logs) -> Message Broker
+
+Serviço2(logs) ->/<- Message Broker
+
+Serviço3(logs) <- Message Broker
+
+
+Guardar logs em local centralizado, pode ser através de ferramenta, ex: aewk stelk da elastic
+
+Consiga consumir todos os logs e disponibilizar de maneira centralizadas e indexadas no mesmo lugar.
+
+Gerar ID de rastreamento = Track ID
+
+Pode atrelar track ID a todas as operações.
+
+
+Logs dos serviços que terão tack ID em seus metadatas.
+
+
+
+
+
+Erros do teste de conhecimento:
+
+
+Qual possível problema pode se ter com arquitetura em mensageria assíncrona?
+
+Inconsistência de dados por não recebimento de mensagens.
+
+
