@@ -1,0 +1,226 @@
+Arquitetura de dados não estruturados e business intelligence.
+
+Objetivos da aula:
+
+1. Business Intelligence em modelos de Dados.
+2. Data Warehouse.
+3. BigData - Dados Não Estruturados.
+4. Data Lake.
+
+
+
+1 - Business Intelligence em Modelos de Dados
+
+BI - Business Intelligence:
+
+O BI é composto basicamente por:
+- Ferramentas, Infraestrutura, Profissionais (corpo técnico), Dados*.
+
+
+Origem dos dados:
+
+Dados da operação - Os dados podem vir de SGDB ou de outro qualquer sistema de informação.
+
+Os dados que vem podem ser complementados.
+
+Dados gerenciais - informações inputados pelos proprios gerentes, dentre outros.
+
+Pesquisa de campo - Tendencias de mercado, desejos de consumidores, entre outros.
+
+Indicadores de mercado - Tendencias de mercado, entre outros.
+
+
+BI - Solution:
+
+- Infraestrutura
+- Gerenciamento dos dados
+- Analytics
+- Compartilhamento dos dados
+- Ferramentas gerais (controle de acesso, IA, entre outros)
+
+
+Ferramentas de BI:
+
+- Power BI, IBM Cognos Analytics, SAS, SAP Business Objects, etc.
+
+
+
+2 - Conceitos de Data Warehouse:
+
+Estilo de modelagem de dados para acomodalos de forma que sejam eficientes e satisfatorios para o BI.
+
+
+OLTP x OLAP:
+
+On-Line Transaction Processing (OLTP) - Transações que acontecem online ponto a ponto no sistema.
+
+Grande gama de usuários.
+
+
+On-Line Analytical Processing (OLAP) - Consolidação dos dados para relatórios de ferramentas estratégicas.
+
+Gama reduzida de usuários (diretores, reponsaveis por setores de vendas, etc.).
+
+Um é baseado em transação e outro em analytics.
+
+
+Visão Geral: OLAP x OLTP - são distintos
+
+Foco:
+
+OLAP - estrategico da organização
+OLTP - operacional da organização
+
+
+Performance:
+
+- OLAP = otimização para a leitura e geração de análises e relatórios gerenciais.
+
+- OLTP = Alte velocidade na manipulação de dados operacionais, porém ineficiente para geração de análises gerenciais.
+
+
+Estrutura dos dados:
+
+- OLAP = Os dados estão estruturados na modelagem dimensional. Os dados normalmente possuem alto nível de sumarização.
+
+- OLTP = Os dados são normalmente estruturados em um modelo relacional normalizado, otimizado para a utilização transacional. Os dados possuem alto nível de detalhes.
+
+
+Armazenamento:
+
+- OLAP = o armazenamento é feito em estruturas de Data Warehouse com otimização no desempenho em grandes volumes de dados.
+
+- OLTP = o armazenamento é feito em sistemas convencionais de banco de dados através dos sistemas de informações da organização.
+
+
+Abrangência:
+
+- OLAP = é utilizado pelos gestores e analistas para a tomada de decisão.
+
+- OLTP = é utilizado por técnicos e analistas e engloba vários usuários da organização.
+
+
+Frequência de atualização:
+
+- OLAP = a atualização das informações é feita no processo de carga dos dados. Frequência baixa, podendo ser diária, semanal, mensal ou anual (ou critério específico).
+
+- OLTP = a atualização dos dados é feita no momento da transação. Frequência muito alta de atualizações.
+
+
+Volatilidade:
+
+- OLAP = dados históricos e não voláteis. Os dados não sofrem alterações, salvo necessidades específicas (por motivos de erros ou inconsistências de informações).
+
+- OLTP = dados voláteis, passíveis de modificação e exclusão.
+
+
+Tipos de permissões nos dados:
+
+- OLAP = é permitido apenas a inserção e leitura. Sendo que para o usuário está apenas disponível a leitura.
+
+- OLTP = podem ser feito leitura, inserção, modificação e exclusão dos dados.
+
+
+
+OLTP: transações pontuais
+
+select/ update/ insert
+where profissao = 1
+and genero = "M"
+
+
+OLAP: relatorios consolidados de tudo que foi feito no OLTP
+
+select/ update/ insert
+SUM / AVG / MIM / MAX / MED
+group by column
+
+
+
+Obter informação do Data Warehouse de bancos OLTP através de SQL, mas geralmente as consultas são pesadas, muitas vezes concorrem e prejudicam com o OLTP.
+
+Em outros aspectos possuimos ferramentas que vão acessar e consumir as informações de diversas formas e vezes, conhecidos como Cubo de Visões que são projetados em um dimensionabilidade, exemplo da aula: 3 dimensões: Tempo, Geografia e Membros.
+
+Projetar querys para projetar as visões e cubos é muito custoso ao OLTP, essas informações devem ser imutaveis, como uma fotografia dessa visão atual ou passada do banco.
+
+É mais vantajoso para o usuário final de BI que tenha uma estrutura já consolidada dos dados -> 
+OLAP DW **
+
+
+Pode implementar estrutura de DW em bancos relacionais e não-relacionais.
+
+
+
+3 - BigData - Dados não estruturados:
+
+BigData: termo que descreve grande volume de dados, estruturados ou não estruturados e semi-estruturados.
+
+Formatos diversos de informação onde precisamos retirar algum tipo de conhecimento (imagem, email, informações de dispositivos, etc)
+
+A internet é um grande BigData.
+
+BigData não é um banco de dados ou de alguma ferramenta isolada, é conjunto de dados e ferramentas que são utilizadas para analisar e extrair informações.
+
+
+Dados Estruturados:
+
+Precisa alterar a estrutura do banco para receber ou remover informação, tem que seguir uma regra do dicionario de informações.
+
+Gera segurança e enrijece a facilidade de mudar os tipos de dados que acontece com velocidade.
+
+
+
+Dados Semi-Estruturados: XML, JSON, OWL, RDF
+
+Manter e alterar informação sem necessidade de haver regra muito explicita, tem que obedecer a uma estrutura basica.
+
+
+NoSQL - Not Only SQL:
+
+Se comportam como banco de dados esstruturados relacionais mas te da mais flexibilidade para inserir dados.
+
+
+NoSQL Databases: Apache HBASE, riak, redis, CouchDB, mongoDB, cassandra, etc.
+
+Baseados em:
+
+- Key-value;
+- Wide Column Store;
+- Document Store;
+- Graph Store;
+
+
+
+Dados Não Estruturados:
+
+Grande coleção de varios tipos de informações estruturados e não estruturados que vem de vários lugares.
+
+Ferramentas para Dados Não Estruturados: Hadoop, HDFS, Apache Spark, presto, ceph, ApacheStorm, DataTorrent, Google BigQuery, etc.
+
+
+
+4 - Data Lake vs BigData:
+
+Data Lake também é um bigdata, porém um bigdata mais corporativo, mais tratado.
+
+
+Data Curation & Transformation (dentro do Data Lake) = manutenção desses dados, quanto tempo fica, como vai ficar, e algumas transformações com pré-trabalhos, limpeza dos dados, seleção e catalogo dos dados.
+
+
+Data Lake é um repositorio gigantesco da empresa ou organização, onde se tem trabalho em todo o ecossistema depois tem a extração e o resultado, conhecimento.
+
+
+Exemplo prático MongoDB:
+
+use loja
+
+db.produtos.insert({ codigo: "01", descricao: "caneta" })
+
+show databases
+
+db.produtos.find() (seria o select, retorna também o ObjectId que seria um ID do produto)
+
+
+consulta: https://www.quackit.com/mongodb/tutorial/
+
+
