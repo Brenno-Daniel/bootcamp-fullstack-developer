@@ -1,0 +1,239 @@
+Desenvolvimento e operação de software integrado.
+
+Objetivos da aula:
+
+1. DevOps - Conceitos e Práticas
+2. Continuous Integration
+3. Continuous Inspection
+
+
+
+1 - DevOps - Conceitos e Práticas:
+
+Antigamente tinham as áreas bem separadas, com suas próprias metas.
+
+Exemplo: Development, IT Operations, QA.
+
+DevOps veio para fazer a integração dessas áreas.
+
+"DevOps é um termo criado para definir o conjunto de práticas que integram e automatizam os processos entre as esquipes de desenvolvimento, operações e de apoio (como QA) para a produção rápida e confiável de software."
+
+"O conceito do DevOps baseia-se em criar uma cultura de colaboração entre as equipes que sempre trabalharam separadas.
+DevOps é uma mudança de mentalidade, uma cultura, um movimento, uma filosofia."
+
+
+
+Framework CALMS:
+
+Serve para suportar se realmente estamos conseguindo aplicar o DevOps.
+
+5 pilares: Culture, Automation, Lean, Measurement, Sharing.
+
+- Culture: 
+
+Todas ferramentas e automações são inúteis se não forem acompanhadas pela verdadeira disposição da área de desenvolvimento e operações em trabalhar juntos.
+
+Porque o DevOps não resolve problemas de ferramentas. Resolve problemas humanos.*
+
+
+- Automation: 
+
+Automatização elimina o trabalho manual repetitivo, produz processos repetíveis e cria sistemas confiáveis. Automatizar gera velocidade na entrega e tornam os envolvidos mais produtivos.
+
+Normalmente, compilação, teste, implementação e provisionamento automatizados são o ponto de partida típico para equipes que ainda não têm isso implantado.
+
+
+- Lean: 
+
+Precisamos focar nas entregas de valor ao cliente. Precisamos ser objetivos e enxutos. Precisamos conhecer as nossas limitações e os gargalos de processo. Precisamos ser Lean.
+
+A mentalidade DevOps vê oportunidades de melhoria contínua em toda parte. Identificando as limitações, podemos otimizar o fluxo, entregando mais velocidade e maior eficiência.
+
+
+- Measurement: 
+
+DevOps é cíclico e infinito. Mensurar e obter métricas é o ponto de partida para novas melhorias, seja para o processo de desenvolvimento, o software produzido ou as regras de negócio.
+
+Além de gerar conhecimento, métricas criam previsibilidade sobre possíveis incidentes que possam vir a surgir. Assim, temos insumos suficientes para analisar falhas e gerar melhorias constantemente.
+
+(Teste AB, logs, etc)
+
+
+- Sharing: 
+
+O compartilhamento de informações, além de ser saudável, auxilia na descentralização de conhecimento em pessoas dos times, evitando que os processos se tornem dependentes.
+
+Compartilhar conhecimento ajudar na criação de times genéricos, com conhecimentos básicos em diversos assuntos do negócio e tecnologias. Assim, o time se torna autossustentável.
+
+
+
+Os Três Caminhos:
+
+Flow, Feedback e Learning.
+
+
+- Flow: 
+
+A otimização do fluxo visa eliminar desperdícios, gargalos no processo, transferência de responsabilidades e tempos de espera. Esse caminho é trilhado entre a demanda e a entrega em produção.
+
+A chave para este caminho é a aplicação de metodologias ageis e a automatização dos processos do desenvolvimento à release, como a integração contínua e/ou entrega contínua.
+
+
+- Feedback:
+
+Ciclos rapidos de feedbacks visam resolver problemas o quanto antes, testando tudo, alertando em qualquer falha, considerando todas as metricas coletadas no ambiente produtivo sobre o valor entregado.
+
+O monitoramento é a chave, ajudando a gerar informações relevantes constantemente. Com feedbacks rapidos, o negocio consegue falhar rapido, e logo retomar o rumo, caso necessário.
+
+
+- Learning:
+
+O aprendizado contínuo, visa gerar conhecimento através da experimentação. Hipóteses são melhores do que uma certeza imediata. Este caminho é fruto do processo cientifico e produz uma segurança psicologica.
+
+A chave é o trabalho dinamico, com times realizando experimentos em seu trabalho diario para gerar novas melhorias. Elimine a cultura de culpa e a aumente a colaboração e o compartilhamento de conhecimento.
+
+
+
+Entregando Software:
+
+DevOps: Ferramentas de cada etapa
+
+Plan (planejamento): Microsoft Teams, Draw.io, Balsamiq, roadmunk, Confluence, Jira.
+
+Code (codificação): Visual studio, GitHub, Sublime Text, cmder, git, VSCode, notepad++
+
+Build (construção): Container, Docker, Nuget, NPM, cri-o, .NET CLI, MSBuild
+
+Test (testes): Unit.net, loader.io, JMeter, Selenium, Runscope, Postman, sonarqube, Code Climate, Codacy
+
+Release (lançamento): Disponibilizar o software ao cliente, release e deploy estão normalmente associadas, tecnologias na etapa de Deploy.
+
+Deploy (implantação): Azure Pipelines, circleci, AppVeyor, GitLab CI, Travis CI, Jenkins.
+
+Operate (operação): Kubernetes, Rancher, Microsoft Azure, puppet, Terraform, CHEF, Open Shift, AWS.
+
+Monitor (monitoramento): Datadog, Prometheus, AppMetrics, Rollbar, Zabbix, New Relic, Pushover, Seq, Monitis.
+
+Livro Recomendado: Manual de DevOps.***
+
+
+
+
+
+2 - CI/CD:
+
+CI vs CD:
+
+Integração continua, implantação continua ou entrega continua.
+
+
+Integração continua* tem como limite a geração do artefato, ela não faz a implantação em produção.
+
+
+Vamos para a implantação continua*, que á uma opção em paralelo com a entrega continua.
+
+Deploy é feito de modo automatico, após o pipeline de integração continua a implantação continua é feita de maneira automatica, aplicação esta no ambiente que deseja, pordução, ambiente de homologação, ambiente de estresse, etc.
+
+
+Entrega continua*, necessita de um aprovador no meio do caminho para que seja implantada em produção ou qualquer outro ambiente.
+
+
+Principais Ferramentas para fazer essa integração:
+
+CircleCI, AppVeyor, Azure Pipelines, GitLab CI, Travis CI, Jenkins, etc.
+
+
+Pipelines:
+
+
+Exemplo com ecosistema do Azure DevOps.
+
+CD pode ser Continuous Deployment ou Continuous Delivery, para definir qual será, depende de qual Trigger Release ocorrer automatico após o CI então o CD = Continuous Deployment, se a trigger tiver necessidade de ser aprovada por alguma pessoa, então o CD = Continuous Delivery.
+
+
+AppVeyor - pipeline unico, dividido em etapas e não conseguimos mudar essas etapas.
+
+CircleCI - estrutura de workflow, exemplos bem flexiveis.
+
+
+Status Badge:
+
+Obter bagdes pra poder exibir se seu build esta falhando, passando ou não.
+
+Se for consumir ferramenta de terceiro, optar por ferramentas que estejam com fluxo automatizado de distribuição, que tenha garantia de qualidade certificada no próprio repositório.
+
+
+Projeto de Exemplo: https://github.com/ThiagoBarradas/jsonmasking
+
+
+
+
+3 - Code Quality Analysis Continuous Inspection (Inspeção contínua da qualidade do seu codigo)
+
+
+
+Principais Ferramentas:
+
+Sonarqube, Code Climate, Codacy
+
+
+Complexidade Ciclomática: 
+
+É o quantos caminhos independetes seu codigo pode serguir.
+Quanto mais ramificação tiver mais a complexidade ciclomática.
+
+
+Código Duplicado:
+
+Identificam se o código foi copiado.
+
+
+Vulnerabilidades / Code Smell:
+
+Ter um password amarrado em seu código. Metodo muito grande. Codigo comentado. Padronização e estilo. Comentarios com TODO. Ponto e virrgulas des
+
+Manter qualidade no codigo e escrita melhor de maneira automatizada.
+
+
+Débito Técnico:
+
+Quanto tempo voce tem pra matar esse débito, quanto cresceu ao longo do tempo.
+
+
+Cobertura de Testes:
+
+Visivel para todos o quão testado esta sua aplicação.
+
+Visualizar qual fluxo foi testado e qual não foi.
+
+
+Métricas:
+
+Ciclo do feedback, antes mesmo do software entre em produção.
+
+
+Validando Pull-Requests:
+
+Ferramentas que bloqueiam o merge a partir de algumas condições.
+Também é possivel configurar a ferramenta para fazer comentarios para correção de erros encontrados no código.
+
+
+
+Projeto Exemplo: https://github.com/ThiagoBarradas/jsonmasking
+
+
+
+
+Erros do teste:
+
+A Integração Contínua é uma responsabilidade principalmente da(s) área(s) de:
+
+Desenvolvimento e Operações.
+
+
+Os cincos pilares do acrônimo CALMS são:
+
+Comunicação, automatização, enxuto*, mensurável e compartilhamento.
+
+
+

@@ -1,0 +1,88 @@
+Fundamentos de arquitetura de aplicações em nuvem.
+
+Objetivos da aula:
+
+1. Cloud Computing
+2. Disponibilidade 
+3. Serverless
+
+
+
+1 - Cloud Computing:
+
+- Gerenciamento de hardware/software
+- Provedores de servidor e armazenamento
+- Pague o que consumir
+- Iaas / Paas / Baas
+
+
+Iaas: Infrastructure as a service
+
+Google Cloud, Amazon Web Services, Microsoft Azure
+
+
+Paas: Platform as a Service (evolução do Iaas)
+
+Não só a infra como serviço mas uma plataforma, um meio de automatizar o processo, como prover as maquinas, escalanar, prover memória, entre outros.
+
+Terraform, CloudFormation.
+
+
+Baas: Backend as a Service / Mobile Backend as a Service
+
+Muito comum para dev mobile e frontend, não precisam dedicar muito tempo ao backend.
+
+Serviço como Firebase trabalha com Baas.
+
+
+
+2 - Disponibilidade de aplicações:
+
+- Iaas - hardware e internet; (ambiente físico)
+
+- Paas - auto scale on the go;
+
+- Baas - não há backend service;
+
+
+Disponibilidade:
+
+- Kubernets (K8S)
+
+Plataforma de conteiners.
+
+- Multiplos nodos
+
+Mínimos 3 serviços, 3 nodos, uma instancia do serviço em cada nodo.
+
+- Load balancer
+
+Gerenciador de conexão, gerenciador de entrada.
+
+
+
+3 - Serverless:
+
+- Sem servidor
+- Sem serviço "rodando"
+- Sem down time (serviço nunca estará fora do ar)
+
+
+API Gateway, Amazon Kinesis, AWS Lambda, Amazon S3.
+
+
+
+Desvantagem é ter um custo maior, geralmente numero maior de lambdas.
+
+
+Lambda esta num tempo limite de 15 minutos para ser executado, se não ocorre time out.
+
+
+
+Duvida questão do teste de conhecimento: 
+
+Qual das opções abaixo é uma ferramenta de receita provisionamento?
+
+Terraform
+
+
