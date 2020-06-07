@@ -1,0 +1,47 @@
+2 - Conhecendo o PGAdmin.
+
+Objetivos da aula:
+
+1. Visão geral do PGAdmin4.
+2. Configurar acesso ao servidor PostgreSQL.
+3. Visão geral do cluster e nosso primeiro comando.
+
+
+PGAdmin:
+
+importante para conexão:
+
+1 - Liberar acesso ao cluster em postgresql.conf.
+2 - Liberar acesso ao cluster para o usuario do banco de dados em pg_hba.conf.
+3 - Criar/editar usuarios.
+
+
+Acessar o postgresql.conf, editar em: CONNECTIONS AND AUTHENTICATION, alterar o parametro: listen_addresses removendo o # e alterar de 'localhost' para '*'.
+
+listen_addresses = '*'
+
+ALTER USER postgres PASSWORD '123'; (alterar senha do usuário).
+
+Para fazer com que o banco solicite a senha, deve alterar o parametro METHOD de 'peer' para 'md5' no arquivo pg_hda.conf.
+
+Sempre que alterar configuração do arquivo pg_hda.conf, pode realizar o reload: pg_ctlcluster 11 reload
+
+
+Keywords in uppercase = colocar palavras chaves em maiuscula.
+
+Query tools = codigos SQL.
+
+Add named restore point.. = adicionar ponto de restauração.
+
+Grant Wizard = permissões de acesso.
+
+É uma boa pratica colocar comentários na criação do banco.
+
+
+Transactions per second = todas as transações, commits, rollbacks, naquele segundo.
+
+Tuples in/ out: tuplas que estão entrando e saindo (inserts, updates, deletes, etc.)
+
+Sessions = todas as conexões e o que estão fazendo.
+
+
