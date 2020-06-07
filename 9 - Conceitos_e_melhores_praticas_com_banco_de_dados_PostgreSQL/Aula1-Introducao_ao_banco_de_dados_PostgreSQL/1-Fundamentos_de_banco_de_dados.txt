@@ -1,0 +1,118 @@
+1 - Fundamentos de bancos de dados.
+
+Objetivos da aula:
+
+1. Fundamentos do banco de dados
+2. Modelo relacional
+3. Introdução ao PostgreSQL
+
+O que são dados?
+
+Valores brutos, fatos brutos, observações documentadas, registros soltos, que são recolhidos e armazenados sem sofrer qualquer tratamento.
+
+O que são informações?
+
+Estruturação de dados, organização de dados. Conjunto de dados relacionados entre si que geram valor, que criam sentidos aos dados. Material do conhecimento.
+
+
+2 - Modelo relacional:
+
+Modelar significa criar modelo, modelo que vai explicar o comportamento de um programa/ software.
+Modelos de dados são ferramentas que vao demonstrar como as estruturas de dados estao organizadas e se relacionam entre si.
+Se baseia no principio de que todos os dados serão armazenados em tabelas que se relacionam entre si.
+
+
+Definição:
+
+Modelo mais comum, que classifica e organiza as informações em tabelas com linhas e colunas. As linhas, ou tuplas, são os dados organizados, são so valores das tabelas, e as colunas são os atributos destes dados.
+
+
+Tabelas:
+
+Conjuntos de dados dispostos em colunas e linhas referentes a um objetivo comum. As colunas são consideradas como "campos da tabela", como atributos da tabela. As linhas de uma tabela são chamadas também de tuplas, e é onde estão contidos os valores, os dados.
+
+
+O que pode ser definido como tabelas?
+
+- Coisas tangíveis: Elementos físicos (carro, produto, animal)
+
+- Funções: (perfis de usuário, status de compra)
+
+- Eventos ou ocorrências: (produtos de um pedido, histórico de dados)
+
+
+Colunas importantes:
+
+- Chave Primária / Primary Key / PK:
+
+Conjunto de um ou mais campos que nunca se repetem. Identidade da tabela. São utilizados como índice de referencia na criação de relacionamentos entre tabelas.
+
+- Chave Estrangeira / Foreign Key / FK:
+
+Valor de referencia a uma PK de outra tablea da mesma tabela para criar um relacionamento.
+
+
+Sistema de gerenciamento de banco de dados:
+Ou Sistemas de gestão de banco de dados.
+Chamados pela sigle SGBD.
+COnjunto de programas ou software responsáveis pelo gerenciamento de um banco de dados.
+PRogramas que facilitam a administração de um banco de dados.
+
+SGBD: Oracle Databse, PostgreSQL, MySQL, Microsoft SQL Server, MongoDB, Elasticsearch, IBM DB2.
+
+
+
+3 - Introdução ao PostgreSQL:
+
+O que é:
+Sistema de gerenciamento de banco de dados objeto relacional.
+
+Teve inicio no Departamento de Ciencia da Computação na Universidade da California em Barkeley e 1986.
+
+SGBD Opensource.
+
+
+Arquitetura multiprocessos:
+
+processo principal = postmaster
+copias dos processos = childs
+Processos de escrita em disco = Storage
+
+
+Modelo cliente/ servidor:
+
+Processos que acontecem somente no cliente e processos que acontecem somente no servidor.
+
+Processos no cliente = interface grafica para fazer conexão no servidor, interface unix para executar comandos, aplicação web/mobile para mandar os comandos.
+
+
+Principais características:
+
+- OpenSource.
+
+- Point in time recovery (consegue restaurar o banco de dados em um determinado estado e em horario caso necessário).
+
+- Linguagem procedural comm suporte a várias linguagens de programação (perl, python, etc).
+
+- Views, functions, procedures, triggers.
+
+- Consultas complexas e Common table expressions (CTE).
+
+- Suporte a dados geográficos (PostGIS).
+
+- Controle de concorrência multi-versão. (cada transação é totalmente separada)*
+
+
+
+Instalação e documentação do PostgreSQL:
+
+Site oficial:
+https://www.postgresql.org/
+
+Download com instruções passo a passo:
+https://www.postgresql.org/download/
+
+Documentação completa:
+https://www.postgresql.org/docs/manuals/
+
+

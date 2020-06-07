@@ -1,0 +1,58 @@
+3 - Instalação do PostgreSQL no Ubuntu
+
+Instalação no Linux (Ubuntu 18):
+
+Como root, criar o arquivo:
+
+/etc/apt/sources.list.d/pgdg.list
+
+Adicionar o conteúdo:
+
+deb http://apt.postgresql.org/pub/repos/apt/bionic-pgdg main
+
+Importar a chave do repositório oficial:
+
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
+
+Atualizar os repositórios:
+
+sudo apt-get update
+
+Instalar o PostgreSQL:
+
+apt-get install postgresql-11
+
+
+Criar um novo cluster:
+
+pg_createcluster -d /home/postgres/aula 11 aula --start
+
+
+5432 porta padrão de acesso ao postgres**
+
+pg_lsclusters = listar clusters
+
+
+Instalando PGAdmin4 no Linux (Ubuntu):
+
+Como root, criar o arquivo:
+
+/etc/apt/sources.list.d/pgdg.list
+
+Adicionar o conteúdo:
+
+deb http://apt.postgresql.org/pub/repos/apt/bionic-pgdg main
+
+Importar a chave do repositório oficial:
+
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
+
+Atualizar os repositórios:
+
+sudo apt-get update
+
+Instalar o pgAdmin4
+
+
