@@ -1,0 +1,90 @@
+4 - Otimizando o código com CTE.
+
+Objetivos da aula:
+
+1. Common Table Expressions - CTE
+
+
+Forma auxiliar de organizar 'statements', ou seja, blocos de código, para consultas muito grandes, gerando tabelas temporárias e criando relacionamentos entre elas.
+
+Dentro dos statements podem ter SELECTs, INSERTs, UPDATEs ou DELETEs.
+
+
+WITH STATEMENTS
+
+WITH [nome1] AS (
+SELECT (campos,)
+FROM tabela_A
+[WHERE]
+), [nome2] AS (
+SELECT (campos,)
+FROM tabela_B
+[WHERE]
+)
+SELECT [nome1].(campos,), [nome2].(campos,)
+FROM [nome1]
+JOIN [nome2] .....
+
+
+Mão na massa!!
+
+PGAdmin:
+
+SELECT numero, nome FROM banco;
+SELECT banco_numero, numero, nome FROM agencia;
+
+
+WITH tbl_tmp_banco AS (
+SELECT numero, nome
+FROM banco
+)
+SELECT numero, nome
+FROM tbl_tmp_banco;
+
+
+WITH params AS (
+SELECT 213 AS banco_numero
+), tbl_tmp_banco AS (
+SELECT numero, nome
+FROM banco
+JOIN params ON params.banco_numero = banco.numero
+)
+SELECT numero, nome
+FROM tbl_tmp_banco;
+
+
+
+-- Com sub-selects
+
+SELECT banco.numero, banco.nome
+FROM banco
+JOIN (
+SELECT 213 AS banco_numero
+) params ON params.banco_numero = banco.numero;
+
+
+
+
+
+Erros do teste de conhecimentos:
+
+
+
+Por que é importante não esquecer a cláusula WHERE em comandos de UPDATE e DELETE?
+
+Para evitar a atualização de todos os registros da tabela.
+
+
+
+Qual a diferença entre os comandos TRUNCATE RESTART IDENTITY e TRUNCATE CONTINUE IDENTITY?
+
+RESTART IDENTITY reinicia os campos seriais para um valor escolhido enquanto CONTINUE IDENTITY não reinicia os valores seriais.
+
+
+
+Para trazer registros apenas de 1 tabela, qual comando é mais adequado?
+
+SELECT campos FROM tabela1
+
+
+

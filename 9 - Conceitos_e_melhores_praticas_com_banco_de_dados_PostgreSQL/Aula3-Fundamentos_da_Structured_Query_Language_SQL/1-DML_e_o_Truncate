@@ -1,0 +1,168 @@
+1 - DML e o Truncate.
+
+Objetivos da aula:
+
+1. Revisão
+2. DML / CRUD
+3. TRUNCATE
+
+Parte 1: Revisão.
+
+- PK
+- FK
+- Tipo de dados
+- DDL e DML
+
+Idempotência:
+Propriedade que algumas acções/operações possuem possibilitando-as de serem executadas diversas vezes sem alterar o resultado após a apicação inicial.
+
+Exemplo é o comando: IF EXISTS (também é uma boa prática).
+
+
+- IF EXISTS
+- Comando pertinentes ao DDL e DML.
+
+Melhores práticas em DDL:
+
+Importante as tabelas possuírem campos que realmente serão utilizadas e que sirvam de atributo direto a um objeto em comum.
+
+- Criar/Acrescentar colunas que são 'atributos básicos' do objeto;
+Exemplo: tabela CLIENTE: coluna TELEFONE / coluna AGENCIA_BANCARIA
+
+- Cuidado com regras (constraints).
+
+- Cuidado com o excesso de FKs.
+
+- Cuidade com o tamanho indevido de colunas
+Exemplo: coluna CEP VARCHAT(255).
+
+
+Parte 2: DML - CRUD:
+
+SELECT (campos,)
+FROM tabela
+[condições]
+
+Exemplo:
+
+SELECT numero, nome FROM banco;
+SELECT numero, nome FROM banco WHERE ativo IS TRUE;
+SELECT nome FROM cliente WHERE email LIKE '%gmail.com';
+
+LIKE = realiza busca no campo completo e retornar tudo que finaliza com o parâmetro passado após o %.
+
+Diferença é o case sensitive, o LIKE respeita o case sensitive e o ILIKE não respeita.
+
+
+SELECT numero FROM agencia
+WHERE banco_numero IN (SELECT numero FROM banco WHERE nome ILIKE '%Bradesco%');
+* Não é uma boa prática utilizar o IN *
+
+
+SELECT - Condição (WHERE / AND / OR)
+
+WHERE (coluna/condição):
+- =
+- > / >=
+- < / <=
+- <> / !=
+- LIKE
+- ILIKE
+- IN
+
+Primeira condição sempre WHERE.
+Demais condições, AND ou OR.
+
+
+SELECT - Idempotência:
+
+SELECT (campos,)
+FROM tabela1
+WHERE EXISTS (
+SELECT (campo,)
+FROM tabela2
+WHERE campo1 = valor1
+[AND/OR campoN = valorN]
+);
+
+Não é uma boa prática.
+Melhor prática utilizar o LEFT JOIN.
+
+
+SELECT * (evitar)
+
+
+INSERT - Idempotência:
+
+INSERT INTO agencia (banco_numero, numero, nome) VALUES (341,1,'Centro da cidade');
+
+INSERT INTO agencia (banco_numero, numero, nome)
+SELECT 341,1,'Centro da cidade'
+WHERE NOT EXISTS (SELECT banco_numero, numero, nome FROM agencia WHERE banco_numero = 341 AND numero =1 AND nome = 'Centro da cidade');
+
+ON CONFLICT:
+
+INSERT INTO agencia (banco_numero, numero, nome) VALUES (341,1,'Centro da cidade') ON CONFLICT (banco_numero, numero) DO NOTHING;
+
+ON CONFLICT = Trabalha sempre baseado numa constraint, numa regra.
+
+
+Parte 3: Truncate:
+
+"Esvazia" a tabela.
+
+TRUNCATE [TABLE] [ONLY] name [*] [, ...]
+[RESTART IDENTITY | CONTINUE IDENTITY] [CASCADE | RESTRICT]
+
+Restart = volta id para 1.
+Continue = continua a partir do id anterior.
+Restrict = padrão.
+Cascade = vai apagar tudo da tabela, inclusive se tiver referencias de outras tabelas.
+
+
+
+Mão na massa!!
+
+Importando o arquivo DML.sql do git:
+
+github.com/drobcosta/digital_innovation_one
+
+Aplicando os inserts no banco pelo PGAdmin.
+
+
+SELECT numero, nome ativo FROM banco;
+SELECT banco_numero, numero, nome FROM agencia;
+SELECT numero, nome, email FROM cliente;
+SELECT id, nome FROM tip_transacao;
+SELECT banco_numero, agencia_numero, numero, cliente_numero FROM conta_corrente;
+SELECT banco_numero, agencia_numero, cliente_numero FROM cliente_transacoes;
+
+
+CREATE TABLE IF NOT EXISTS teste (
+id SERIAL PRIMARY KEY,
+nome VARCHAR(50) NOT NULL,
+created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+DROP TABLE IF EXISTS teste;
+
+
+CREATE TABLE IF NOT EXISTS teste (
+cpf VARCHAR(11) NOT NULL,
+nome VARCHAR(50) NOT NULL,
+created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (cpf)
+);
+
+INSERT INTO teste (cpf, nome, create_at)
+VALUES ('22344566812', 'José Colméia', '2019-07-01');
+
+INSERT INTO teste (cpf, nome, create_at)
+VALUES ('22344566812', 'José Colméia', '2019-07-01') ON CONFLICT (cpf) DO NOTHING;
+
+UPDATE teste SET nome = 'Pedro Alvares' WHERE cpf = '22344566812';
+
+SELECT * FROM teste;
+
+
+

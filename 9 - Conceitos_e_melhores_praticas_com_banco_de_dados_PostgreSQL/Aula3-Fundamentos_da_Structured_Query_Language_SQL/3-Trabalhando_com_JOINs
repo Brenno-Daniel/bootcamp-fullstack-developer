@@ -1,0 +1,194 @@
+3 - Trabalhando com JOINs.
+
+Relacionamento entre tabelas.
+
+Onjetivos da aula:
+
+1. JOINs.
+
+Parte 1: JOINs
+
+São utilizados quando precisa unir uma ou mais tabelas em seu select principal, união das tabelas se faz através de JOINs.
+
+Tipos:
+
+- JOIN
+- LEFT JOIN
+- RIGHT JOIN
+- FULL JOIN
+- CROSS JOIN
+
+
+JOIN - JOIN (INNER)
+
+Quando faz o join sempre utiliza campos das tabelas que referenciam umas as outras, o resultado daa sua query é somente os dados que pertencem a esta relação.
+
+
+SELECT tabela_1.campos, tabela_2.campos
+FROM tabela_1
+JOIN tabela_2
+ON tabela_2.campo = tabela_1.campo
+
+
+Boa prática: usar campo como foreign key na primeira tabela e pimary key na segunda tabela.**
+
+
+LEFT JOIN (OUTER) - LEFT OUTER JOIN:
+
+As tabelas que estão à esquerda irá trazer a tabela por completo.
+
+
+SELECT tabela_1.campos, tabela_2.campos
+FROM tabela_1
+LEFT JOIN tabela_2
+ON tabela_2.campo = tabela_1.campo
+
+Por exemplo trazer todos os registros da tabela 1, quando não houverem dados traz como NULL. **
+
+
+
+RIGHT JOIN (OUTER) - RIGHT OUTER JOIN:
+
+Igual ao LEFT JOIN porém irá dar prioridade na tabela direita.
+
+
+SELECT tabela_1.campos, tabela_2.campos
+FROM tabela_1
+RIGHT JOIN tabela_2
+ON tabela_2.campo = tabela_1.campo
+
+
+FULL JOIN - FULL OUTER JOIN:
+
+Traz todas as relações possíveis, ou seja, traz praticamente todas as possibilidades de relacionamento.
+
+* Não é recomendado para alguns casos, principalmente em produção. *
+
+
+SELECT tabela_1.campos, tabela_2.campos
+FROM tabela_1
+FULL JOIN tabela_2
+ON tabela_2.campo = tabela_1.campo
+
+
+CROSS JOIN - CROSS OUTER JOIN:
+
+Todos os dados de uma tabela serão cruzados com todos os dados da tabela referenciada no CROSS JOIN criando uma matriz.
+
+SELECT tabela_1.campos, tabela_2.campos
+FROM tabela_1
+CROSS JOIN tabela_2
+
+* Não é recomendado para produção principalmente. *
+
+
+Mão na massa!!
+
+PGAdmin:
+
+SELECT numero, nome FROM banco;
+SELECT banco_numero, numero, nome FROM agencia;
+SELECT numero, nome FROM cliente;
+SELECT banco_numero, agencia_numero, numero, digito, cliente_numero FROM conta_corrente;
+SELECT id, nome FROM tipo_transacao;
+SELECT banco_numero, agencia_numero, conta_corrente_numero, conta_corrente_digito, cliente_numero, valor FROM cliente_transacoes;
+
+
+SELECT count(1) FROM banco; -- 151
+SELECT count(1) FROM agencia; -- 296
+-- SELECT 1 FROM agencia; -- teste 
+
+SELECT count(1) é uma boa pratica. **
+
+
+-- 296
+SELECT banco.numero, banco.nome, agencia.numero, agencia.nome
+FROM banco
+JOIN agencia ON agencia.banco_numero = banco.numero;
+
+
+
+-- Bancos que tem agencias
+
+SELECT banco.numero
+FROM banco
+JOIN agencia ON agencia.banco_numero = banco.numero
+GROUP BY banco.numero;
+
+
+-- Outra maneira além do agurpamento GROUP BY:
+
+-- Quantos bancos temos agencias.
+
+SELECT count(distinct banco.numero)
+FROM banco
+JOIN agencia ON agencia.banco_numero = banco.numero;
+
+
+-- LEFT JOIN
+
+SELECT banco.numero, banco.nome, agencia.numero, agencia.nome
+FROM banco
+LEFT JOIN agencia ON agencia.banco_numero = banco.numero;
+
+
+-- RIGHT JOIN
+
+SELECT agencia.numero, agencia.nome, banco.numero, banco.nome
+FROM agencia
+RIGHT JOIN banco ON banco.numero = agencia.banco_numero;
+
+
+-- FULL JOIN
+
+SELECT banco.numero, banco.nome, agencia.numero. agencia.nome
+FROM banco
+FULL JOIN agencia ON agencia.banco_numero = banco.numero;
+
+
+-- criando tabelas de teste
+
+CREATE TABLE IF NOT EXISTS teste_a (id serial primary key, valor varchar(10));
+
+CREATE TABLE IF NOT EXISTS teste_b (id serial primary key, valor varchar(10));
+
+INSERT INTO teste_a (valor) VALUES ('teste1');
+INSERT INTO teste_a (valor) VALUES ('teste2');
+INSERT INTO teste_a (valor) VALUES ('teste3');
+INSERT INTO teste_a (valor) VALUES ('teste4');
+
+INSERT INTO teste_b (valor) VALUES ('teste_a');
+INSERT INTO teste_b (valor) VALUES ('teste_b');
+INSERT INTO teste_b (valor) VALUES ('teste_c');
+INSERT INTO teste_b (valor) VALUES ('teste_b');
+
+
+-- CROSS JOIN
+
+SELECT tbla.valor, tblb.valor
+FROM teste_a tbla
+CROSS JOIN teste_b tblb;
+
+Alias = Apelido para o nome da tabela. **
+
+DROP TABLE IF EXISTS teste_a;
+DROP TABLE IF EXISTS teste_b;
+
+
+-- JOIN completo (JOIN entre 4 tabelas: banco, agencia, conta_corrente e cliente).
+
+SELECT banco,nome,
+	agencia.nome,
+	conta_corrente.numero,
+	conta_corretne.digito,
+	cliente.nome
+FROM banco
+JOIN agencia ON agencia.banco_numero = banco.numero
+JOIN conta_corrente 
+-- ON conta_corrente.banco_numero = agencia.banco_numero
+ON conta_corrente.banco_numero = banco.numero
+AND conta_corrente.agencia_numero = agencia.numero
+JOIN cliente
+ON cliente.numero = conta_corrente.cliente_numero;
+
+

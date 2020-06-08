@@ -1,0 +1,135 @@
+2 - Funções agregadas em PostgreSQL.
+
+Objetivos da aula:
+
+1. Funções agregadas:
+
+O Postgres possui diversas funções agregadas, verificar no site do PostgreSQL:
+
+postgresql.org/docs/11/functions-aggregate.html
+
+Funções que mais utilizamos no dia a dia:
+
+- AVG
+- COUNT (HAVING)
+- MAX
+- MIN
+- SUM
+
+
+Trabalhando no PGAdmin:
+
+SELECT numero, nome FROM banco;
+SELECT banco_numero, numero, nome FROM agencia;
+SELECT numero, nome, email FROM cliente;
+SELECT banco_numero, agencia_numero, cliente_numero FROM cliente_transacoes;
+
+SELECT * FROM conta_corrente;
+
+SELECT * FROM information_schema.columns WHERE table_name = 'banco';
+SELECT column_name. data_type FROM information_schema.columns WHERE table_name = 'banco';
+
+Catalogo do banco = information_schema é uma view que mostra todas as colunas de todas as tabelas que possui.**
+
+
+
+-- AVG
+-- COUNT (HAVING)
+-- MAX
+-- MIN
+-- SUM
+
+AVG - Avarage é a média.
+
+SELECT valor FROM cliente_transacoes;
+
+SELECT AVG(valor) FROM cliente_transacoes;
+
+
+COUNT - a contagem de dados.
+
+SELECT COUNT(numero)
+FROM cliente;
+
+SELECT COUNT(numero), email
+FROM cliente
+WHERE email ILIKE '%gmail.com'
+
+
+As funções agregada são funções de agregamento, então precisa agrupar a coluna, precisa adicionar o comando GROUP BY.
+
+
+SELECT COUNT(numero), email
+FROM cliente
+WHERE email ILIKE '%gmail.com'
+GROUP BY email; **
+
+
+MAX - trazer o maior numero
+
+SELECT MAX(numero)
+FROM cliente;
+
+MIN - trazer o menor valor
+
+SELECT MIN(numero)
+FROM cliente;
+
+
+MIN e MAX de transações:
+
+SELECT MAX(valor)
+FROM cliente_transacoes;
+
+SELECT MIN(valor)
+FROM clientes_transacoes;
+
+
+SELECT MAX(valor), tipo_transacao_id
+FROM cliente_transacoes
+GROUP BY tipo_transacao_id;
+
+SELECT MIN(valor), tipo_transacao_id
+FROM cliente_transacoes
+GROUP BY tipo_transacao_id;
+
+
+SELECT column_name, data_type FROM information_schemas.columns WHERE table_name = 'cliente_transacoes';
+
+
+Having - contagem dos registros obedecendo alguma regra.
+útil para identificar registros duplicados numa tabela.
+
+
+SELECT COUNT(id), tipo_transacao_id
+FROM cliente_transacoes
+GROUP BY tipo_transacao_id
+HAVING COUNT(id) > 150;
+
+
+SUM - soma dos registros
+
+SELECT SUM(valor)
+FROM cliente_transacoes;
+
+SELECT SUM(valor), tipo_transacao_id
+FROM cliente_transacoes
+GROUP BY tipo_transacao_id;
+
+
+
+ORDER BY por padrão é ASC.
+
+
+SELECT SUM(valor), tipo_transacao_id
+FROM cliente_transacoes
+GROUP BY tipo_transacao_id;
+ORDER BY tipo_transacao_id ASC;
+
+SELECT SUM(valor), tipo_transacao_id
+FROM cliente_transacoes
+GROUP BY tipo_transacao_id;
+ORDER BY tipo_transacao_id DESC;
+
+
+
