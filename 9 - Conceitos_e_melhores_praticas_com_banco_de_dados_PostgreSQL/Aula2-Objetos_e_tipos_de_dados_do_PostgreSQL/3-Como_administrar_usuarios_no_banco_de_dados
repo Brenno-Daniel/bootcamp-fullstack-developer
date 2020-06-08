@@ -1,4 +1,293 @@
 3 - Como administrar usuários no banco de dados.
 
+Objetivos da aula:
+
+1. Conceitos users/roles/groups
+2. Administrando users/roles/groups
+3. Administrando acessos (GRANT)
+
+
+Parte 1: Conceitos users/roles/groups.
+
+Roles (papéis ou funções), users (usuários) e grupo de usuários são 'contas', perfis de atuação em um banco de dados, que possuem permissões em comum ou específicas.
+
+Nas versões anteriores do PostgreSQL 8.1, usuários e roles tinham comportamentos diferentes.
+Atualmente, roles e users são alias.
+
+É possível que roles pertençam a outras roles;
+
+
+Parte 2: Administrando users/roles/groups.
+
+CREATE ROLE name [ [ WITH ] option [...] ]
+
+where option can be:
+
+SUPERUSER | NOSUPERUSER
+| CREATEDB | NOCREATEDB
+| CREATEROLE | NOCREATEROLE
+| INHERI (sempre que pertencer a outra role vai herdar as permissões da outra role) | NOINHERIT
+| LOGIN | NOLOGIN
+| REPLICATION | NOREPLICATION
+| BYPASSRLS | NOBYPASSRLS
+| CONNECTION lIMIT connlimit
+| [ ENCRYPTED ] PASSWORD 'password' | PASSWORD NULL
+| VALID UNTIL 'timestamp'
+| IN ROLE role_name [, ...]
+| IN GROUP role_name [, ...]
+| ROLE role_name [, ...]
+| ADMIN role_name [, ...]
+| USER role_name [, ...]
+| SYSID uid
+
+
+Exemplo:
+
+CREATE ROLE administradores
+CREATEDB
+CREATEROLE
+INHERIT
+NOLOGIN (boa pratica admin nao logar no banco)
+REPLICATION
+BYPASSRLS
+CONNECTION LIMIT -1;
+
+CREATE ROLE professores
+NOCREATEDB
+NOCREATEROLE
+INHERIT
+NOLOGIN
+NOBYPASSRLS
+CONNECTION LIMIT 10;
+
+CREATE ROLE alunos
+NOCREATEDB
+NOCREATEROLE
+INHERIT
+NOLOGIN
+NOBYPASSRLS
+CONNECTION LIMIT 90;
+
+
+
+Associação entre roles:
+
+Quando uma role assume as permissões de outra role.
+Necessário a opção INHERIT. ****
+
+No momento de criação da role:
+- IN ROLE (passa a pertencer a role informada)
+- ROLE (a role informada passa a pertencer a nova role).
+
+Ou após a criação da role:
+- GRANT [role a ser concedida] TO [role a assumir as permissões]
+
+
+Exemplo:
+
+CREATE ROLE professores
+	NOCREATE DB
+	NOCREATEROLE
+	INHERIT
+	NOLOGIN
+	NOBYPASSRLS
+	CONNECTION LIMIT -1;
+
+
+CREATE ROLE daniel LOGIN CONNNECTION LIMIT 1 PASSWORD '123' IN ROLE professores;
+- A role daniel passa a assumir as permissões da role professores;
+
+CREATE ROLE daniel LOGIN CONNECTION LIMIT 1 PASSWORD '123' ROLE professores;
+- A rolea professores passa a fazer da role daniel assumindo suas permissões;
+
+CREATE ROLE daniel LOGIN CONNECTION LIMIT 1 PASSWORD '123';
+GRANT professores TO daniel;
+
+
+Desassociar membros entre roles:
+
+REVOKE [role que será revogada] FROM [role que terá suas permissões revogadas]
+
+REVOKE professores FROM daniel;
+
+
+Alterando uma role:
+
+ALTER ROLE role_specification [WITH] option [ ... ]
+
+where option can be:
+
+SUPERUSER | NOSUPERUSER
+| CREATEDB | NOCREATEDB
+| CREATEROLE | NOCREATEROLE
+| CREATEUSER | NOCREATEUSER
+| INHERI | NOINHERIT
+| LOGIN | NOLOGIN
+| REPLICATION | NOREPLICATION
+| BYPASSRLS | NOBYPASSRLS
+| CONNECTION lIMIT connlimit
+| [ ENCRYPTED | UNENCRYPTED ] PASSWORD 'password'
+|VALID UNTIL 'timestamp'
+
+
+Excluindo uma role:
+
+DROP ROLE role_specification;
+
+
+**********************************************
+**********************************************
+Mão na massa!!!
+
+Executando comandos no PGAdmin4:
+
+CREATE ROLE professores
+
+CREATE ROLE professores NOCREATEDB NOCREATEROLE INHERIT NOLOGIN NOBYPASSRLS CONNECTION LIMIT 10;
+
+ALTER ROLE professores PASSWORD '123';
+
+CREATE ROLE daniel LOGIN PASSWORD '123';
+
+DROP ROLE daniel;
+
+CREATE ROLE daniel LOGIN PASSWORD '123' IN ROLE professores;
+
+DROP ROLE daniel;
+
+CREATE ROLE daniel LOGIN PASSWORD '123' ROLE professores;
+
+
+Sempre acessando o banco pelo termonal para verificar as mudanças nas roles:
+
+comando: \du (lista as roles criadas)
+
+**********************************************
+**********************************************
+
+
+
+Parte 3: Administrando acessos (GRANT).
+
+
+São os privilégios de acesso aos objetos do banco de dados.
+
+Privilégios:
+
+-- tabela*			-- function*
+-- coluna			-- language
+-- sequence			-- large object
+-- database*			-- schema*
+-- domain			-- tablespace
+-- foreign data wrapper		-- type
+-- foreign server
+
+
+
+DATABASE:
+GRANT {{ CREATE | CONNECT | TEMPORARY | TEMP } [, ...] | ALL [, ...]}
+ON DATABASE database_name [, ...]
+TO role_specification [, ...] [ WITH GRANT OPTION ]
+
+SCHEMA:
+GRANT {{ CREATE | USAGE } [, ...] | ALL [ PRIVILEGES ] }
+ON SCHEMA schema_name [, ...]
+TO role_specification [, ...] [ WITH GRANT OPTION ]
+
+TABLE:
+GRANT {{ SELECT | INSERT | UPDATE | DELETE | TRUNCATE | REFERENCES | TRIGGER } [, ...] | ALL [ PRIVILEGES ] }
+ON { [ TABLE ] table_name [, ...] | ALL TABLES IN SCHEMA schema_name [, ...] }
+TO role_specification [, ...] [ WITH GRANT OPTION ]
+
+
+REVOKE: Retira as permissões da role.
+
+DATABASE:
+
+REVOKE [ GRANT OPTION FOR ] 
+{{ CREATE | CONNECT | TEMPORARY | TEMP } [, ...] | ALL [PRIVILEGES] }
+ON DATABASE database_name [, ...]
+FROM { [ GROUP ] role_name | PUBLIC } [, ...]
+[ CASCADE | RESTRICT ]
+
+
+SCHEMA:
+
+REVOKE [ GRANT OPTION FOR ] 
+{{ CREATE | USAGE } [, ...] | ALL [PRIVILEGES] }
+ON SCHEMA schema_name [, ...]
+FROM { [ GROUP ] role_name | PUBLIC } [, ...]
+[ CASCADE | RESTRICT ]
+
+TABLE:
+
+RAVOKE [ GRANT OPTION FOR ]
+{{ SELECT | INSERT | UPDATE | DELETE | TRUNCATE | REFERENCES | TRIGGER } [, ...] | ALL [PRIVILEGES] }
+ON { [ TABLE ] table_name [, ...] }
+FROM { [ GROUP ] role_name | PUBLIC } [, ...]
+[ CASCADE | RESTRICT ]
+
+
+Revogando todas as permissões (simplificado):
+
+REVOKE ALL ON ALL TABLES IN SCHEMA [schema] FROM [role];
+REVOKE ALL ON SCHEMA [schema] FROM [role];
+REVOKE ALL ON DATABASE [database] FROM [role];
+
+
+**********************************************
+**********************************************
+Mão na massa!!
+
+Comandos no PGAdmin:
+
+DROP ROLE daniel;
+
+CREATE TABLE teste (nome varchar);
+
+GRANT ALL ON TABLE teste TO professores; 
+
+CREATE ROLE daniel LOGIN PASSWORD '123';
+
+
+No terminal:
+
+Acessar o banco com o usuário daniel:
+
+psql -U daniel auladb
+
+SELECT nome FROM teste;
+
+(vai dar erro de permissão, daniel não tem permissão)
+
+
+No PGAdmin:
+
+DROP ROLE daniel;
+
+CREATE ROLE daniel INHERIT LOGIN PASSWORD '123' IN ROLE professores;
+
+
+No terminal:
+
+conectar ao banco novamente: psql -U daniel auladb
+
+SELECT nome FROM teste;
+
+
+No PGAdmin:
+
+REVOKE professores FROM daniel;
+
+
+No terminal:
+
+SELECT nome FROM teste;
+
+(vai dar erro de permissão novamente)
+
+
+**********************************************
+**********************************************
 
 

@@ -1,0 +1,350 @@
+4 - Objetos e comandos do banco de dados.
+
+Objetivos da aula:
+
+1. Databases/Schemas/Ojetos
+2. Tabelas/Colunas/Tipos de dados
+3. DML e DDL
+
+
+Parte 1: Databases, Schemas e Objetos:
+
+Database:
+É o banco de dados.
+Grupo de schemas e seus objetos, como tabelas, types, views, funções, entre outros.
+Seus schemas e objetos não podem ser compartilhados entre si.
+Cada database é separado um do outro compartilhando apenas usuários/roles e configurações do cluster PostgreSQL.
+
+Schemas:
+É um grupo de objetos, como tabelas, types, views, funções, entre outros.
+É possível relacionar objetos entre diversos schemas.
+Por exemplo: schema public e schema curso podem ter tabelas com o mesmo nome (teste por exemplo) relacionando-se entre si.
+
+Objetos:
+São as tabelas, views, funções, types, sequences, entre outros, pertencentes aos schemas.
+
+
+Databade: CREATE, ALTER e DROP DATABASE
+
+CREATE DATABASE name
+
+ALTER DATABASE name RENAME TO new_name
+
+DROP DATABASE [nome]
+
+
+Schema:
+CREATE SCHEMA schema_name [AUTHORIZATION role_specification]
+
+ALTER SCHEMA name RENAME TO new_name
+
+DROP SCHEMA [nome]
+
+Melhores práticas:
+
+CREATE SCHEMA IF NOT EXISTS schema_name [ AUTHORIZATION role_specifiction ]
+DORP SCHEMA IF EXISTS [nome]
+
+
+Parte 2: Tabelas, Colunas e Tipos de dados:
+
+Conjuntos de dados dispostos em colunas e linhas referentes a um objetivo comum.
+As colunas são consideradas como "campos da tabela", como atributos da tabela.
+As linhas de uma tabela são chamadas também de tuplas, e é onde estão contidos os valores, os dados.
+
+Exemplo:
+
+TABELA = automovel
+COLUNA 1 = tipo (carro, moto, aviao, helicoptero)
+COLUNA 2 = ano_fabricacao (2010, 2011, 2020)
+COLUNA 3 = capacidade_pessoas (1, 2, 350)
+COLUNA 4 = fabricante (Honda, Avianca, Yamaha)
+
+
+Primary Key / Chave Primária / PK:
+
+No conceito de modelo de dados relacional e obedecendo as regras de normalização, uma PK é um conjunto de um ou mais campos que nunca se repetem em uma tabela e que seus valores garantem a integridade do dado único e a utiização do mesmo como referência para o relacionamento entre demais tabelas.
+
+Dicas:
+
+- Não pode haver duas ocorrencias de uma mesma entidade com o mesmo conteudo na PK.
+- A chave primaria nao pode ser composta por atributo opcional, ou seja, atributo que aceite nulo.
+- Os atributos identificadores devem ser o conjunto minimo que pode identificar cada instancia de uma entidade.
+- Não devem ser usadas chaves externas.
+- Não deve conter informação volátil.
+
+
+
+Foreign Key / Chave Estrangeira / FK:
+
+Campo, ou conjunto de campos que sao referencias de chaves primarias de outras tabelas ou da mesma tabela.
+Sua principal função é garantir a integridade referencial entre tabelas.
+
+
+Uma boa prática é inserir uma coluna de ID para garantir que a PK é única.
+
+
+Tipos de dados:
+
+Numeric types*		UUID types
+Monetary types		XML type
+Character types*	JSON types
+Binary data types	Arrays
+Data/Time types*	Composite types
+Boolean type*		Range types
+Enumerated types	Domain types
+Geometric types		Object Identifier types
+Network Address types	pg_lsn type
+Bit String types	Pseudo-types
+Text search types
+
+
+Numéricos:
+smallint, integer, bigint, decimal, numeric, real, double precision, smallserial*, serial*, bigserial*.
+
+* = são autoincrementaveis.
+
+Caracteres:
+character verying(n), varchar(n)
+character(n), char(n)
+text
+
+Datas:
+timestamp [(p)] [without time zone]
+timestamp [(p)] [with zone]
+date
+time [(p)] [without time zone]
+time [(p)] [with time zone]
+interval [fields] [(p)]
+
+Booleanos:
+boolean
+
+Boas práticas: cuidado ao utilizar ORM.*
+
+
+Parte 3: DML e DDL:
+
+DML: DAta Manipulation Language.
+Lingugem de manipulação de dados.
+INSERT, UPDATE, DELETE, SELECT*
+* o select, alguns consideram como DML, outros como DQL, que significa data query language, ou linguagem de consulta de dados.
+
+DDL: Data Definition Language
+Linguagem de definição de dados.
+CREATE, ALTER, DROP.
+
+
+CREATE [objeto] [nome do objeto] [opções];
+ALTER [objeto] [nome do objeto] [opções];
+DROP [objeto] [nome do objeto] [opções];
+
+CREATE DATABASE dadosbancarios;
+ALTER DATABASE dadosbancarios OWNER TO diretoria;
+DROP DATABASE dados bancarios;
+
+CREATE SCHEMA IF NOT EXISSTS bancos;
+ALTER SCHEMA bancos OWNER TO diretoria;
+DROP SCHEMA IF EXISTS bancos;
+
+
+Exemplos:
+
+CREATE TABLE IF NOT EXISTS banco (
+	codigo INTEGER PRIMARY KET,
+	nome VARCHAR(50) NOT NULL,
+	data_criacao TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+
+CREATE TABLE IF NOT EXISTS banco (
+	codigo INTEGER,
+	nome VARCHAR(50) NOT NULL,
+	data_criacao TIMESTAMP NOT NULL DEFAULT NOW(),
+	PRIMARY KEY (codigo)
+);
+
+ALTER TABLE banco ADD COLUMN tem_poupanca BOOLEAN;
+
+DROP TABLE IF EXISTS banco;
+
+
+INSERT:
+
+INSER INTO [nome da tabela] ([campos da tabela,])
+VALUES ([valores de acordo com a ordem dos campos acima,]);
+
+
+INSERT INTO [nome da tabela] ([campos da tabela,])
+SELECT [valores de acordo com a ordem dos campos acima];
+
+(util quando temos um select muito grande e queremos inserir sem colocar todos os values)
+
+Exemplo:
+
+INSERT INTO banco (codigo, nome, data_criacao)
+VALUES (100, 'Banco do Brasil', now());
+
+INSERT INTO banco (codigo, nome, data_criacao)
+SELECT 100, 'Banco do Brasil', now();
+
+
+UPDATE:
+
+UPDATE [nome da  tabela] SET
+[campo1] = [novo valor do campo1],
+[campo2] = [novo valor do campo2],
+...
+[WHERE + condições]
+
+ATENÇÃO: muito cuidado com  os updates. Sempre utilize-os com condição.
+
+Exemplo:
+
+UPDATE banco SET
+codigo = 500
+WHERE codigo = 100;
+
+UPDATE banco SET
+data_criacao = now()
+WHERE data_criacao IS NULL;
+
+
+DELETE:
+
+DELETE FROM [nome da tabela]
+[WHERE + condições]
+
+ATENÇÃo: muito cuidado com os deletes. Sempre utilize-os com condição.
+
+
+Exemplos:
+
+DELETE FROM banco
+WHERE codigo = 512;
+
+DELETE FROM banco
+WHERE nome = 'Conta Digital';
+
+
+SELECT:
+
+SELECt [campos da tabela]
+FROM [nome da tabela]
+[WHERE + condições]
+
+BOAS PRÁTICAS: Evite sempre que puder o SELECT*.
+
+
+Exemplos:
+
+SELECT codigo, nome
+FROM banco;
+
+SELECT codigo, nome
+FROM banco
+WHERE data_criacao > '2019-10-15 15:00:00';
+
+
+
+Mão na massa!!
+
+PGAdmin:
+
+CREATE DATABASE financas;
+
+CREATE TABLE IF NOT EXISTS banco (
+numero INTEGER NOT NULL,
+nome VARCHAR(50) NOT NULL,
+ativo BOOLEAN NOT NULL DEFAULT TRUE,
+data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (numero)
+);
+
+ativo BOOLEAN NOT NULL DEFAULT TRUE = boa prática para saber se o banco está ativo ou inativo.**
+
+data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP = boa prática para definir o valor da hora atual.**
+
+
+CREATE TABLE IF NOT EXISTS agencia (
+banco_numero INTEGER NOT NULL,
+numero INTEGER NOT NULL,
+nome VARCHAR(80) NOT NULL,
+ativo BOOLEAN NOT NULL DEFAULT TRUE,
+data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (banco_numero, numero),
+FOREIGN KEY (banco_numero) REFERENCES banco (numero)
+);
+
+
+CREATE TABLE cliente (
+numero BIGSERIAL PRIMARY KEY,
+nome VARCHAR(120) NOT NULL,
+email VARCHAR(250) NOT NULL,
+ativo BOOLEAN NOT NULL DEFAULT TRUE,
+data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+Boa prática = Separar o campo em tabelas que você talvez queira ver.**
+
+CREATE TABLE conta_corrente (
+banco_numero INTEGER NOT NULL,
+agencia_numero INTEGER NOT NULL,
+numero BIGINT NOT NULL,
+digito SMALLINT NOT NULL,
+cliente_numero BIGINT NOT NULL,
+ativo BOOLEAN NOT NULL DEFAULT TRUE,
+data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (banco_numero, agencia_numero, numero, digito, cliente_numero),
+FOREIGN KEY (banco_numero, agencia_numero) REFERENCES agencia (banco_numero, numero),
+FOREIGN KEY (cliente_numero) REFERENCES cliente (numero)
+);
+
+
+CREATE TABLE tipo_transacao(
+id SMALLSERIAL PRIMARY KEY,
+nome VARCHAR(50) NOT NULL,
+ativo BOOLEAN NOT NULL DEFAULT TRUE,
+data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE cliente_transacoes(
+id BIGSERIAL PRIMARY KEY,
+banco_numero INTEGER NOT NULL,
+agencia_numero INTEGER NOT NULL,
+conta_corrente_numero BIGINT NOT NULL,
+conta_corrente_digito SMALLINT NOT NULL,
+cliente_numero BIGINT NOT NULL,
+tipo_transacao_id SMALLINT NOT NULL,
+valor NUMERIC(15,2) NOT NULL,
+data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (banco_numero, agencia_numero, conta_corrente_numero, conta_corrente_digito, cliente_numero) REFERENCES conta_corrente (banco_numero, agencia_numero, numero, digito, cliente_numero)
+);
+
+
+Arquivo completo DDL:
+
+github.com/drobcosta/digital_innovation_one
+
+
+
+
+
+Erros do teste de conhecimento:
+
+Primary Key:
+
+Para garantir que a coluna id seja um campo sequencial que nunca se repete.
+
+
+Qual a finalidade do arquivo postgresql.conf?
+
+Armazenar todas as configurações do servidor PostgreSQL que são compartilhadas com todos os bancos de dados do cluster.
+
+
+
+Para que um usuário se conecte no banco de dados PostgreSQL sem a necessidade de senha, o que precisamos configurar/editar?
+
+O method trust do usuário do banco de dados no arquivo pg_hba.conf
+
+

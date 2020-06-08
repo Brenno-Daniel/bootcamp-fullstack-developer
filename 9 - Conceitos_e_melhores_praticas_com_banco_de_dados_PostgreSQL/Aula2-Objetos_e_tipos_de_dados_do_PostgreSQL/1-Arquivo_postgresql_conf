@@ -16,7 +16,7 @@ A view pg_settings, acessada por dentro do banco de dados, guarda todas as confi
 Ao acessar a view pg_settings, é possível visualizar todas as configurações atuais:
 
 SELECT name, setting
-FROM pr_settings;
+FROM pg_settings;
 
 Ou é possível usar o comando:
 
