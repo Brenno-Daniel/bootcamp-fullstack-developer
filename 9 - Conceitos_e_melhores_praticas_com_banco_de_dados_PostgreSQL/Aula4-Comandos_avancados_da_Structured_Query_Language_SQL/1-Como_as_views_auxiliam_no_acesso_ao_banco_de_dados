@@ -1,0 +1,224 @@
+1 - Como as views auxiliam no acesso ao banco de dados.
+
+Views:
+
+View são visões.
+São 'camadas' para as tabelas.
+São 'alias' para uma ou mais queries.
+Aceitam comandos de SELECT, INSERT*, UPDATE* e DELETE*.
+
+* = somente as views que fazem referencia a uma tabela só, aceitam estes comandos, caso possua uma joins na sua views vai aceitar apenas o SELECT.
+
+Views são uma boa pratica de segurança. **
+
+
+Exemplo:
+
+CREATE [OR REPLACE] [TEMP | TEMPORARY] [RECURSIVE] VIEW name [(column_name [, ...])]
+[WITH (view_option_name [= view_option_value] [, ...])]
+AS query
+[WITH [CASCADED | LOCAL] CHECK OPTION]
+
+
+
+
+OR REPLACE - idempotencia da view, ou vc cria ou vc subsitui a view. Tomar cuidado com essa opção.
+
+TEMP / TEMPORARY - view temporária, só vai existir em sua sessão.
+
+RECURSIVe - select dentro da view que vai chamar a propria view até se esgotar uma determinada opção.
+
+WITH CASCADE CHECK OPTION ou WITH LOCAL CHECK OPTION - são validações para os comandos select, update, insert e delete da sua view.
+
+
+IDEMPOTÊNCIA:
+
+CREATE OR REPLACE VIEW vw_bancos AS (
+	SELECT numero, nome, ativo
+	FROM banco
+);
+
+SELECT numero, nome, ativo
+FROM vw_bancos;
+
+CREATE OR REPLACE VIEW vw_bancos (banco_numero, banco_nome, banco_ativo) AS (
+	SELECT numero, nome, ativo
+	FROM banco
+);
+
+SELECT banco_numero, banco_nome, banco_ativo
+FROM vw_bancos;
+
+
+INSERT, UPDATE e DELETE:
+
+CREATE OR REPLACE VIEW v_bancos AS (
+	SELECT numero, nome, ativo
+	FROM banco
+);
+
+SELECT numero, nome, ativo
+FROM vw_bancos;
+
+
+- Funcionam apenas para VIEWs com apenas 1 tabela.
+
+INSERT INTO vw_bancos (numero, nome, ativo) VALUES (100, 'Banco CEM', TRUE);
+
+- O dado sera inserido na tabela, a view serve como uma janela para essa tabela.**
+
+UPDATE vw_bancos SET nome = 'Banco 100' WHERE numero = 100;
+
+DELETE FROM vw_bancos WHERE numero = 100;
+
+
+TEMPORARY:
+
+CREATE OR REPLACE TEMPORARY VIEW vw_bancos AS(
+	SELECT numero, nome, ativo
+	FROM banco
+);
+
+SELECT numero, nome, ativo
+FROM vw_bancos;
+
+VIEW presente apenas na sessão do usuário.
+Se você se desconectar e conectar novamente, a VIEW não estará disponível.
+
+
+RECURSIVE:
+
+É uma view que o comando no interior dela vai chamar ela mesma, entrando em loop.
+
+
+CREATE OR REPLACE RECURSIVE VIEW (nome_da_view) (campos_da_view) AS (
+	SELECT base
+	UNION ALL
+	SELECT campos
+	FROM tabela_base
+	JOIN (nome_da_view)
+);
+
+- Obrigatório a existência dos campos da VIEW.
+- UNION ALL.
+
+O comando UNION tem dois tipos: UNION e UNION ALL.
+
+UNION agrupa resultados iguais, o UNION ALL não.
+
+UNION X UNION ALL:
+
+UNION unifica e UNION ALL não unifica
+
+
+Exemplo de select:
+
+SELECT id, nome, gerente FROM funcionarios WHERE gerente IS NULL
+
+- irá retornar o cadastro cujo campo 'gerente' seja NULL;
+
+
+SELECT id, nome, gerente FROM funcionarios WHERE id = 999
+
+- não irá retornar nada, uma linha nula;
+
+
+SELECT id, nome, gerente FROM funcionarios WHERE gerente IS NULL
+UNION ALL
+SELECT id, nome, gerente FROM funcionarios WHERE id = 999
+
+******************
+******************
+
+Exemplo RECURSIVE:
+
+CREATE OR REPLACE RECURSIVE VIEW vw_funcionarios (id, gerente, funcionario) AS (
+	SELECT id,  gerente, nome
+	FROM funcionarios
+	WHERE gerente IS NULL
+	UNION ALL
+	SELECT funcionarios.id, funcionarios.gerente, funcionarios.nome
+	FROM funcionarios
+	JOIN vw_funcionarios ON vw_funcionarios.id = funcionarios.gerente
+);
+
+SELECT id, gerente, funcionario
+FROM vw_funcionarios
+
+- Irá retornar os funcionários na hierarquia correta.
+
+
+Uma outra forma de realizar uma consulta mais inteligente:
+
+
+CREATE OR REPLACE RECURSIVE VIEW vw_funcionarios (id, gerente, funcionario) AS (
+	SELECT id, CAST('' AS VARCHAR) AS gerente, nome
+	FROM funcionarios
+	WHERE gerente IS NULL
+	UNION ALL
+	SELECT funcionarios.id, gerentes.nome, funcionarios.nome
+	FROM funcionarios
+	JOIN vw_funcionarios ON vw_funcionarios.id = funcionarios.gerente
+	JOIN funcionarios gerentes ON gerentes.id = vw_funcionarios.id
+);
+
+SELECT id, gerente, funcionario
+FROM vw_funcionarios
+
+
+WITH OPTIONS:
+
+
+CREATE OR REPLACE VIEW vw_bancos AS (
+	SELECT numero, nome, ativo
+	FROM banco
+);
+
+INSERT INTO vw_bancos (numero, nome, ativo) VALUES (100, 'Banco CEM', FALSE);
+
+-- OK
+
+
+CREATE OR REPLACE VIEW vw_bancos AS (
+	SELECT numero, nome, ativo
+	FROM banco
+	WHERE aitvo IS TRUE
+) WITH LOCAL CHECK OPTION;
+
+INSERT INTO vw_bancos (numero, nome, ativo) VALUES (100, 'Banco CEM', FALSE);
+
+-- ERRO (ativo esta como 'false')
+
+
+WITH LOCAL CHECK OPTION = quero validar as opções da view presente.
+
+
+
+CREATE OR REPLACE VIEW vw_bancos_ativos AS(
+	SELECT numero, nome, ativo
+	FROM banco
+	WHERE ativo IS TRUE
+);
+
+CREATE OR REPLACE VIEW vw_bancos_maiores_que_100 AS (
+	SELECT numero, nome, ativo
+	FROM vw_banco
+	WHERE numero > 100
+) WITH CASCADE CHECK OPTION;
+
+INSERT INTO vw_bancos_maiores_que_100 (numero, nome, ativo) VALUES (99, 'Banco DIO', FALSE);
+
+-- ERRO (numero do banco é 99)
+
+INSERT INTO vw_bancos_maiores_que_100 (numero, nome, ativo) VALUES (200, 'Banco DIO', FALSE);
+
+-- ERRO (ativo esta como 'false')
+
+
+WITH CASCADE CHECK OPTION = vai validar as opções da view atual e das views as quais ela faz referencia.
+
+
+
+Mão na massa!!
+
+
