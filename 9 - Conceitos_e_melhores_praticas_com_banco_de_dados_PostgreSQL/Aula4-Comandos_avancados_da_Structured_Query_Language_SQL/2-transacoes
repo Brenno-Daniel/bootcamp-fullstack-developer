@@ -1,0 +1,59 @@
+2 - Principais conceitos de banco de dados: transações.
+
+Conceito fundamental de todos os sistemas de banco de dados.
+Conceito de múltiplas etapas/códigos reunidos em apenas 1 transação, onde o resultado precisa ser tudo ou nada.*
+
+Transações é uma forma segura de executar um conjunto de scripts onde o resultado é ou tudo ou nada.
+
+
+Exemplos:
+
+BEGIN; (abrir a transação)
+
+	UPDATE conta SET valor = valor - 100.00
+	WHERE nome = 'Alice';
+
+	UPDATE conta SET valor = valor + 100.00
+	WHERE nome = 'Bob';
+
+COMMIT; (validar a transação)
+
+- Se acontecer algum erro durante a transação ocorre o ROLLBACK, ou se você forçar o ROLLBACK;
+
+BEGIN; (abrir a transação)
+
+	UPDATE conta SET valor = valor - 100.00
+	WHERE nome = 'Alice';
+
+	UPDATE conta SET valor = valor + 100.00
+	WHERE nome = 'Bob';
+
+ROLLBACK; (validar a transação)
+
+
+
+Save point:
+
+BEGIN;
+
+	UPDATE conta SET valor = valor - 100.00
+	WHERE nome = 'Alice';
+
+SAVEPOINT my_savepoint;
+
+	UPDATE conta SET valor = valor + 100.00
+	WHERE nome = 'Bob';
+	-- ops.. não é para o Bob, é para o Wally!!!
+
+ROLLBACK TO my_savepoint;
+
+	UPDATE conta SET valor = valor + 100.00
+	WHERE nome = 'Wally';
+
+COMMIT;
+
+
+
+Mão na massa!!
+
+
