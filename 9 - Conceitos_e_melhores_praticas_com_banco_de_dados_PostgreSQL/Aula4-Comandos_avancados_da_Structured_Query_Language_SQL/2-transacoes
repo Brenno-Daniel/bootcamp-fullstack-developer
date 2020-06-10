@@ -28,7 +28,7 @@ BEGIN; (abrir a transação)
 	UPDATE conta SET valor = valor + 100.00
 	WHERE nome = 'Bob';
 
-ROLLBACK; (validar a transação)
+ROLLBACK;
 
 
 
