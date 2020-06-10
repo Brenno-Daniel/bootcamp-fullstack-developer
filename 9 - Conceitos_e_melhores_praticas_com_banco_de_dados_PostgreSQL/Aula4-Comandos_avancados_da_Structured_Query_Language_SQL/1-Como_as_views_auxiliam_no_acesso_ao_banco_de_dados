@@ -7,7 +7,7 @@ São 'camadas' para as tabelas.
 São 'alias' para uma ou mais queries.
 Aceitam comandos de SELECT, INSERT*, UPDATE* e DELETE*.
 
-* = somente as views que fazem referencia a uma tabela só, aceitam estes comandos, caso possua uma joins na sua views vai aceitar apenas o SELECT.
+* = somente as views que fazem referencia a uma tabela só, aceitam estes comandos, caso possua uma join na sua view vai aceitar apenas o SELECT.
 
 Views são uma boa pratica de segurança. **
 
@@ -26,7 +26,7 @@ OR REPLACE - idempotencia da view, ou vc cria ou vc subsitui a view. Tomar cuida
 
 TEMP / TEMPORARY - view temporária, só vai existir em sua sessão.
 
-RECURSIVe - select dentro da view que vai chamar a propria view até se esgotar uma determinada opção.
+RECURSIVE - select dentro da view que vai chamar a propria view até se esgotar uma determinada opção.
 
 WITH CASCADE CHECK OPTION ou WITH LOCAL CHECK OPTION - são validações para os comandos select, update, insert e delete da sua view.
 
