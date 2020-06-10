@@ -1,0 +1,224 @@
+3 - Funções que podem ser criadas pelo desenvolvedor.
+
+Parte 1: Funções
+
+Conjunto de códigos que são executados dentro de uma transação* com a finalidade de facilitar a programação e obter o reaproveitamento/reutilização de códigos.
+
+Existem 4 tipos de funções:
+
+- query language functions (funções escritas em SQL)
+- procedural language functions (funções escritas em, por exemplo, PL/pgSQL ou PL/py)
+- internal functions
+- C-language functions
+
+Porém, o foco aqui é falar sobre USER DEFINED FUNCTIONS.
+Funções que podem ser criadas pelo usuario.
+
+
+Linguagens:
+
+- SQL
+- PL/PGSQL
+- PL/PY
+- PL/PHP
+- PL/RUBY
+- PL/JAVA
+- PL/Lua
+.....
+
+
+Exemplo:
+
+CREATE [OR REPLACE] FUNCTION
+name ([[argmode][argname] argtype [{DEFAULT | = } default_expr ] [, ...]])
+[RETURNS rettype | RETURNS TABLE (column_name column_type [, ...])]
+{LANGUAGE lang_name
+| TRANSFORM {FOR TYPE type_name} [, ...]
+| WINDOW
+| IMMUTABLE | STABLE | VOLATILE | [NOT] LEAKPROOF
+| CALLED ON NULL INPUT | RETURNS NULL ON NULL INPUT | STRICT
+| [EXTERNAL] SECURITY INVOKER | [EXTERNAL] SECURITY DEFINER
+| PARALLEL {UNSAFE | RESTRICTED | SAFE}
+| COST execution_cost
+| ROWS result_rows
+| SET configuration_parameter {TO value | = value | FROM CURRENT}
+| AS 'definition'
+| AS 'obj_file', 'link_symbol'
+} ...
+
+
+
+IDEMPOTÊNCIA
+
+CREATE OR REPLACE FUNCTION [nome da função]
+
+- Mesmo nome
+- Mesmo tipo de retorno
+- Mesmo número de parâmetros/argumentos
+
+
+RETURNS:
+
+Tipo de retorno (data type)
+
+- INTEGER
+- CHAR/VARCHAR
+- BOOLEAN
+- ROW
+- TABLE
+- JSON
+
+
+LANGUAGE:
+
+-SQL, PLSQL, PLJAVA, PLPY, etc...
+
+
+Segurança:
+
+SECURITY
+
+- INVOKER = é o padrao, voce permite que a função seja executada de acordo com as permissões do usuário que a esta invocando.
+
+- DEFINER = faz com que o usuário que esta executando a função execute-a com as permissões do usuário que criou a função.
+
+
+
+Comportamento:
+
+- IMMUTABLE:
+
+Não pode alterar o banco de dados.
+Funções que garantem o mesmo resultado para os mesmos argumentos/parametros da função. Evitar a utilização de selects, pois tabelas podem sofrer alterações.
+
+- STABLE:
+
+Não pode alterar o banco de dados.
+Funções que garantem o mesmo resultado para os mesmos argumentos/parametros da função. Trabalha melhor com tipos de current_timestamp e outros tipos variáveis. Podem conter selects.
+
+- VALATILLE:
+
+Comportamento padrão. Aceita todos os cenários.
+
+
+
+Segurança e boas práticas:
+
+- CALLED ON NULL INPUT:
+
+Padrão.
+Se qualquer um dos parametros/argumentos for NULL, a função será executada.
+
+- RETURNS NULL ON NULL INPUT:
+
+Se qualquer um dos parametros/argumentos for NULL, a função retornará NULL.
+
+- SECURITY INVOKER:
+
+Padrão.
+A função é executada com as permissões de quem executa.
+
+- SECURITY DEFINER:
+
+A função é executada com as permissões de quem criou a função.
+
+
+- COST:
+
+Custo/row em unidade de CPU.
+
+- ROWS:
+
+Número estimado de linhas que será analisado pelo planner.
+
+
+
+SQL FUNCTIONS:
+
+Não é possível utilizar TRANSAÇÕES.*
+
+CREATE OR REPLACE FUNCTION fc_somar (INTEGER, INTEGER)
+RETURNS INTEGER
+LANGUAGE SQL
+AS $$
+	SELECT $1 + $2;
+$$;
+
+********
+********
+
+CREATE OR REPLACE FUNCTION fc_somar (num1 INTEGER, num2 INTEGER)
+RETURNS INTEGER
+LANGUAGE SQL
+AS $$
+	SELECT num1 + num2;
+$$;
+
+********
+********
+
+CREATE OR REPLACE FUNCTION fc_bancos_add(p_numero INTEGER, p_nome VARCHAR, p_ativo BOOLEAN)
+RETURNS TABLE (numero INTEGER, nome VARCHAR)
+RETURNS NULL ON NULL INPUT
+LANGUAGE SQL
+AS $$
+	INSERT INTO banco (numero, nome, ativo)
+	VALUES (p_numero, p_nome, p_ativo);
+
+	SELECT numero, nome
+	FROM banco
+	WHERE numero = p_numero;
+$$;
+
+
+********
+********
+
+PLPGSQL:
+
+CREATE OR REPLACE FUNCTION banco_add (p_numero INTEGER, p_nome VARCHAR, p_ativo BOOLEAN)
+RETURNS BOOLEAN
+LANGUAGE PLPGSQL
+AS $$
+DECLARE variavel_id INTEGER;
+BEGIN
+	SELECT INTO variavel_id numero FROM banco WHERE nome = p_nome;
+	
+	IF variavel_id IS NULL THEN
+		INSERT INTO banco (numero, nome, ativo) VALUES (p_numero, p_nome, p_ativo);
+	ELSE
+		RETURN FALSE;
+	END IF;
+
+	SELECT INTO variave_id numero FROM banco WHERE nome = p_nome;
+
+	IF variavel_id IS NULL THEN
+		RETURN FALSE;
+	ELSE
+		RETURN TRUE;
+	END IF;
+END; $$;
+
+SELECT banco_add(13, 'Banco azarado', true);
+
+
+Mão na massa!!
+
+
+Para executar uma função voce tem que executar um SELECT.*
+
+COALESCE = retorna o primeiro valor não nulo de uma lista, é um tratamento de valores nulos.
+
+
+
+
+
+Erros do questionário:
+
+
+Para criar uma função de somar que retornar um número, programadas na linguagem plpgsql, com as permissões do usuário que está executando a função, com idempotência e ignorando parâmetros nulos, qual comando devemos executar?
+
+CREATE OR REPLACE FUNCTION fc_somar(n1 INTEGER, n2 INTEGER) RETURNS INTEGER SECURITY INVOKER CALLED ON NULL INPUT LANGUAGE PLPGSQL AS $$ BEGIN RETURN n1 + n2; END; $$;
+
+
+
