@@ -1,0 +1,58 @@
+2 - O que é, como e onde usar .NET
+
+O que é:
+
+Infraestrutura para desenvolvimento de software criada pela Microsoft.
+
+Uma aplicação .NET é desenvolvida para e roda em uma das seguintes implementações* do .NET:
+
+- .NET Core
+- .NET Framework
+- Mono
+- Universal Windows Platform (UWP)
+
+
+Como:
+
+.NET Standard:
+
+Basicamente um contrato, para implementar um versão X do standart, tem que ter um determinado range de funcionalidades implementadas e funcionando.
+
+Cada versão do framework implementam X funcionalidades, então vc garante que se tiver versão X do .NET Core tem as mesmas funcionalidades ou X funcionalidades que também é provida pelo .NET Framework.
+
+
+Cada implementação inclui um ou mais .NET Runtimes (ambiente de execução):
+
+- .NET Core: CoreCLR (versão 4) e CoreRT
+- .NET Framework: CLR
+- Mono: Mono Runtime
+- UWP: .NET Native
+
+
+Atualmente a Microsoft desenvolve e suporta 3 linguagens para .NET: C#, F# e VB.
+
+
+Onde podemos usar:
+
+Microsoft deseja estar em todos os lugares.
+
+Desktop: WPF, Windows Forms, UWP.
+WEB: ASP.NET.
+CLOUD: Azure.
+MOBILE: Xamarin.
+GAMING: Unity.
+IoT: ARM32, ARM64.
+AI: ML.NET, .NET for Apache Spark.
+
+Tools: Visual Studio (windows), Visual Studio for Mac (Mac), Visual Studio Code (multiplataforma <3) e Command Line (surgiu com o .Core).
+
+
+Quem usa .NET:
+
+Vidalink, Licks Attorneys, Casas bahia, Saraiva, Seguros Unimed, BR, Guarani, etc.
+
+hub fintech, Marabraz, AACD, São Francisco, GOL, Azul, etc.
+
+Stack overflow (.NET Framework) e Microsoft.
+
+
