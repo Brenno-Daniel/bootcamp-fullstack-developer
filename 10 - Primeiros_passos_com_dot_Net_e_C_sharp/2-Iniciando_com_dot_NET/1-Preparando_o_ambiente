@@ -1,3 +1,19 @@
 1 - Preparando o ambiente
 
+Objetivos da aula:
+
+1. Preparando o ambiente
+2. Conhecendo a CLI do .NET
+3. Criando uma aplicação console
+
+
+Parte 1: Preparando o Ambiente:
+
+Acessar o site da microsoft e baixar 
+o .NET Core para Build/Run Apps.
+
+https://dotnet.microsoft.com/download
+
+Site identifica automaticamente seu OS. ;)
+
 
