@@ -1,0 +1,55 @@
+2 - conhecendo a CLI do .NET
+
+CLI do .NET
+
+dotnet --help = como se fosse a documentação do .NET na linha de comando.
+
+Exibe:
+
+A versão do .NET Core SDK
+
+Estrutura: dotnet [runtime-option] [path-to-application] [arguments]
+
+Caminho da aplicação é onde estão as .dll
+
+Uma outra forma de usar o comando dotnet seria com [sdk-options]
+
+dotnet --info = todas as versões do .NET instaladas na maquina, informações do SO.
+
+Opções de comando:
+
+add= adicionar um pacote.
+
+build = contruir, compilar o codigo e gerar as .dlls.
+
+new = criar projeto ou arquivo dentro da pasta em que estamos.
+
+nuget = gerenciador de pacotes para o .NET
+
+Pode ter NuGet publico e privado.
+
+Nuget é similar ao NPM e Maven.
+
+publish = gerar as .dlls e subir ao site, servidor
+
+restore = restaurar os pacotes
+
+run = build e executa a aplicação
+
+teste = permite que rode os testes da aplicação
+
+tool (surgiu na versão 2.1 ou 2.2 .NET Core) = permite que instale e gerencie ferramentas no .NET
+
+Criar novo projeto:
+
+dotnet new --help = documentação do dotnet new.
+
+Templates:
+
+console application, class library, WPF application (app desktop com parte grafica melhorada), etc
+
+
+Também exibe quais linguagens pode utilizar neste template, ex: C# (padrão), F# e VB.
+
+
+

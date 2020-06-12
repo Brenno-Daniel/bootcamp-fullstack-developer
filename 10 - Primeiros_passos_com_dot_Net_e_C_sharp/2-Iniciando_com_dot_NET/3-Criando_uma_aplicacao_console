@@ -1,0 +1,61 @@
+3 - Criando uma aplicação console
+
+Aplicação console = aplicação que vai ser executada via um terminal.
+
+Criar o projeto: dotnet new console
+
+dotnet new console -h = documentação do comando.
+
+Tem como passar a versão do framework = -f, --framework.
+
+Ele cria o projeto na pasta em que estamos, cria uma pasta com o nome do projeto.
+
+dotnet new console - DigitalInnovationOne
+
+Acessar a pasta do projeto criado.
+
+explorer . = vai abrir a pasta que foi criada.
+
+- cria arquivo do tip .csproj (Arquivo C# project).
+- cria um Program.cs
+
+
+code . = abre o conteudo da pasta dentro do VSCode.
+
+VSCode identifica que é uma aplicação .NET e exibe um alerta informando se deseja adicionar alguns Assets pro build e debug da aplicação.
+
+Pasta bin = binarios da aplicação.
+
+3 comandos muito utilizados:
+
+dotnet restore = restaura os pacotes, ex: pacotes de conexão ao banco de dados (pacotes OERM).
+
+Projeto gera um executável.
+
+dotnet build = também restaura os pacotes, pega o codigo fonte, compila e gera os binários, exc: DigitalInnovationOne.dll. (da pra verificar dentro da pasta bin)
+
+
+Program.cs: classe com metodo main que da o start na sua aplicação.
+Quando executa a aplicação ele é o metodo de entrada da aplicação.
+
+System = pacote do próprio .NET.
+
+dotnet run = restaurar o pacotes, executar o build e executar o codigo da aplicação.
+
+
+VSCode também possui um terminal integrado, que permite executar os comandos do mesmo modo que no terminal da máquina.
+
+WriteLine = exibe o texto e pula uma linha.
+
+
+Se não estiver no nivel do seu .csproj irá gerar erro ao executar o comando: dotnet run. **
+
+Neste caso pode utilizar o comando: dotnet build <nome da pasta do projeto>
+
+dotnet build DigitalInnovationOne
+
+Ou também executar pelo comando: dotnet run -p (-p, --project (caminho do projeto)) - já identifica o arquivo .csproj dentro da pasta da aplicação.
+
+dotnet run -p DigitalInnovationOne
+
+

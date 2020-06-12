@@ -17,3 +17,27 @@ https://dotnet.microsoft.com/download
 Site identifica automaticamente seu OS. ;)
 
 
+.NET SDK (software development kit) = vem com uma serie de ferramentas preparadas para seu codigo fonte seja conevrtido para linguagem de máquina.
+
+CLI, core CLR, e C# 8 incluso.*
+
+
+.NET Runtime = versão mais enxuta que espera que todo esse processo de desenvolvimento já tenha sido executado, uma versão mais para ambiente de produção.
+
+
+Comando no terminal: dotnet --version (versão do .NET Core)
+
+
+Utilizar o VSCode (open source e multiplataforma).
+
+VSCode não é uma IDE, como o Visual Studio 2019 (só funciona em Windows).
+
+VSCode é um editor de texto e permite instalar diversos plugins.
+
+Pluguins:
+
+C# da Microsoft;
+
+C# Extensions = facilitar a adição de dependencias, classes e pacotes.
+
+
