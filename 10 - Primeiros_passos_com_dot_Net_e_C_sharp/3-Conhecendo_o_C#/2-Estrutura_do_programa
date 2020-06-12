@@ -1,0 +1,68 @@
+2 - Estrutura do programa
+
+Parte 3: Estrutura do programa.
+
+Os principais conceitos organizacionais em C# são:
+
+- programas;
+- namespaces;
+- tipos;
+- membros;
+- assemblies;
+
+Programas C# consistem em um ou mais arquivos.
+
+Os programas declaram tipos, que contêm membros e podem ser organizados em namespaces.
+
+Classes e interfaces são exemplos de tipos.
+
+Campos, métodos, propriedades e eventos são exemplos de membros.
+
+Quando os programas C# são compilados, eles são fisicamente empacotados em assemblies.
+
+Os assemblies geralmente têm a extensão de arquivo .exe* ou .dll*, dependendo se são aplicações ou bibliotecas.
+
+
+
+Exemplo prático:
+
+Utilizando projeto disponibilizado pelo professor.
+
+Código-fonte:
+
+https://github.com/gabrielfbarros/csharp-examples
+
+
+Por boa pratica o nome do projeto será o prefixo do namespace de cada pasta.
+
+Dentro do arquivo Pilha.cs, existe  um método emmpilha que insere um item na pilha, e outro método desempilha, que remove o item da pilha.
+
+Conceito de classes aninhadas.
+
+Exception = qualquer falha que ocorrer na execução dispara um erro, interrompendo a execção do programa.
+
+Possui o namespace, dentro possui uma classe, dentro possui propriedades e métodos, possui subclasse, classe alinhada, etc.
+
+
+Breakpoint = coloca um ponto vermelho numa linha em que você deseja, no momento de execução em modo debug, quando a execução passar por essa linha ele para na linha selecionada, e voce consegue avançar linha por linha, consegue depurar o valor de cada objeto e variável no momento da execução.
+
+Executar o comando dotnet run passa direto pelo breakpoint, basicamente executa o sistema.
+
+
+Dentro do VSCode executando o codigo no modo debug:
+
+f10 = passa para próxima linha.
+f11 = acessa o método.
+
+Ctrl + . = mostra sujestão de opção para correção.
+
+
+Extourando uma exceção:
+
+stack trace = te da detalhes de todos os passos desde que a exceção foi lançada.
+
+Adicionar dentro do throw uma mensagem de erro:
+
+throw new InvalidOperationException("A pilha está vazia!");
+
+
