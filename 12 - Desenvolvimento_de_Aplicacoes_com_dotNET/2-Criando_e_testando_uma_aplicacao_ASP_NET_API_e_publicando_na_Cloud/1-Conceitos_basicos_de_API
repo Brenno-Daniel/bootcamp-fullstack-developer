@@ -1,0 +1,27 @@
+1 - Conceitos básicos de API
+
+Objetivos da Aula:
+
+1. Aprender o conceito básico de APIs
+2. Conhecer o conceito básico de Rest
+3. Criar a primeira aplicação ASP.NET API
+
+Parte 1: O que é API:
+
+A sigla API em português significa "interface de programação de aplicações".
+As APIs são uma forma de realizar a integração entre sistemas mesmo que esses possuam linguagens de programação diferente.
+Um exemplo de API é o Google Maps que é utilizado por empresas de Gotel em que é disponibilizada dentro do site da empresa a localização em que ele fica.
+
+
+Parte 2: O que é REST:
+
+O REST é um conjunto de princípios que quando aplicados de maneira correta em uma aplicação, a beneficia com a arquitetura e padrões da própria web.
+Uma aplicação que é capaz de aplicar tais princípios é chamada de RESTful.
+
+
+Parte 3: Swagger:
+
+Quando é preciso consumir uma API existente é necessário conhecer as funcionalidades disponíveis e detalhes de como consumir tal funcionalidade.
+Diante dessa necessidade existe o Swagger que é um projeto composto por algumas ferramentas para auxiliar o desenvolvedor de API em algumas tarefas como por exemplo a documentação da API.
+
+

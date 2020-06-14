@@ -1,0 +1,147 @@
+2 - Introdução ao ASP.NET MVC
+
+Objetivos da Aula:
+
+1. Aprender os conceitos básicos do ASP.NET MVC
+2. Aprender os conceitos sobre aplicações Web
+3. Criar a primeira aplicação ASP.NET MVC
+
+
+Parte 1: O padrão MVC:
+
+O MVC é um padrão de arquitetura que divide a aplicação em trÊs camadas: a visão (view), o modelo (model) e o controlador (controller).
+
+O MVC é um padrão muito utilizado devido a sua arquitetura que possibilita separar o projeto em camadas onde cada uma delas executa o que lhe é definido e nada mais.
+Esse padrão pode ser aplicado em diversos tipos de projetos como, por exemplo, desktop, web e mobile.
+
+O MVC traz como benefício o isolamento das regras de negócios da interface do usuário, o que permite que exista várias interfaces de usuários que podem ser modificadas sem afetar a regra do negócio.
+
+Camada Model:
+
+É a camada responsável pela leitura e escrita de dados, e também de suas validações.
+
+Camada View:
+
+É a camada de interação com o usuário. Ela apenas faz a exibição dos dados, sendo ela por meio de um HTML ou XML.
+
+Camada Controller:
+
+É a camada responsável por receber todas as requisições e por controlar qual model usar e qual view será mostrado ao usuário.
+
+
+
+Parte 2: Routes:
+
+ASP.NET Web Forms:
+
+No modelo ASP.NET Web Forms as requisições do navegador eram enviadas para páginas, que deveriam existir fisicamente, com isso cada URL deveria ter uma página física que a represente.
+
+
+ASP.NET MVC:
+
+Já no modelo ASP.NET MVC as requisições do navegador são enviadas para uma Ação da Controller, tirando a necessidade de cada URL possuir um arquivo físico.
+
+
+Routes:
+
+Quando uma aplicação ASP.NET MVC é criada já é configurado um padrão de rota default:
+
+Ex:
+url:"{controller}/{action}/{id}",
+defaults: new {controller = "Home", action = "Index", id = UrlParameter.Optional
+
+Esse padrão já atende a maioria das necessidades, porém é possível criar padrões personalizados.
+
+
+Custom Routes:
+
+Para determinadas necessidades podemos criar rotas personalizadas, isso permite uma maior flexibilidade e que seja possível gerar URLs mais amigáveis para o usuário o que torna a aplicação mais acessível.
+
+Ex:
+url: "student/{id}/{name}/{standardId}",
+defaults: new { controller = "Student", action = "Index", id = UrlParameter.Optional, name = UrlParamter.Optional, standardId = UrlParameter.Optional },
+
+
+Exemplo de uma URL utilizando a rota default:
+
+http://localhost:1234/home (controller)/index (action method)/100 (id parameter value)
+
+http://localhost:1234/home (controller)/index (action method)
+
+
+
+Parte 3: Action Results:
+
+O Action Result é o resultado de uma Ação processada por uma controller, o action result possui diversos tipos.
+
+Tipos:
+
+Segue uma relação dos Actions Results, usaremos alguns deles na criação da nossa aplicação.
+
+Ex.:
+ViewResult = Onde retorna qual a view que deve exibir.
+
+
+Parte 4: HTTP Verbs:
+
+Os HTTP Verbs são métodos do protocolo HTTP que informam ao servidor qual ação ele deve executar.
+
+GET:
+
+- Buscar recursos
+- Cache
+
+POST:
+
+-Criar um novo recurso
+
+PUT/PATCH:
+
+- Atualizar em recurso existente
+
+DELETE:
+
+- Remover um recurso
+
+
+Parte 5: Razor:
+
+O Razor é uam View Engine utilizada no ASP.NET MVC.
+O seu principal objetivo é simplificar o desenvolvimento de aplicações ASP.NET pois ele deixa o código mais simples, fácil e legível.
+
+Benefícios:
+
+Como benefícios principais temos:
+
+- Menor curva de aprendizagem, por ser baseado na liguagem de programação C#.
+- Por possuir uma sintaxe limpa ele requer que o desenvolvedor digite menos para chegar a um resultado.
+- O Visual Studio possui IntelliSense para páginas razor o que nos dá uma maior produtividade.
+
+
+Parte 6: Middlewares:
+
+Middlewares são componentes (classes) que é executado em todas as solicitações na aplicação ASP.NET.
+Normalmente existem vários middlewares na aplicação e nós definimos a ordem em que são executados.
+Cada middleware adiciona ou modifica a solicitação http e pode passar o controle para o proximo middleware.
+
+
+Parte 7: Startup.cs
+
+Como o próprio nome diz, a classe Startup.cs é resposável por ser o ponto inicial do projeto.
+Dentro dela existem métodos que são responsáveis por configurarem o projeto. São eles:
+
+- ConfigureServices.
+- Configure.
+
+ConfigureServices:
+
+O método ConfigureServices é responsável por registrar as classes ao contêiner de injeção de dependência, após isso a classe poderá ser usada em qualquer lugar da aplicação desde que seja incluída no construtor da classe em que deseja usar.
+
+
+Configure:
+
+O Configure controle o pipeline da aplicação, é nesse método que são especificados os middlewares que serão utilizados. Se nada for colocado nesse método nem o MVC funcionará pois não foi inidicado a aplicação o que utilizar.
+Deve ser adicionado apenas os middlewares que forem ser utilizados caso contrério poderá acontecer a perda de performance.
+
+
+

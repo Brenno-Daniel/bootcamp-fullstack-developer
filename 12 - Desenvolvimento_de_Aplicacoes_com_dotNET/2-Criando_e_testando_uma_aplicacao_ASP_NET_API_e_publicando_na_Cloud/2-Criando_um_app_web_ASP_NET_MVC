@@ -1,0 +1,74 @@
+2 - Criando um app web ASP.NET MVC
+
+Parte 1:
+
+Swagger = alterar colocando o para gerar arquivo XML
+
+No depurar = iniciar navegador no swagger
+
+Ativar o Swagger = adicionar as dependencias e o middleware para o swagger.
+
+
+Parte 2:
+
+Projeto de teste.
+
+Fact = faz com que o Visual Studio reconheça que é um teste.
+
+Adicionar referencias aos dois projetos (API e MVC).
+
+
+4 - Publicando o projeto em nuvem
+
+Microsoft Azure = criar conta grátis, por 1 ano.
+
+Precisa estar logado com a mesma conta no Visual Studio e no Azure.
+
+Se estiver utilizando o .NET acima da versão 3, precisa executar um comando:
+
+dotnet tool install --global dotnet-ef --version 3.0.0
+
+Dentro do Visual Studio = Clicar com botão direito no projeto em publicar.
+
+
+Grupo de recursos = agrupar varios serviços dentro de um grupo de recursos.
+
+Cria a conexão do banco de dados para o Azure.
+
+
+Ao acessar a URL pode gerar erro pois ainda não criou as tabelas no banco, para corrigir:
+
+Clicar em editar > configurações > migrações do Entity Framework > Aplicar essa migração ao publicar
+
+
+Ao publicar a API precisa adicionar a dependencia do banco de dados > adicionar o banco criado no cursoMVC.
+
+Ao abrir a URL vai dar erro 404, precisa colocar ao final da URL: swagger.
+
+
+Dentro do painel da Azure apresenta alguns recursos criados após as publicações.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
