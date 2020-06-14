@@ -1,0 +1,89 @@
+2 - Entendendo a função de interfaces e enums.
+
+Interfaces:
+
+Uma interface define um contrato que pode ser implementado por classes e structs.
+
+Uma interface pode conter métodos, propriedades, eventos e indexadores.
+
+Uma interface não fornece implementações dos membros que define - apenas suas "assinaturas".
+
+As interfaces podem empregar herança múltipla.
+
+
+Exemplo:
+
+interface IControl
+{
+	void Paint();
+}
+interface IListBox
+{
+	void SetText(string text);
+}
+interface IComboBox: IControl, IListBox {}
+
+interface IDataBound
+{
+	void Bind(Binder b);
+}
+public class EditBox: IComboBox, IDataBound
+{
+	public void Paint() {}
+	public void SetText(string text) {}
+	public void Bind(Binder b) {}
+}
+
+
+Enums:
+
+Um enum é um tipo de valor distinto com um conjunto de constantes nomeadas.
+
+Você define enumeração quando precisa definir um tipo que pode ter um conjunto de valores discretos.
+Eles usam um dos tipos de valor integral como armazenamento subjacente. Eles fornecem significado semântico aos valores discretos.
+
+***********************************
+***********************************
+
+Exemplo:
+
+enum Cor
+{
+	Vermelho,
+	Verde,
+	Azul
+}
+
+
+static void EscreverCor(Cor cor)
+{
+	switch (cor)
+	{
+		case Cor.Vermelho:
+			Console.WriteLine("Vermelho");
+			break;
+		case Cor.Verde:
+			Console.WriteLine("Verde");
+			break;
+	}
+}
+
+***********************************
+***********************************
+
+Cada tipo de enum possui um tipo integral correspondente chamado tipo subjacente do tipo de enum.
+
+Um tipo de enumeração que não declara explicitamente um tipo subjacente tem um tipo subjacente int.
+
+Exemplo:
+
+enum Alinhamento: sbyte
+{
+	Esquerda = -1,
+	Centro = 0,
+	Direita = 1
+}
+
+ebum Alinhamento: sbyte (se não informar o 'sbyte' ele assume como sendo 'int' automaticamente)
+
+

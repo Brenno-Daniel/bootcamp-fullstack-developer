@@ -1,0 +1,46 @@
+1 - Sintese do que é o .NET
+
+Objetivos da aula:
+
+1. Retrospectiva
+2. Exemplo prático
+3. Links
+
+
+Parte 1: Retrospectiva:
+
+O que é o .NET
+- Passado, presente e futuro do .NET
+- O que é, como e onde usar o .NET
+- Quem usa o .NET
+
+Ambiente de Desenvolvimento
+- Preparando o ambiente
+- Conhecendo a  CLI do .NET
+- Criando uma aplicação console
+
+Conhecendo o C#
+- O que é o C#
+- Como funciona
+- Estrutura do proggrama
+- Tipos de variáveis
+	- Tipo de valor
+	- Tipo de referencia
+- instruções:
+ - if, switch, while, do, for, foreach, break, continue, return, throw, try .. catch .. finaly, using
+- Array
+- Classes o Objetos:
+ - Membros, Acessibilidade, Herança e Métodos
+- Structs
+- Interface
+- Enums
+
+
+Parte 2: Exemplo Prático!
+
+Criar uma aplicação simples:
+
+Informar alunos/ cadastrar alunos e slavar em um array, depois exibir essa lista de alunos.
+Exibir a lista dos alunos com as notas, e se possível exibir a média também.
+
+

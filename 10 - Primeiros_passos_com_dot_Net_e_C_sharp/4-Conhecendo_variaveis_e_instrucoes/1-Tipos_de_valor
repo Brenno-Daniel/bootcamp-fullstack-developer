@@ -1,0 +1,42 @@
+1 - Tipos de valor
+
+Conhecendo o C# - parte 02
+
+Objetivos da aula:
+
+1. Tipos e variáveis
+2. Instruções
+3. Arrays
+
+
+Parte 1: Tipos e variaveis:
+
+Variáveis de tipos de valor contÊm diretamente seus dados.
+
+As variaveis têm sua própria cópia de dados e não é possível que as operações afetem outra variável (exceto no caso das variáveis de parâmetro ref e out).
+
+Numéricos: sbyte, short, int, long, byte, ushort, unit, ulong.
+
+Caracteres Unicode: char.
+
+Pontos flutuantes: float, double, decimal.
+
+Booleano: bool.
+
+enum, struct e tipos nullable (Exemplo int?) (caracteristica do C#).
+
+
+Tipos de referência:
+
+Variaveis do tipo de referencia armazenam refereÊncias a seus dados.
+
+É possível que duas variáveis façam referencia ao mesmo objeto e, portanto, que operações em uma variável afetem o objeto referenciado pela outra variável.
+
+Tipo Classe: class, object, string
+
+Tipos de Arrays: int[], int[,], etc...
+
+interface, delegate.*
+
+
+

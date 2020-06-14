@@ -1,0 +1,34 @@
+1 - O que são Structs.
+
+Objetivos da aula:
+
+1. Structs.
+2. Interfaces.
+3. Enums.
+
+Parte 1: Structs:
+
+Como as classes, as structs são estruturas de dados que podem conter membros de dados e membros de ação, mas, diferentemente das classes, as structs são tipos de valor e não requerem alocação de heap.
+
+heap = local da memória onde esta o valor
+
+Uma variável de um tipo de struct armazena diretamente os dados da estrutura, enquanto uma variável de um tipo de classe armazena uma referência a um objeto alocado na memória.
+
+stack**
+
+Structs não aceitam herança determinada pelo desenvolvedor.
+
+São úteis para pequenas estruturas de dados que possuem semântica de valor: números complexos, pontos em um sistema de coordenadas ou pares de chave-valor em um dicionário são bons exemplos de utilização.
+
+O uso de structs em vez de classes para pequenas estruturas de dados pode fazer uma grande diferença no número de alocação de memória.
+
+
+public struct Ponto {...} (semelhante à classe)
+
+
+Construtores de structs são chamados com o operador new, semelhante a um construtor de classe, mas em vez de alocar dinamicamente um objeto no heap gerenciado e retornar uma referência a ele, um construtor struct simplesmente retorna o próprio valor struct (normalmente em um local temporário na stack), e esse valor é copiado conforme necessário.
+
+
+https://www.eximiaco.tech/pt/category/fundamentos
+
+

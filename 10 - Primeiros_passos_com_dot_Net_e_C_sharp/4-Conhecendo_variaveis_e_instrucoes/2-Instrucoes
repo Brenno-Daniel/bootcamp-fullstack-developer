@@ -1,0 +1,34 @@
+Parte 2: Instruções.
+
+Ações de um programa são expressas usando instruções.
+
+{
+	Um bloco permite que várias instruções sejam escritas em contextos
+}
+
+
+Declaração de variaveis e constantes locais:
+
+- if
+- switch
+- while
+- do
+- for
+- foreach
+
+Instruções auxiliares:
+
+- break
+- continue
+- return
+
+Instruções para tratativa de exceções:
+
+- throw
+- try .. catch .. finally
+
+Instrução para importar referencias a pacotes e namespaces dentro do projeto:
+
+- using
+
+

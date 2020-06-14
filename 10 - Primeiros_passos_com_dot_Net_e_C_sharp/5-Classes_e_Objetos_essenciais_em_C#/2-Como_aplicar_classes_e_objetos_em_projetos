@@ -1,0 +1,26 @@
+2 - Como aplicar classes e objetos em projetos
+
+Exemplo prático
+
+Pasta 03 - CLASSES - disponibilizada pelo professor.
+
+01-Herança:
+
+this é em referencia à classe.
+
+
+Na delcaração da classe ao colocar : indica que a classe vai herdar, o C# só permite herdar de uma única classe, permite herdar de multiplas interfaces porém de classe somente uma.***
+
+
+public virtual = esse método permite que uma classe filha sobrescreva o comportamento dele.
+
+using Classes.Herança; = para utilizar a herança.
+
+método estatico (public static) pertence à classe e não à instância.*
+
+
+02-Metodos:
+
+variaveis do tipo out = permite que na chamada do método já declarar uma variável que será preenchida no retorno ou ao final da execução do método.
+
+
