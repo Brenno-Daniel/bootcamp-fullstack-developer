@@ -1,0 +1,74 @@
+1 - O que é a linguagem Python e configurar ambiente de desenvolvimento.
+
+Objetivos da aula:
+
+1. Aprender o que é a linguagem Python
+2. Principais usos da linguagem
+3. Configurar o ambineet para começar com Python
+
+
+O que é o Python?
+
+- Linguagem de programação de alto nível
+- Foi criado pelo Holandês Guido Van Rossum em 1989 no Instuto de Pesquisa Nacional para Matemática e CiÊncia da Computação (CWI)
+- Fortemente tipada
+- Interpretada e orientada à objetos
+- Linguagem de Scripts
+
+Curiosidade:
+
+Apesar de se usar a cobra Piton, o nome Python foi uma homenagem a séria Monty Python's Flyins Circus.
+
+
+Onde Python pode ser usado?
+
+- Desenvolvimento Web:
+Django, Flask, Pyramid, Tornado...
+
+- Desenvolvimento Desktop:
+Tkinter, PyQT, Kivy
+
+- Ciência de dados:
+SciPy, Pandas, IPython...
+
+- Automação:
+Desenvolvimento de scripts para automação de tarefas.
+
+
+Algumas empresas que utilizam Python:
+Youtube, Canonical, NetFlix, NASA, Instagram, Yahoo, globo.com, Microsoft, Magazineluiza...
+
+
+
+Montando o ambiente de desenvolvimento:
+
+Instalar o Python:
+
+python.org
+
+apt install python3-pip
+
+Terminal Python:
+
+Ao digitar python ou py no terminal vc acessa o terminal python para poder executar códigos python.
+
+
+print('') = imprime na tela.
+
+No python ao atribuir o valor na variavel o próprio python já identifica qual o tipo dela.
+
+
+
+O que é uma IDE?
+
+- Integrated Development Environment ou Ambiente de desenvolvimento integrado.
+- IDEs possuem enormes recursos que facilitam o desenvolvimento de aplicações.
+- Funções que são onerosas no dia a dia são simplificados pelas IDEs.
+- Traz enorme comodidade para o programador e deixa o desenvolvimento mais rápido.
+
+
+IDE Pycharm na versão Community
+
+snap install pycharm-community --classic
+
+
