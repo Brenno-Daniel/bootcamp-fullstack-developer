@@ -1,0 +1,82 @@
+1 - O que são variáveis e como manipulá-las através de operadores aritméticos e interação
+
+Objetivos da aula:
+
+1. Se aprofundar nas sintaxes básicas
+2. Aprender sobre vairávies em Python
+3. Realizar interações com usuário
+
+
+Mão na massa com o Pycharm:
+
+
+print(type(soma)) = verificar o tipo da variável
+
+
+comentar utilizando o '#'
+
+Crtl + \ para comentar mais de uma linha ou utilizando a opção "comment with line comment"
+
+
+converter um tipo de variavel = soma = str(soma)
+
+print('soma: ' + str(soma))
+
+arredondar valor = print(int(divisao))
+
+converter de string para int = int(x)
+
+comando '.format(soma)' = concatena independente do tipo para concatenar com string.
+
+
+Printar mais de uma informação na mesma linha:
+
+print('Soma: {}. Subtração: {subtracao}'.format(soma, subtracao))
+
+ou
+
+através de um alias:
+
+print('Soma: {soma}. Subtração: {sub}'.format(soma=soma, sub=subtracao))
+
+também pode colocar em linha separada utilizando o \n (seria o Enter):
+
+print('Soma: {soma}. \nSubtração: {sub}. '
+'\nMultiplicação: {multi}. '
+'\nDivisao: {div}. '
+'\nResto: {resto}'.format(soma=soma,
+sub=subtracao,
+div=divisao,
+mult=multiplicacao,
+resto=resto))
+
+Com alias não importa a ordem.
+
+
+Interalção com usuário:
+
+Podemos pedir ao usuario que digite uma informação para interagirmos com ele:
+
+comando: input()
+
+Precisa converter o valor digitado de string para inteiro**
+
+a = int(input('Entre com o primeiro valor: '))
+b = int(input('Entre com o segundo valor: '))
+
+
+Ao invés de printar diretamente podemos colocar o resultado numa variável e printar somente ela:
+
+resultado = ('Soma: {soma}. \nSubtração: {sub}. '
+'\nMultiplicação: {multi}. '
+'\nDivisao: {div}. '
+'\nResto: {resto}'.format(soma=soma,
+sub=subtracao,
+div=divisao,
+mult=multiplicacao,
+resto=resto))
+
+print(resultado)
+
+
+
