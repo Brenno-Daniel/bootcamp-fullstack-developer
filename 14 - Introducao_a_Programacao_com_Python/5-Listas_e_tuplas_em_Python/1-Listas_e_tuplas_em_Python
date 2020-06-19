@@ -1,0 +1,20 @@
+1 - Como organizar os dados em uma lista ou tupla e realizar operações com elas.
+
+
+Objetivos da aula:
+
+1. Aprender sobre listas
+2. Aprender sobre tuplas
+3. Aplicabilidade de listas e tuplas
+
+- como criar uma lista
+- manipular listas
+- realizar operações com listas
+- o que é uma tupla
+- como interagir com tuplas
+- conversões de listas e tuplas
+
+
+Tupla é imutavel e a lista é mutavel, ou seja na lista eu consiga alterar valores, modificar valores, etc, e na tupla não é possível.
+
+
