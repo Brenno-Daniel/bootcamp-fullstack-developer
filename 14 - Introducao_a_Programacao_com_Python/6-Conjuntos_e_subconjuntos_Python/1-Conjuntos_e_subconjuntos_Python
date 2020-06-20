@@ -1,0 +1,26 @@
+1 - Organizandoconjuntos e subconjuntos em Python
+
+Objetivos da aula:
+
+1. Aprender sobre conjuntos
+2. Aprender a manipular conjuntos
+3. Aplicabilidade de conjuntos
+
+
+Detalhes do que será abordado:
+
+- o que é um conjunto
+- método de união
+- método de intersecção
+- método de diferença
+- método de diferença simétrica
+- remoção de duplicidade de listas utilizando conjuntos
+
+
+Conjuntos aritméticos.*
+
+Conjunto não permite duplicidade.
+
+Super conjunto = todo sub-conjunto é um superconjunto.
+
+
