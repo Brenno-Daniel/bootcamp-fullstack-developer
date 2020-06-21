@@ -1,0 +1,21 @@
+1 - Gere, copie, mova, escreva, e leia informações de arquivos externos
+
+Objetivos da aula:
+
+1. Aprender a ler e escrever arquivos
+2. Manipular informações dos arquivos
+3. Copiar e mover arquivos
+
+Detalhes do que será visto:
+
+- como gerar e escrever em um arquivo
+- como ler informações de um arquivo
+- como trabalhar com as informações dos arquivos
+- como trabalhar melhor com Strings
+- e mais um pouco de lambda
+- como copiar e mover arquivos
+
+
+split = vai converter a string para uma lista
+
+

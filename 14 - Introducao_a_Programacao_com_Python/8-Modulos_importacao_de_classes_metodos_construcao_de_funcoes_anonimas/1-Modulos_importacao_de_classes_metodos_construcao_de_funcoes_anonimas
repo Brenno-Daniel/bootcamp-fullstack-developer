@@ -1,0 +1,38 @@
+1 - Lidando com módulos, importação de classes, métodos e construção de funções anônimas (lambda)
+
+Objetivos da aula:
+
+1. Aprender a utilizar e interagir com módulos
+2. Entender a importância de se utilizar módulos
+3. Aprender sobre funções anônimas
+
+Detalhes do que será visto:
+
+- como realizar a importação de um módulo
+- entender a importância de se trabalhar com vários módulos
+- acessando classes e métodos de um módulo
+- entendendo e trabalhando com funções anônimas (lambda)
+
+
+
+Os módulos no Python são os arquivos .py, os modulos podem interagir entre eles, inclusive pelo console do python.
+
+
+Se precisar fazer algum teste no seu modulo deve colocar:
+
+if __name__ == __main__:
+
+(só vai executar/print se for a main quem estiver chamando/executando)
+
+Outro forma seria importar somente o que necessita, por exemplo importar somente uma classe:
+
+from aula7_televisao import Televisao
+
+(importando somente a classe televisão)
+
+
+Pode acessar metodos dentro do modulo também.
+
+Lambda = Função anonima é uma forma de simplicar alguma coisa que iremos utilizar mais de uma vez no codigo.
+
+

@@ -1,0 +1,39 @@
+1 - Construindo métodos, funções e classes em Python
+
+Objetivos da aula:
+
+1. Aprender a utilização de métodos e funções no Pyhton
+2. Aprender a utilização de classes
+3. Entender os motivos para se usar métodos, funções e classes
+
+
+Detalhes do que será abordado:
+
+- o que são métodos e funções
+- como declarar métodos e funções
+- vantagens de se utilizar métodos e funções
+- como implementar class
+- vantagens de se utilizar classes
+
+
+Função é tudo que retorna um valor e método não retorna.
+
+Definição para declarar um metodo em python: def
+
+Vantagem de reaproveitamento de código.
+
+
+Classe:
+
+Para inicializar valores dentro da classe deve utilizar o nmetodo __init__
+
+self é para referenciar o proprio objeto.
+
+
+Exemplo do codigo de TV: Python já entende que é true e entra dentro da condicional.
+
+
+Vantagem de classes: fica mais simples e protegido, tudo dentro de um objeto só.
+
+
+
