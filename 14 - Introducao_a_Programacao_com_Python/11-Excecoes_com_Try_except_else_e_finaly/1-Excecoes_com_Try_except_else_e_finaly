@@ -1,0 +1,44 @@
+1 - Gerenciando e criando exceções customizadas com try, except, else e finaly
+
+Objetivos da aula:
+
+1. Aprender a utilizar tratamento de exceções
+2. Entender a importância de se utilizar exceções
+3. Aprender a customizar exceções
+
+Detalhes do que veremos:
+
+- como lançar uma exceção genérica
+- utilizar exceções específicas
+- encadeamento de exceções
+- Else e Finaly
+- criação de exceções customizadas
+
+
+Hierarquia das classes de exceções:
+
+BaseException = como se fosse a exceção pai, todo o erro pertence ao BaseException, se eu colocor ele como primeira exceção então todas irão cair nele.
+É util para tratar alguma exceção imprevista.
+
+
+Sabendo da hierarquia colocamos sempre os filhos no topo das exceções, as ultimas exceções da hierarquia, exemplo: ZeroDivisionError (filho) antes de ArithmeticError (pai).
+
+
+Else = Executa mais código quando não tem exceção.
+Útil quando temos código que só pode ser executado se não ocorrer nenhum erro.
+
+Tudo que estiver no finally será executado, independente se der erro ou não.
+
+
+Exceção personalizada:
+
+While True (enquanto verdade for verdade)= loop infinito, para parar o loop deve-se utilizar o break.
+
+Por convenção toda classe de erro tem que terminar com nome em Error.
+
+Sempre terá de ter um classe error, e quando criar sua classe personalizada ela irá herdar a classe error.
+
+
+raise = irá forçar uma exceção
+
+

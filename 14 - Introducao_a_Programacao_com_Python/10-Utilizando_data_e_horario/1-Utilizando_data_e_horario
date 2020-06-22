@@ -1,0 +1,37 @@
+1 - Utilizando informações de data, horário e relacionar datas diferentes
+
+Objetivos da aula:
+
+1. Aprender a manipular data e hora
+2. Realizar conversão de texto para data e vice versa
+3. Realizar soma e subtração em datas
+
+Detalhes do que veremos:
+
+- como recuperar a data atual (DATE)
+- como trabalhar com a data, alterando sua formação
+- como gerar um horário (TIME)
+- retornar data e hora atual (DATETIME)
+- alterar formação do DATETIME
+- realizar soma e subtração de datas com TIMEDELTA
+
+
+
+
+time = consegue criar uma hora, realizar conversão para hora
+
+
+datetime = aborda tanto data quanto horario.
+
+%c (somente datetime) = traz completo: dia e mês (nome), ano (2 digitos) hora (%H:%M:%S) e ano (4 digitos).
+
+Para retornar o dia da semana pode se usar uma tupla com o nome dos dias da semana e a diretiva weekday(), mesma coisa para os meses com o month()
+
+É possível criar data com datetime tambem.
+
+Converter data em string para datetime.
+
+Subtração e soma com timedelta.
+
+
+
