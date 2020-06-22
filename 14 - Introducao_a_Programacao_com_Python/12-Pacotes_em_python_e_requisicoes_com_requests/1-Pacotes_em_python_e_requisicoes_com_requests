@@ -1,0 +1,44 @@
+1 - Instalando e utilizando pacotes em Python e realizar requisições com requests
+
+Objetivos da aula:
+
+1. Entender o que são pacotes
+2. Aprender a instalar e utilizar pacotes
+3. Aprender a fazer requisições http (cahamda de APIs)
+
+Detalhes do que veremos:
+
+- o que são pacotes
+- o que é o instalador de pacotes do Python (PIP)
+- como instalar um pacote no Python
+- como listar pacotes instalados no Python
+- como utilizar um pacote
+- instalar nosso primeiro pacote (Requests)
+- realizar uma requisição http com requests
+
+
+PIP - pacote que possibilita instalar pacotes
+
+pip --version = ver versão e onde esta instalado.
+
+pip freeze = pacotes instalados
+pip list = listar os que já estão instalados
+
+
+Pacotes ou bibliotecas = estrutura de pastas, assuntos e os módulos que tem a ver com aquele assunto.
+
+
+Teste com viacep para enviar requisições http em formato JSON.
+
+GET = requisição http GET
+
+
+Raspagem de dados através de requests http.
+
+Virtualenv = ambiente virtual
+
+Virtualenv consegue separar as versões dos pacotes instalados que o projeto esta utilizando.
+
+No ambiente virtual é necessário realizar a instalação dos pacotes novamente via pip install.
+
+
