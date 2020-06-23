@@ -1,0 +1,13 @@
+/home/brenno/Área de Trabalho/repositorios-Git/aprendendo-dotNET-Core-e-Csharp/Primeiros passos com .NET + C# - Digital Innovation One/Aula7-Revisao/bin/Debug/netcoreapp3.1/Aula7-Revisao
+/home/brenno/Área de Trabalho/repositorios-Git/aprendendo-dotNET-Core-e-Csharp/Primeiros passos com .NET + C# - Digital Innovation One/Aula7-Revisao/bin/Debug/netcoreapp3.1/Aula7-Revisao.deps.json
+/home/brenno/Área de Trabalho/repositorios-Git/aprendendo-dotNET-Core-e-Csharp/Primeiros passos com .NET + C# - Digital Innovation One/Aula7-Revisao/bin/Debug/netcoreapp3.1/Aula7-Revisao.runtimeconfig.json
+/home/brenno/Área de Trabalho/repositorios-Git/aprendendo-dotNET-Core-e-Csharp/Primeiros passos com .NET + C# - Digital Innovation One/Aula7-Revisao/bin/Debug/netcoreapp3.1/Aula7-Revisao.runtimeconfig.dev.json
+/home/brenno/Área de Trabalho/repositorios-Git/aprendendo-dotNET-Core-e-Csharp/Primeiros passos com .NET + C# - Digital Innovation One/Aula7-Revisao/bin/Debug/netcoreapp3.1/Aula7-Revisao.dll
+/home/brenno/Área de Trabalho/repositorios-Git/aprendendo-dotNET-Core-e-Csharp/Primeiros passos com .NET + C# - Digital Innovation One/Aula7-Revisao/bin/Debug/netcoreapp3.1/Aula7-Revisao.pdb
+/home/brenno/Área de Trabalho/repositorios-Git/aprendendo-dotNET-Core-e-Csharp/Primeiros passos com .NET + C# - Digital Innovation One/Aula7-Revisao/obj/Debug/netcoreapp3.1/Aula7-Revisao.csprojAssemblyReference.cache
+/home/brenno/Área de Trabalho/repositorios-Git/aprendendo-dotNET-Core-e-Csharp/Primeiros passos com .NET + C# - Digital Innovation One/Aula7-Revisao/obj/Debug/netcoreapp3.1/Aula7-Revisao.AssemblyInfoInputs.cache
+/home/brenno/Área de Trabalho/repositorios-Git/aprendendo-dotNET-Core-e-Csharp/Primeiros passos com .NET + C# - Digital Innovation One/Aula7-Revisao/obj/Debug/netcoreapp3.1/Aula7-Revisao.AssemblyInfo.cs
+/home/brenno/Área de Trabalho/repositorios-Git/aprendendo-dotNET-Core-e-Csharp/Primeiros passos com .NET + C# - Digital Innovation One/Aula7-Revisao/obj/Debug/netcoreapp3.1/Aula7-Revisao.csproj.CoreCompileInputs.cache
+/home/brenno/Área de Trabalho/repositorios-Git/aprendendo-dotNET-Core-e-Csharp/Primeiros passos com .NET + C# - Digital Innovation One/Aula7-Revisao/obj/Debug/netcoreapp3.1/Aula7-Revisao.dll
+/home/brenno/Área de Trabalho/repositorios-Git/aprendendo-dotNET-Core-e-Csharp/Primeiros passos com .NET + C# - Digital Innovation One/Aula7-Revisao/obj/Debug/netcoreapp3.1/Aula7-Revisao.pdb
+/home/brenno/Área de Trabalho/repositorios-Git/aprendendo-dotNET-Core-e-Csharp/Primeiros passos com .NET + C# - Digital Innovation One/Aula7-Revisao/obj/Debug/netcoreapp3.1/Aula7-Revisao.genruntimeconfig.cache

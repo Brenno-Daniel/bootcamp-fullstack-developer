@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Aula3___Tipos_e_Variaveis__Instrucoes_e_Arrays</RootNamespace>
+  </PropertyGroup>
+
+</Project>
