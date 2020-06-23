@@ -1,0 +1,70 @@
+Conceitos e atividades essenciais para o sucesso de um projeto ágil
+
+Objetivos da aula:
+
+1. Estórias VS Tarefas 
+2. Critérios de Aceite, Estimativa e Planejamento de tarefas
+3. Relacionamento com Clientes / Stakeholders
+
+Parte 1: Estórias VS Tarefas
+
+Estória = é um conjunto de tarefas
+Épico = é um conjunto de estórias
+
+Começamos pensando no épico do projeto.
+
+Exemplo de estória:
+
+- Nome da Estória
+- Descrição da Estória (eu, Como, Quero, Quando)
+- Regras de Negócio ( Separar Regras de Front-End de regras de Backu-End)
+- Tela (Link ou imagem das telas a serem desenvolvidas)
+- KPI (Quais os objetivos/valor a estória precisa atingir)
+- Tagueamento (Como a estória será 'Tagueada" para poder mensurar os KPIs)
+- Critérios de Aceite (Qual o passo a passo de todos os Caminhos Felizes possíveis a estória deve cumprir para que ela seja considerada aceita)
+
+
+Estória é sempre em nível de negócio.
+
+
+Tarefas = Conjunto de tarefas que o time de desenvolvimento deve desempenhar para entregar a estória.
+
+
+
+Parte 2: Critérios de aceite, Estimativa e Planejamento de Tarefas.
+
+Critério de aceite:
+
+É uma lista de critérios que precisam ser alcançados para que a User Story atenda os requisitos do usuário e eja aceita pelo Product Owner.
+Os critérios de aceitação têm o objetivo de: definir limites para as user stories. Ajudar o P.O. a detalhar em alto nível o que é necessário para entregar valor ao cliente.
+
+Ou seja é o objetivo que aquela estória tem que concluir.
+
+Critério de aceite é uma lista de critérios para que a estória atenda aos requisitos do cliente.*
+
+Como P.O a primeira coisa que se tem que descobrir é o objetivo que se deseja atingir.
+
+Planning Poker = Fazer estimativas do tamanho das tarefas em times ageis.
+
+Uma atividade de mensuração do esforço e complexidade das tarefas ou estórias.*
+
+O time fica muito próximo e um ajuda o outro.
+
+Modelo de tamanho de camisa (Planning Tshirt size).
+
+Planejamento:
+
+Planning: divida em duas etapas:
+
+1 - o PO pega o itens mais refinados e priorizados e apresentar ao time
+2 - sugerido que o PO não participe para não influenciar as atividades, o time pega cada estória e escrever quais atividades deverao ser desenvolvidas para que sejam entregues.
+
+
+
+Parte 3: Relacionamento com Clientes / Stakeholders:
+
+O stakeholder é uma pessoa ou um grupo que legitima as ações de uma organização e que tem um papel direto ou indireto na gestão e sesultados dessa mesma organização. Desta forma, um stakeholder pode ser afetado positivamente, dependendo das suas ppolíticas e forma de atuação.
+
+Alguns exemplos de stakeholder de uma empresa podem ser os seus funcionários, gestores, gerentes, proprietários, fornecedores, concorrentes, ONGs, clientes, o Estado, credores, sindicatos e diversas outras pessoas ou empresas que estejam relacionadas com uma determinada ação ou projeto.
+
+

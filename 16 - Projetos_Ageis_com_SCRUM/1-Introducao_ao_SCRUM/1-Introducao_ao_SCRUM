@@ -1,0 +1,86 @@
+1 - Introdução ao SCRUM
+
+Objetivos da aula:
+
+1. Conceitos básicos
+2. Papeis e responsabilidades de cada um do time
+3. Cerimônias do SCRUM
+
+
+Parte 1: Conceitos básicos
+
+
+Desafios do Desenvolvimento de Software: 
+
+Objetivos => Requisitos => Tradicional*: Processo de desenvolvimento: concepção, Análise & Design, Desenvolvimento, Testes, Implantação => Software.
+
+(...) o Princípio de Pareto tabém se aplica ao desenvolvimento de software, onde 20% das funcionalidades costumam gerar 80% do benefício esperado.
+
+Gestão de Projetos Tradicional x Ágil:
+
+Tradicional (Waterfall): Só permite que o projeto avance quando uma fase está insteiramente completa.
+
+- Requirement/ requisitos: Requirimento Doc., Prepare Use Case.
+- Design: Software architeture, mapp the stakeholders.
+- Implementation: Construct the software, Data Storage & retrieval
+- Verification: install, Test and debug.
+- Maintenance: Check errors, optimize capabilities
+
+
+Ágil: Software construído por partes (incremental) e cada parte executa-se em um ciclo (iterativo), no máximo em um mês esse ciclo de iteração.
+
+Comparativo entre Tradicional e Agil:
+
+Tradicional							||	Agil
+Escopo definido na fase inicial do Projeto (Preditivo).		|| Escopo definido ao longo do Projeto (Adaptativo).
+Projeto é controlado por fases e marcos.			|| Projeto é controlado por funcionalidades entregues
+Cliente só vê o software funcionando na fase final do Projeto	|| Cliente pode ver parte do Software funcionando na parte inicial do Projeto
+Resistência a mudanças						|| Mudanças constantes de acordo com feedbacks contínuos.
+
+
+Em projetos tradicionais (Waterfall), você corre o risco de descrobrir que estava errado depois de meses. Com o SCRUM, você descobre que estava errado em no máximo 30 dias.
+
+O que é ser Agil?
+Agil é diferente de Rápido.
+
+- Rapidez (mudança) e desebaraço.
+- Fazer coisas complexas de forma simples.
+- Equipe comprometida com os objetivos.
+- Maior valor para o cliente.
+
+*Ter capacidade de responder rapidamente a mudanças.*
+
+
+SCRUM:
+
+- SCRUM é um dos frameworks de gerenciamento de projetos ageis.
+- Projetos usando equipes pequenas e multidisciplinares produzem os melhores resultados.
+
+Pilares do SCRUM: Transparencia, Adaptação e Inspeção
+
+- Conversar mais e escrever menos; (tranparencia)
+- Demonstrar o software constantemente aos usuários e obter feedbacks constantes; (tranparencia)
+- Requisitos mudam ao longo do tempo; (adaptação)
+- Aprender progressivamente com o uso do software. (inspeção)
+
+
+Razões para adotar o SCRUM:
+
+- DEsenvolvido e entregue em partes menores (2 a 4 semanas), com constante feedback dos usuários;
+- Melhor gerenciamento de riscos; (Redução de incertezas)
+- Comprometimento, motivação e transparência da equipe. (Daily Meeting);
+- Mais valor para o negócio; (Priorização do Backlog)
+- Usuário envolvidos durante todo o ciclo;
+- Aplicação das Lições Aprendidas. (melhoria contínua)
+
+Caraterísticas do time SCRUM:
+
+- Equipes capazes de se auto-organizarem;
+- As tarefas são do time e todos são responsáveis;
+- Forta comprometimento com os resultados.
+
+Curiosidade: Por que as Startups utilizam framework ágil?
+
+MVP - Minimum Viable Product = O que eu preciso entregar ao usuário para conseguir utilizar o software.
+
+

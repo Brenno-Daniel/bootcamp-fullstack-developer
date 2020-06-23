@@ -1,0 +1,71 @@
+3 - Cerimônias do SCRUM
+
+Time Box:
+
+Tempo máximo para fazer uma cerimônia ou Sprint.
+
+Sprint = corrida, arrancada.
+
+É o principal evento do SCRUM.
+
+Duração de 1 Sprint:
+
+- 30 dias corridos (ou menos) - Quem define é o time DEV, PO e Scrum Master.
+
+Composição de uma Sprint:
+
+- Planejamento da Sprint;
+- Reuniões Diárias (Daily Meeting);
+- Revisão da Sprint (Review);
+- Retrospectiva da Sprint.
+
+Exemplo: Daily Meeting - Time Box: 15 minutos.
+
+
+Planejamento da Sprint:
+
+- Participa o PO, Time DEV e Scrum Master.
+- Time Box: 8h (Sprint 30 dias)
+- Nas primeiras 4h - objetivo: o que fazer? = o PO explica o que ele deseja na sprint (funcionalidades e entrega da sprint)
+- Nas 4h restantes - objetivo: como fazer? = time DEV quebra as atividades e entende tecnincamente o que precisa ser feito e estimando o tempo das atividades.
+
+No planejamento o time pode utilizar varias ferramentas e tecnicas, uma delas é a Planning Poker:
+
+Utiliza baralho, cada um opina uma estimativa de cada tarefas, depois de estimar todas as tarefas é possível estimar o que realmente será possível entregar na sprint e devolve isso ao PO.
+
+
+Reuniões Diárias (Daily Meeting): Também conhecido como standup meeting
+
+- Participam o DEV, PO e Scrum Master.
+- DEV reponde 3 perguntas:
+
+1. O que fez no dia anterior?
+2. O que esta programado para o dia?
+3. O que existe de impedimento?
+
+- Reunião feita de pé, num horário definido.
+- Time Box: 15 minutos
+
+Quadro Kanban:
+
+Próprio time vai atualizar as tarefas que estão fazendo.
+
+To do (a fazer) | Doing (fazendo) | Done (realizado)
+
+
+Revisão da Sprint (Review):
+
+Time DEV apresenta para o PO o trabalho feito.
+
+Time Box: 4h  (Sprint 30 dias).
+
+
+Retrospectiva da Sprint:
+
+Reunião da equipe para Lições Aprendidas.
+
+Transparência. *
+
+Time Box: 3h (Sprint 30 dias).
+
+

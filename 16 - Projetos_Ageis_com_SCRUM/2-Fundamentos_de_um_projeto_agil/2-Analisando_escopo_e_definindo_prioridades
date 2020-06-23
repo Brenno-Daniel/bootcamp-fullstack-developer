@@ -1,0 +1,40 @@
+Parte 2: Analisando escopo e definindo prioridades
+
+
+Definindo Escopo e Prioridade:
+
+Forma eficiente é inverter a ordem e enteder qual o objetivo e valor que quer entregar e onde quer chegar.
+
+Entender o ganho primeiro e depois definir o escopo do projeto.**
+
+Product Backlog:
+
+O Product Backlog é composto por Épicos e Estórias.**
+
+Épicos = incremento sem muito detalhamento, ajuda a te direcionar dos caminhjos que deve seguir.
+Estória = Detalhamento dos épicos, um épico normalomente se divide em várias estórias, onde ficam descritos o que deve acontecer e suas regras de negócio.
+
+
+TASKS ou atividades = escritas pelo DEV e podem haver N tasks pra cada estória.
+
+Escrevendo uma Estória:
+
+- Nome da Estória
+- Descrição da Estória (eu, Como, Quero, Quando)
+- Regras de Negócio ( Separar Regras de Front-End de regras de Backu-End)
+- Tela (Link ou imagem das telas a serem desenvolvidas)
+- KPI (Quais os objetivos/valor a estória precisa atingir)
+- Tagueamento (Como a estória será 'Tagueada" para poder mensurar os KPIs)
+- Critérios de Aceite (Qual o passo a passo de todos os Caminhos Felizes possíveis a estória deve cumprir para que ela seja considerada aceita)
+
+
+Riscos Positivos:
+
+Positivos = Muito ignorado nos projetos, porém um dos fatores de maiores ganhos no desenvolvimento de sistemas.
+
+Negativos = Itens que podem afetar o prazo, custo ou escopo de um projeto de maneira que pode acabar inviabilizando-o.
+
+Importância de mapear Riscos Positivos é poder priorizarr outros itens no backlog.**
+
+
+

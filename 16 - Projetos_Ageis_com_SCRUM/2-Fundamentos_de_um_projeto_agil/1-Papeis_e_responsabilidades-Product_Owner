@@ -1,0 +1,58 @@
+1 - Papéis e responsabilidades - Product Owner
+
+Objetivos da aula:
+
+1. Papéis e Responsabilidades do Product Owner
+2. Analisando escopo e definindo prioridades
+3. Papel do PO na Transformação Digital
+
+Parte 1: Papéis e responsabilidades do PO:
+
+Quem é o PO?
+
+O Product Owner (PO) representa o profissional que tem a visão do que será desenvolvido, as necessidades a serem atendidas, o publico que vai utilizar os serviços e os objetivos a serem alcançados.
+
+Papéis e Responsabilidades:
+
+Product Owner (PO), Scrum Master (SM), Time de Desenvolvimento (DEV).
+
+
+Product Owner:
+
+- Representante da área de negócios;
+- PO não é um comitê;
+- Define as funcoinalidades do software (Product Backlog);
+- Prioriza as funcoinalidades de acordo com o valor do negócio;
+- Garante que o time de desenvolvimento entenda os itens do Backlog no nível necessário.
+
+
+Refining e Planning:
+
+Refining o PO apresenta previamento pro time as historia que deverão ser apresentadas na Planning.
+Objetivo é o time já saber o que será desenvolvido e realizar perguntas ao PO.
+Nessa cerimonia é permitida a participação dos stakeholders.
+
+Planning: divida em duas etapas:
+
+1 - o PO pega o itens mais refinados e priorizados e apresentar ao time
+2 - sugerido que o PO não participe para não influenciar as atividades, o time pega cada estória e escrever quais atividades deverao ser desenvolvidas para que sejam entregues.
+
+
+Release Planning:
+
+Liberação ou lançamento de software (em inglÊs: release) é o lançamento de nova versão oficial de prroduto de software. Cada vez que um produto de software é criado ou modificado, o fabricante e seus desenvolvedores decidem sobre como distribuir ou o novo produto ou a modificação às pessoas que o utilizam.
+
+Existem 2 tipos de Release Planning:
+
+- Release Planning  de Múltiplas Squads (Parte técnica, não tem ação direta do PO):
+
+Varios times de de agrupado fazendo atividades distintas que podem ou nao ter correlação entre as atividades, mas que ao final da sprint devem ser agrupadas em uma release para ser enviada para produção.
+
+- Release Planning de Projeto:
+
+PO posusi demanda muito grande, necessário quebrar entrega em várias estórias e por consequencia quebrar em várias sprints, exige-se um certo nível de senioridade do PO neste caso.
+
+
+PO e Gerente de Projetos são coisas diferentes. *
+
+
