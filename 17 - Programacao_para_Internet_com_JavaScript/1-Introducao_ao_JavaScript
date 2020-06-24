@@ -1,0 +1,27 @@
+Introdução ao JavaScript
+
+Objetivos da aula:
+
+1. Entender como funciona o Javascript
+2. Aprender a programar utilizando JavaScript
+3. Desenvolver páginas utilizando JavaScript
+
+
+Javascript:
+
+- Liguagem de script e multiplataforma
+- Client Side - É executado do lado do cliente (usuário)
+- Tem capacidade de interagir com elementos de uma página HTML
+- Muito usado no desenvolvimento de páginas e também em aplicativos mobile hibrido
+
+
+DOM - Documento Object Model:
+
+- Javascript pode alterar todos elementos do HTML.
+- Javascript pode alterar todos os atributos e estilos de CSS de uma página.
+
+
+Parte prática!
+
+Inspecionar os elementos da página você consegue verificar a estrutura do projeto, e consegue ver o JS pois ele é Client Side.
+
