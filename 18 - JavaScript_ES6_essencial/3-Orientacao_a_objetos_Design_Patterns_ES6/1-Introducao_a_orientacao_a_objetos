@@ -1,0 +1,36 @@
+Introdução a orientação a objetos
+
+Objetvos da aula:
+
+- herança
+- classes
+- modificadores de acesso
+- encapsulamento
+- static
+
+
+Herança:
+- baseada em protótipos
+- prototype = armazeena as definições do nosso objeto
+- __proto__
+- constructor
+
+new = novo objeto é criado a partir da função construtora
+
+
+Classes:
+- ES6
+- simplificação da herança de protótipos
+- palavrqa chave class
+
+Modificadores de acesso = javascript não tem
+- privado / publico = controle do que é privado e publico dentro da classe
+- o # é o modificador de acesso, ele quem define se é privado
+
+Encapsulamento:
+- ocultar detalhes do funcionamento interno
+
+Static:
+- acessar metodos e atributos sem instanciar.
+
+

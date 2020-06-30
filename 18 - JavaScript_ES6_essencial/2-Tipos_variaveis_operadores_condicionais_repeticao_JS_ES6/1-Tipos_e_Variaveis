@@ -1,0 +1,89 @@
+Tipos e Variáveis
+
+6 tipos primitivos:
+
+- string
+- number
+- boolean
+- null
+- undefined
+- symbol = permite criar valores únicos
+- object
+- function = também é um objeto mas permite que ele seja "chamado".
+- array = também é um objeto mas tem uma relação com os itens dele, que são os filhos dele.
+
+
+Exemplos praticos:
+
+Strings:
+
+length = quantidade de caracteres que tem.
+
+split = quebrar por meio de um delimitador
+
+relpace = trocar um texto, parte da string
+
+slice = retorna uma fatia da string, passando o start e o end (inicio e fim) como delimitador.
+slice (-1) = ultima letra da string.
+slice (0, -1) = valor da string da primeira letra menos a ultima.
+slice (1) = valor da string da segunda letra até a ultima.
+
+substr = retorna n caracteres a partir de uma posição, passa como parametro o começo e a quantidade de caracteres: substr(0, 2).
+
+
+Numeros:
+
+toString = transforma numero para string
+
+toFixed = retorna com numero fixo de casas decimais
+
+parseFloat = transforma string em float
+
+parseInt = transforma string em int
+
+JS só tem number, nao tem diferenciação entre int e float por exemplo
+
+
+Undefined:
+
+verificar se a veriavel esta definida ou não com:  typeof undefinedVariable
+
+
+Object:
+
+object.keys = recupera as chaves do objeto
+
+object.values = recupera os valores das chaves do objeto
+
+object.entries = retorna um array de arrays contendo [ nome_prop, valor_prop ]
+
+object.assign = mergear propriedades de objetos.
+Pode adicionar novas propriedades ao objeto.
+Ideal sempre quando precisar alterar é criar um novo objeto, sem alterar o objeto principal.
+
+object.freeze = previne todas as alterações em um objeto.
+
+
+object.seal = permite apenas a alteração de propriedades existentes em um objeto.
+
+
+Symbol:
+
+Conseguimos criar chamando a função um "cara" unico.
+
+- symbol é um atributo unico.
+
+- previnir conflito entre nomes de propriedades.
+
+- symbols criam propriedades que não são enumerables.
+
+- exibir symbols de um objeto:
+object.getOwnPropertySymbols(...)
+
+- acessando todas as propriedades do objeto:
+Reflect.ownKeys(...)
+
+- criar um enum.
+
+
+

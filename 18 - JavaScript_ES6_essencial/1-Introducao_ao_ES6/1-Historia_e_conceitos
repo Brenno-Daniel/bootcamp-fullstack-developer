@@ -1,0 +1,105 @@
+História e conceitos
+
+Objetivos da aula:
+
+1. História e conceitos
+2. Tipos e variáveis
+3. Operadores
+4. Estruturas condicionais e repetição
+
+História e conceitos:
+
+- Lançado em setembro de 1995
+- Criada por Brendan Eich
+- ECMAScript = especificação da linguagem de programação
+
+- TC39 = comite responsavel pela evolução JavaScript.
+
+- Fluxo de proposta:
+
+Stage 0: strawman
+
+- submeter um formulario com a ideia para evoluir o ECMAScript.
+- por um membro ou contribuidor registrado no TC39.
+- obrigatorio o documento ser revisado e depois adicionado as paginas da proposta como stage 0.
+
+Stage 1: proposal
+
+- prosposta formal da funcionalidade
+- nessa etapa vai ter o campeao e precisa ser um membro da TC39.
+- possivel ter varias alterações da proposta nessa etapa.
+
+Stage 2: draft
+
+- primeira versao da proposta que entra na especificação
+- proposta precisa ter uma descrição formal da sintaxe e semantica da funcionalidade.
+- duas implementações sao necessarias, uma pode rodar pelo babel.
+
+
+Stage 3: candidate
+
+- prosposta quase finalizada.
+- feedback de implementação e de usuários para progredir.
+- especificação tem de estar completa
+- algumas revisões da TC39 que nao podem ser feitas pelo campeao responsavel e o editor responsavel pelo ECMAScript precisa assinar essa especificação.
+- deve ter pelo menos duas implementações compatíveis com a especificação.
+
+
+Stage 4: finished
+
+- prosposta ja esta madura e pronta para ser incluida na especificação
+- tem que estar passando na suite de testes.
+- tem que ter duas implementações compativeis com a especificação que passa nos testes.
+- tem que ter esperiencia pratica e significativa na implementação.
+- editor responsavel pelo ECMAScript deve assinar essa especificação.
+
+- ES2018: (última especificação)
+
+- operadores rest/spread
+- iteração assíncrona
+- promise.prototype.finally()
+
+- ES.Next:
+Especificação que possui futuras implementações.
+
+Pode testar elas pelo Babel.
+
+Babel = transpilador de javascript, transforma uma determinada versão em uma especificação antiga, pega a implementaçaõ da funcionalidade nova e transforma numa antiga em que mais browsers tenham suporte.
+
+
+Conceitos:
+
+- Linguagem interpretada:
+
+código é executado de cima para baixo e imediatamente já é executado, e o resultado já é retornado.
+
+- Linguagem de tipagem fraca e dinâmica:
+
+Significa que não há verificação em todas as operações no javascript, exemplo pode utilizar o operador de soma em numeros e strings sem que ocorra um erro.
+
+
+- Typescript:
+
+Superset do javascript, além de conseguir adicionar tipos em tempo de desenvolvimento pro JS, ele adiciona funcionalidades que o JS nao tem por padrao, ex: interface, enums, tipos generics, etc.
+
+
+- Flow:
+
+Semelhante ao typescript em relação a checagem de tipos.
+
+
+- Funções de primeira classe e ordem maior:
+
+Função de primeira classe = a função pode ser atribuida a uma variavel, a uma estrutura de dados, passadas por argumentos e até retornadas por outras funções.
+
+
+- Closure:
+
+Também conhecida como escopo léxico, é a capacidade de uma função lembrar do ambiente em que ela foi criada.
+
+Três tipos de escopo agora, antes do ES6 tinhamos somente dois escopos que eram o escopo global e escopo de função, com a inclusão do let/const temos o escopo de bloco também.
+
+
+Função pura = é uma função que recebe um parametro e retorna alguma coisa.
+
+

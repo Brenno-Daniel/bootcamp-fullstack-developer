@@ -1,0 +1,78 @@
+Spread, estruturas condicionais e repetição
+
+Spread:
+
+trabalhando com array ou com objeto, ele nos permite iterar a cada item e passar por parâmetro.
+Muito utilizado quando por exemplo queremos concatenar arrays, sempre utilizando o conceito da imutabilidade, nunca mexendo no já existente, sempre criando um novo a partir do que já existe.
+
+var partes = ['ombro', 'joelhos'];
+var musica = ['cabeca', ...partes, 'e', 'pés']
+
+o que ele irá fazer:
+
+var musica = ['cabeca', 'ombro', 'joelhos', 'e', 'pés']
+
+Outro exemplo:
+
+function fn(x, y, z) {}
+var args = [0, 1, 2];
+fn(...args);
+
+O que ele irá fazer:
+
+x = 0, y = 1 e z = 2
+
+
+Operadores unários:
+
+delete something; = Deletar algo
+
+typeof something; = Determinar tipo
+
+
+Operadores binários:
+
+in:
+something in somethingItems
+
+Arrays:
+var arvores = new Array("pau-brasil", "loureiro", "cedro", "carvalho", "sicômoro");
+
+0 in arvores; // retorna true
+6 in arvores; // retorna false
+"cedro" in arvores; // retorna false (você deve especificar o número do índice, não o valor naquele índice)
+
+instanceof = retornar se é uma instancia de um objeto
+objeto instanceof tipoObjeto
+
+var dia = new Date(2018, 12, 17);
+if(dia instanceof Date) {
+	// code here
+} 
+
+
+Estruturas condicionais e repetição:
+
+Condicionais:
+- if, else, else if
+- switch
+
+Repetição:
+
+- for
+- while
+- do ...while
+- for ...in
+- continue = pula para proxima condição, pula uma iteração
+- break = consegue matar o processo
+
+
+
+while só executa se a condição for verdade, o do while executa pelo menos uma vez, o do executa antes da verificação da condição.
+
+for in faz para cada propriedade que existe.
+for of só executa para propriedades numeradas.
+
+
+
+

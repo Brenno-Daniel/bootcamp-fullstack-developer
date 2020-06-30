@@ -1,0 +1,52 @@
+Currying, Hoisting, Imutabilidade, Tipos e Variáveis
+
+JS não é uma linguagem por padrão funcional, mas conseguimos escrever códigos funcionais e ir adaptando ela.
+
+Currying - tranformar uma funçao com n parametros em uma função que recebe um parametro, pra cada parametro retorna uma função.
+
+
+Hoisting - significa levantar ou suspender algo.
+
+As declarações de variaveis e funções são elevadas ao escopo em que ela está, bloco, função ou global.
+
+Hoisting podemos separar em dois tipos = variaveis e funçoes.
+
+hoisting de variaveis = só eleva a criação da variavel e nao sua atribuição
+
+hoisting de função = é elevada ao topo como um todo.
+
+
+Boa prática declarar a função antes de usar.**
+
+
+Imutabilidade = em linguagens funcionais os dados nunca mudam, isso siginifica ser imutável.
+Se precisa alterar a variavel, você precisa criar uma nova.
+
+Passar por referencia = Se alterar vai alterar o local para onde a variavel aponta.
+
+
+
+Tipos e Variaveis:
+
+- var = pioneiro
+- let
+- const
+
+const = ao atribuir a um tipo primitivo não é permitido alterar o valor, porém se criar um objeto ele permite alterar as propriedades dele.
+
+Também é possível utilizar uma função para congelar um objeto para não ser possível alterá-lo.
+
+Não é uma boa prática escrever em escopo global. **
+
+
+
+Questionário:
+
+O que é hoisting?
+
+Hoisting ou içamento é a capacidade do JavaScript elevar a criação de variáveis e funções ao topo do escopo de suas criações. Existem dois tipos de Hoisting: hoisting de variável e hoisting de função.
+
+
+
+
+

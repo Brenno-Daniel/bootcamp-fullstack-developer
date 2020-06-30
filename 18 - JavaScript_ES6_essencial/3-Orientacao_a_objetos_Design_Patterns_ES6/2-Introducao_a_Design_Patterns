@@ -1,0 +1,247 @@
+Introdução a Design Patterns
+
+Obejtivos da aula:
+
+- Definição
+- Tipos
+- Patterns mais utilizados
+
+
+Design Patterns:
+
+Design Patterns ou padrões de projetos são soluções generalistas para problemas durante o desenvolvimento de um software. Não se trata de um framework ou um código pronto, mas de uma definição de alto nível de como um problema comum pode ser solucionado.
+
+Surgiu no lilivro A Pattern Language:
+- 1978
+- Christopher Alexander, Sara Ishikawa e Murray Silverstein
+- 253 tipos de problemas/desafios de projetos
+
+Formato de um pattern:
+- Nome
+- Exemplo
+- Contexto
+- Problema
+- Solução
+
+Palestra Using Pattern Languages for Object-Oriented Programs:
+- 1987
+- Kent Back e Ward Cunningham
+- 5 padrões de projetos
+
+Kent Back = Criador do Extreme Program (XP) e do TDD. **
+
+
+Design Patterns: Elements of Reusable Object-Oriented Software
+- 1994- Gang of four (GoF)
+- Erich Gamma, Richard Helm, Ralph Johnson e John Vlissides
+
+Tipo:
+- Criação
+- Estruturais
+- Comportamentais
+
+Padrões de criação:
+
+Os pradrões de criação são aqueles que abstraem e/ou adiam o processo de criação dos objetos. Eles ajudam a tornar um sistema independente de como seus objetos são criados, compostos e representados.
+
+Dentro desses padrões os mais famosos são:
+
+- Abstract Factory 
+- Builder
+- Factory Method
+- Prototype
+- Singleton
+
+
+Padrões estruturais:
+
+Os padrões estruturais se preocupam com a forma como classes e objetos são compostos para formar estruturas maiores.
+
+Padrões estruturais:
+
+- Adapter
+- Bridge
+- Composite
+- Decorator
+- Facade
+- Business Delegate
+- Flyweight
+- Proxy
+
+
+Padrões comportamentais:
+
+Os padrões de comportamento se concentram nos algoritmos e atribuições de responsabilidades entre os objetos. Eles não descrevem apenas padrões de objetos ou de classes, mas também os padrões de comunicação entre os objetos.
+
+Dentre os padrões comportamentais temos:
+
+- Chain of Responsibility
+- Command
+- Interpreter
+- Iterator
+- Mediator
+- Observer
+- State
+- Strategy
+- Template Method
+- Visitor
+
+
+Padrões mais utilizados no JS:
+
+- Factory
+- Singleton
+- Decorator
+- Observer
+- Module
+
+
+Factory:
+
+Todas as funções que retornam um objeto, sem a necessidade de chamá-las com o new, são consideradas funções Factory (fábrica).
+
+***************************
+
+Exemplo:
+
+(Não Facrtory)
+
+function FakeUser() {
+	this.name: 'Brenno',
+	this.lastName: 'Souza'
+}
+
+// não é Factory
+const user = new FakeUser();
+
+***************************
+
+(É Factory)
+
+function FakeUser() {
+	return {
+		name: 'Brenno',
+		lastName: 'Souza'
+	}
+}
+
+// Factory
+
+const user = FakeUser();
+
+
+***************************
+
+
+Singleton:
+
+O objetivo desse pattern é criar uma única instância de uma função construtora e retorná-la toda vez em que for necessário utilizá-la.
+Exemplo comum deste padrão é o jQuery. *
+
+var SETTINGS (global) e função MyApp são exemplos de singleton.
+
+instance é uma propriedade para controlar se foi instanciada ou não.*
+
+***************************
+
+Exemplos:
+
+var SETTINGS = {
+	api: 'http://localhost',
+	trackJsToken: '12345'
+}
+
+***************************
+
+function MyApp() {
+	if(!Myapp.instance) {
+		MyApp.instance = this;
+	}
+	
+	return MyApp.instance;
+}
+
+***************************
+
+
+Decorator:
+
+Uma função decorator recebe uma outra função como parâmetro e estende o seu comportamento sem modificá-la explicitamente.
+
+Proposta do decorator no stage 2 no TC39.
+
+***************************
+
+Exemplo:
+
+function readonly(target, name, descriptor) {
+	descriptor.writable = false;
+	return descriptor;
+}
+
+class Job {
+	@readonly
+	title() { return 'CEO' }
+}
+
+
+***************************
+
+
+Observer:
+
+É um pattern muito popular em aplicações javascript. A instÂncia (subscriber) mantém uma coleção de objetos (observers) e notifica todos eles quando ocorrem mudanças no estado.
+
+Tem que ter uma lista de observers, uma função de subscribe que permite adicionar observers e uma função de notificação.
+
+***************************
+
+Exemplo:
+
+class Observable {
+	constructor() {
+		this.observers = [];
+	}
+
+	subscribe(f) {
+		this.observers.push(f);
+	}
+
+	unsubscribe(f) {
+		this.observers = this.observers.filter(subscriber => subscriber !== f);
+	}
+
+	notify(data) {
+		this.observers.forEach(observer => observer(data));
+	}
+
+}
+
+***************************
+
+
+Module:
+
+É um pattern que possibilita organizarmos melhor nosso código, sem a necessidade de expor variáveis globais.
+
+***************************
+
+Exemplo:
+
+class Person {
+	constructor(name) {
+		this.name = name;	
+	}
+}
+
+export default Person;
+
+// Utilizar Person
+import Person from './models/person';
+
+***************************
+
+
+
+
+
