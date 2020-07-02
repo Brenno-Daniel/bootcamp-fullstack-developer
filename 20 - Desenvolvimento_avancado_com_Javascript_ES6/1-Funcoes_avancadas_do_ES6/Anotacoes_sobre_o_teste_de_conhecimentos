@@ -1,0 +1,19 @@
+
+Anotações sobre o teste de conhecimentos:
+
+
+1 - As arrow functions são sempre:
+
+Funções anônimas.
+
+
+2 - Podemos referenciar outro argumento como valor padrão para um argumento?
+
+Sim, mas apenas se o argumento vier anteriormente ao que está sendo atribuído.
+
+
+3 - Podemos realizar expressões para definir nomes de atributos?
+
+Sim, utilizando colchetes.
+
+

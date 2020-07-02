@@ -78,6 +78,6 @@ obj.showContext();
 
 // this:
 // bind e aply fixam o contexto da função
-// comum nos anos 200 armazenar o contexto numa variavel, geralmente var _that = this; (deixava o codigo mais poluido, etc.)
+// comum nos anos 2000 armazenar o contexto numa variavel, geralmente var _that = this; (deixava o codigo mais poluido, etc.)
 // arrow function veio para simplificar esse processo
 // tem uma propriedade de ter um contexto igual ao codigo que envolve ele
