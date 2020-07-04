@@ -90,13 +90,13 @@ logArgs(...str);
 
 // arrays
 
-const arr = [1, 2, 3, 4];
+const arr2 = [1, 2, 3, 4];
 
 function logArgs(a, b, c) {
     console.log(a, b, c);
 }
 
-logArgs(...arr);
+logArgs(...arr2);
 
 
 // Spread Operator também pode ser utilizado para construir arrays
