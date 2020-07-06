@@ -1,0 +1,17 @@
+{
+  "name": "5-Conceitos_aplicados_a_qualidade_de_codigo_e_automacao_de_testes_em_JS",
+  "version": "1.0.0",
+  "main": "1-Testes_TDD_BDD.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1",
+    "sinon": "^9.0.2"
+  }
+}
