@@ -1,0 +1,38 @@
+Estrutura do projeto criado:
+
+packge.json = dependencias da aplicação, podemos adicionar scripts.
+
+Podemos adicionar dependencias somente ao ambiente de DEV.
+
+angular.json = contem as informações globais da aplicação, e também define qual arquivo vai inicializar a aplicação, define as funções de inicialização.
+
+pasta assests= representa a parte estática da aplicação, como imagens, e qualquer outro tipo de arquivo estático.
+pasta styles = definir os estilos globais dos componentes.
+
+parte index = pegina base da aplicação.
+
+angular utiliza o SPA (Single Page Application), nesse padrão toda a aplicação esta envelopada em uma página.
+
+parte main.ts = responsavel pela inicialização da aplicação.
+como se  fosse o metodo main do java.
+
+node modules = todas as dependencias da aplicação.
+
+pasta src = pasta raiz, pasta coração
+existem arquivos como index e main.
+
+
+AppModule fica dentro da pasta app.
+
+na pasta app, temos o app.module.ts, que é lido no nosso arquivo main.ts, e é a partir dele que vai fazer a leitura do componente pai
+
+componente pai = componente responsavel por envelopar todos os componentes que a gente for criar, de maneira direta ou indireta, ou seja, esse componente sera lido e carregado dentro do index.html, a pagina terá um unico html raiz.
+
+os html que formos criando ao longo dos componente sera adicionado ao html raiz através do <app-root>.
+
+app-root = atravées dele que todos os componentes serão carregados.
+
+comando ng serve = carregar toda a aplicação
+
+para acessar a aplicação o Angular utiliza a porta 4200 por padrão.
+
