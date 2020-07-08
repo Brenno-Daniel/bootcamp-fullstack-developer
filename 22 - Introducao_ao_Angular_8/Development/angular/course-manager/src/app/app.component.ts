@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'course-manager';
+
+  // com typescript podemos tipar a variavel
+  name: string = 'Brenno';
 }

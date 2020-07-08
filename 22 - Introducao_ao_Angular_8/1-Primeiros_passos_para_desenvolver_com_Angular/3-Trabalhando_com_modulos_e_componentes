@@ -1,0 +1,41 @@
+3 - Trabalhando com módulos e componentes
+
+
+O angular é modular, ou seja, mesmo que não crie nenhum modulo ja temos um modulo raiz, por padrão o angular ja tem um modulo.
+
+Modulo é como se fosse um limitador de contexto, cujo todos os componentes dentro dele vão ter aquele contexto.
+
+Os componentes são de maneira representativa aquilo será visivel no módulo.
+
+Os componentes trazem vida ao modulo.
+
+Dentro do app.component, possui o decorator @Component, que são propriedades que dão mais informações ao componente para que o angular faça algumas coisas a mais.
+
+
+tamplateUrl = template html.
+styleUrl = template css.
+
+selector = serve para criar uma tag que pode ser usada em qualquer lugar.
+
+interpolação = quando queremos exibir o valor de uma propriedade de um componente no template.
+
+angular fortifica o html, ou seja, te da todos os recursos do html e ainda te da outros recursos, como a interpolação.
+
+
+One-way Data Binding:
+Atribuição entre colchetes.
+Ligação de uma via, somente vai exibir o valor da propriedade, não vai atualizar o valor de nossa propriedade.
+
+
+Two-way Data Binding:
+
+Atribuição com colchete e parenteses.
+Junção de duas vias, não só le como também vai alterar o valor da propriedade do componente.
+A medida que for alterando o valor da propriedade o angular atualiza em qualquer lugar em que estivermos utilizando ela.
+
+
+ngModel = quando precisamos atribuir uma relação de um input com alguma variavel ou componente
+
+importar modulos pelo app.module.ts, através da propriedade imports.
+
+
