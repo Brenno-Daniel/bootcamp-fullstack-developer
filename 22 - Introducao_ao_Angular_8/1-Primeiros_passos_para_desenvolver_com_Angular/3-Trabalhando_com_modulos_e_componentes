@@ -38,4 +38,3 @@ ngModel = quando precisamos atribuir uma relação de um input com alguma variav
 
 importar modulos pelo app.module.ts, através da propriedade imports.
 
-

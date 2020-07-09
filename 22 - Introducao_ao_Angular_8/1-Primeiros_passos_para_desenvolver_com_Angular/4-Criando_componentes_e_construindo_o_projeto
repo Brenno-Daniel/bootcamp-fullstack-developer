@@ -1,0 +1,9 @@
+4 - Criando componentes e construindo o projeto
+
+Toda vez que criar um componente tem que declarar ele no modulo que corresponde a ele.
+
+
+ciclo de vida do componente:
+
+Metodo de inicialização = podemos implementar na classe para assim que inicializar (OnInit) para chamar o metodo de hook, para chamar alguma operação assim que o componente for inicializado.
+

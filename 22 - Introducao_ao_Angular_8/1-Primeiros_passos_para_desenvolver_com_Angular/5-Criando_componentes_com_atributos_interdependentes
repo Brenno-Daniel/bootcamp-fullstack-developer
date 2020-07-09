@@ -1,0 +1,8 @@
+5 - Criando componentes com atributos interdependentes.
+
+
+Para mesclar um atributo de uma tag html com algum valor de alguma variavel do angular ou atributo do nosso componente precisamos colocar o valor entre colchetes.
+
+OnChanges = quando queremos passar algum valor para esse componente e na medida que esse valor for alterado, o componente vai identificar a alteração e baseado nessa hook irá realizar alguma ação.
+
+
