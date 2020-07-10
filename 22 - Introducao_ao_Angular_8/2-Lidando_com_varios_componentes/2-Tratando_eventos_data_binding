@@ -1,0 +1,6 @@
+2 - Tratando eventos data binding
+
+
+No exemplo foi visto que com o two way podemos dividir e segregar os dois eventos, tanto o de input como o de leitura, podemos aproveitar esses recursos para alguma regra, metodo ou operação mais dinamica, para deixar o template para ficar mais dinâmico e mais rico.
+
+

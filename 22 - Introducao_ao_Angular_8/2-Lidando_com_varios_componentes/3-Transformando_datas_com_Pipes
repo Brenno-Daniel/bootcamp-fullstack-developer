@@ -1,0 +1,9 @@
+3 - Transformando datas com Pipes
+
+Pipes = alterar a exibição, alterar a forma que sera mostrada alguma propriedade no nosso template.
+
+
+Utilizando alguns pipes nativos do angular:
+
+Pipe de data
+

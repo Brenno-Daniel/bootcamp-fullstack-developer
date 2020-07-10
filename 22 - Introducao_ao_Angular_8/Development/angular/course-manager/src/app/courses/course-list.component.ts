@@ -1,3 +1,4 @@
+import { CourseService } from './course.service';
 import { Component, OnInit } from '@angular/core';
 import { Course } from './course';
 
@@ -9,31 +10,30 @@ import { Course } from './course';
 // Deixando a classe publica para outros arquivos fazerem a referencia a ela
 export class CourseListComponent implements OnInit {
 
-    courses: Course[] = [];
+    // o underline _ serve para sinalizar aos desenvolvedores que a variável deve ficar somente neste componente
+    filteredCourses: Course[] = [];
+    
+    _courses: Course[] = [];
+
+    _filterBy: string;
+
+    // Angular utiliza para fazer injeção através do construtor
+    constructor(private CourseService: CourseService) { }
 
     ngOnInit(): void {
-        this.courses = [
-            {
-                id: 1,
-                name: 'Angular: Forms',
-                imageUrl: '/assets/images/forms.png',
-                price: 99.99,
-                code: 'XPS-8796',
-                duration: 120,
-                rating: 3.4,
-                releaseDate: 'December, 2, 2019'
-            },
-            {
-                id: 2,
-                name: 'Angular: HTTP',
-                imageUrl: '/assets/images/http.png',
-                price: 45.99,
-                code: 'LKL-1095',
-                duration: 80,
-                rating: 4,
-                releaseDate: 'January, 2, 2020'
-            }
-        ]
+        this._courses = this.CourseService.retrieveAll();
+        this.filteredCourses = this._courses;
+    }
+
+    set filter(value: string) {
+        this._filterBy = value;
+
+        // Filtrando o curso e igualando o valor do filtro em memória ao filtro de curso
+        this.filteredCourses = this._courses.filter((course: Course) => course.name.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1);
+    }
+
+    get filter() {
+        return this._filterBy;
     }
 
 

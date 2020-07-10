@@ -1,0 +1,15 @@
+1- O que é injeção de dependência
+
+Injeção de dependencias é um recurso muito util para organizar na distribuição de nossos componentes e na distribuição de responsabilidades.
+
+@Injectable = Indicar que essa classe é elegivel para injeção de dependencia.
+providedIn: 'root' = faz com que seja carregado na root da aplicação, no módulo raiz da aplicação.
+
+Em classes de serviços é interessante que tenhamos apenas metodos que façam ou chamem alguma operação ou no máximo variáveis estáticas que não tenham o valor alterado.
+
+Angular utiliza para fazer injeção através do construtor.
+
+
+
+
+
