@@ -1,0 +1,10 @@
+5 - Ativando rotas para acessar componentes.
+
+
+Por padrão a rota vem em formato string, para transformarmos para number basta colocar um "+" no inicio da sentença.
+
+ActivatedRoute = podemos pegar as informações da rota no exato momento.
+
+routerLink = para chamar um link no nosso componente para acessar alguma rota, onde passamos um array cujo primeiro parametro é URL e o segundo são os parametros que vamos passar através da rota.
+
+routerLinkActive = podemos usar quando queremos colocar uma classe no nosso link.

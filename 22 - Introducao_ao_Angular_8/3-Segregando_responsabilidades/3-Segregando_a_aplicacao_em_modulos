@@ -1,0 +1,20 @@
+3 - Segregando a aplicação em módulos
+
+A ideia geral de um modulo é segregar responsabilidades.
+Um modulo é um conceito abstrato, uma limitação de contexto, e o que o torna vivo vão ser as declarações, pipes, componentes, dentre outros.
+
+NgModulo = classe elegivel para ser um modulo angular.
+Propriedades do NgModule que iremos ver no curso:
+
+declarations = informar os pipes, componentes, que precisa para existir.
+imports = quais os outros modulos que esse modulo precisa importar para existir.
+
+
+Angular não permite que um componente seja declarado/ importado duas vezes.**
+
+A aplicação será iniciada, mas não será possível utilizá-la, pois não é possível ter dois componentes declarados em módulos diferentes.*
+
+
+Importar CommonModules para pegar os recursos padrão/basicos como os pipes padrão/basicos do angular.
+
+

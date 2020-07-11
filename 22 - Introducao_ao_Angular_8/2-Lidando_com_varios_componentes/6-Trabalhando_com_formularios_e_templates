@@ -1,0 +1,20 @@
+6 - Trabalhando com formulários e templates
+
+Podemos fazer verificações, acionar classes dinamicamente de validação, desabilitar um botão, dentre outras coisas.
+
+.find() = Realiza iteração nas linhas e elementos do array, validando a primeira condição ele retorna.
+
+recurso de variavel de template = declaramos com um #, exemplo: #courseForm ou #courseName.
+
+Com elas podemos pegar algumas propriedades que estão inerentes à ela, para podermos trabalhar com ela, uma das maneiras é via interpolação.
+
+Outra propriedade da variável de template é o valide ou invalid, para verificar se a variavel de template esta valida.
+
+[ngClass] = passar uma classe dinamica para a propriedade.
+Sintaxe entre chaves, primeiro parametro entre aspas é a classe que queremos adicionar, e o segundo é a condição que a classe será adicionada.
+
+[disabled] = serve para desabilitar, interessante para se trabalhar fazendo as validações.
+
+
+
+

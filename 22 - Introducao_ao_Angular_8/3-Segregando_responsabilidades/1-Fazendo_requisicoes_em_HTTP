@@ -1,0 +1,22 @@
+1 - Fazendo requisições em HTTP.
+
+
+Modulo HTTP = importar modulo HttpClientModule
+Existem dois modulos HttpClient, devemos utilizar o modulo do '@angular/common/http'
+
+Padrão de retorno de um HttpClient é um observable
+
+Observable = como se fosse um envelope, vai envelopar a nossa resposta, ele precisa trabalhar com contratos.
+O contrato é um contrato de duas vias, um é publish pessoa que esta criando o contrato, e o outro é o subscribe a pessoa que esta ouvindo o contrato.
+
+Observable é assincrono e devemos dar um subscribe para que ele possa chamar a ação, podemos usar callbacks function para receber a resposta dessa ação.
+
+Sempre quando for chamar requisição de HttpClient de observable temos de dar um subcribe para poder de fato realizar a chamada.
+
+No response do subscribe rececbemos as callbacks function para trabalharmos:
+
+next = é quando a requisição deu certo e nos retorna alguma coisa para podermos trabalhar.
+
+error = se der algum erro recebemos o retorno do erro para podermos trabalhar com o erro, para tratá-lo.
+
+

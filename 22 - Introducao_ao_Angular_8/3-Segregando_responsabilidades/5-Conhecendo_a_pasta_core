@@ -1,0 +1,5 @@
+5 - Conhecendo a pasta core
+
+Pasta core, contém componentes mais pesados, que tem regras de negócio maior, que tem amarração maior com outros componentes e que não são tão genéricos, esses componentes não são tão compartilhados como é o caso da pasta shared.
+
+

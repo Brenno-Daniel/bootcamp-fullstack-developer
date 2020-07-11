@@ -1,0 +1,10 @@
+4 - Conhecendo a pasta shared
+
+Shared Modules
+Criar para shared para poder importar os nossos modulos conforme nossa necessidade.
+Pasta shared contém componentes e modulos bem pequenos e genéricos e compartilhados.
+
+NgModule:
+exports = serve para dizer ao angular que queremos exportar algo do modulo atual para ser utilizado no modulo em que ele esta sendo importado.
+
+

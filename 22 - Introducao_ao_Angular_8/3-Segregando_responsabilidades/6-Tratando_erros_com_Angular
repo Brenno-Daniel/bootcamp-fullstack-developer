@@ -1,0 +1,5 @@
+6 - Tratando erros com Angular
+
+Segregando a rota do componente de erro 404 para dentro da pasta core.
+
+
