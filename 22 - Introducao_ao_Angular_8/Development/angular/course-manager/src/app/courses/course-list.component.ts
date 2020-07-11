@@ -4,7 +4,7 @@ import { Course } from './course';
 
 // Precisamos colocar um decorator para informar ao angular que será uma classe de componente
 @Component({
-    selector: 'app-course-list', // importante que na tag tenha alguma referencia a algum componente da aplicação
+    // selector: 'app-course-list', // importante que na tag tenha alguma referencia a algum componente da aplicação
     templateUrl: './course-list.component.html'
 })
 // Deixando a classe publica para outros arquivos fazerem a referencia a ela

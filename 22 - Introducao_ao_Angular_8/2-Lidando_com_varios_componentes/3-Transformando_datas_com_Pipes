@@ -5,5 +5,12 @@ Pipes = alterar a exibição, alterar a forma que sera mostrada alguma proprieda
 
 Utilizando alguns pipes nativos do angular:
 
-Pipe de data
+Pipe de data: | data: 'dd/MM/yyyy'
+
+Pipe para deixar letras minusculas: | lowercase
+
+Angular permite utilizar mais de um pipe na nossa propriedade.
+
+@Pipe = decorator que informa que a classe é elegivel para ser um pipe.
+
 

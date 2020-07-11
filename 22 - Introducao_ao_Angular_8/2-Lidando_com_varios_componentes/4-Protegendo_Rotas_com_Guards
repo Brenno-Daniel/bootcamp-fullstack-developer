@@ -1,0 +1,14 @@
+4 - Protegendo Rotas com Guards
+
+Precisamos navegar entres os componentes utilizando rotas.
+
+RouterModule = modulo de rotas do angular.
+
+path: '' = se refere a raiz do nosso path.
+
+<router-outlet> = avisar ao angular que queremos fazer o swith.
+
+path: '**' = quando não encontrar a rota
+
+
+forRoot = espera um array de objetos do tipo rotas.
