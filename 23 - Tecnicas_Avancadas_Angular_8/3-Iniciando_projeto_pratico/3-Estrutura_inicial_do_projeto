@@ -1,0 +1,25 @@
+3 - Estrutura inicial do projeto
+
+Pasta assets:
+
+pasta styles = estilos globais para a aplicação.
+
+pasta app:
+
+app.component.html =  arquivo inicial do sistema
+
+app.module.ts = possui os imports dos modulos da aplicação, é o modulo pricipal, pai de todos os modulos que temos, o que tiver importado aqui em qualquer lugar do sistema ele já vai estar olhando.
+
+app.routing.module.ts = possui as rotas da aplicação, consegue redirecionar as rotas, inclusive redirecionar para as rotas filhas.
+
+pasta app > shared > material: responsavel por carregar os componentes do Angular Material.
+
+providers: date_locale podemos setar o formato pt que é o formato brasileiro atualizado.
+
+pasta app > filmes: componentes de tela, podemos colocar todos os componentes relacionados a filmes.
+
+declarar padrão dentro do arquivo tslint.json = arquivo responsavel pela padronização dos componentes.
+
+filmes.module.ts = aqui importamos tudo que nossos componentes de filme precisa.
+
+

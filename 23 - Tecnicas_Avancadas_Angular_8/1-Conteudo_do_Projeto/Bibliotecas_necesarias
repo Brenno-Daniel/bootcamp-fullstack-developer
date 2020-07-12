@@ -1,0 +1,24 @@
+Curso intermediário de Angular 8.
+
+Parte: 3 - Bibliotecas necesárias
+
+- Angular Material:
+
+Própria implementação oficial do Angular que a google criou para utilizar o Material Design, especificação de interfaces da própria Google. 
+Fornece todos os componentes de interface, mantendo o padrão de interface.
+
+- JSON server:
+
+Responsável por criar o backend.
+Cria os arquivos mockiados dentro de um arquivo db.json, onde podemos fazer chamadas rest (post, get, put e delete).
+Iremos realizar chamadas a esse serviço que irá salvar os registros no arquivo json db.
+
+- NGX-Infinite_Scroll:
+
+Fazer o scrull infinito da tela.
+Vai rolando a pagina e conforme vai tendo registro ele vai carregando os registros, sem a paginação.
+
+- RxJS:
+
+Responsavel pela parte de programação reativa.
+Muito utilizado no angular.

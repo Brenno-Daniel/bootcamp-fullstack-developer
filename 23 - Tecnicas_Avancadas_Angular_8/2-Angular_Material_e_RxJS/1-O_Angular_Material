@@ -1,0 +1,23 @@
+1 - O que é o Angular Material
+
+
+O Angular Material é a implementação oficial, para o Angular, do Material Design, a especificação de design para interfaces interativas do Google. O Material Design cobre desde pequenos elementos, como ícones e cores, até elementos maiores como navegação, cards, imagens e muito mais.
+
+Angular material io: material.angular.io
+
+Mostra exemplos de como é a exibição, como utilizar e exemplos em código para implementarmos no nosso projeto.
+
+Através do get started nos mostra como instalar o Angular Material.
+
+ng add @angular/material = instalar Angular Material
+
+material-module.ts = contem todas as dependencias do angular material, ja tem todos os componentes importados dentro.
+
+npm start = subir o projeto, irá compilar o projeto e criar a pasta dist.
+
+
+Nos exemplos do site Angular Material ao clicar no botão Edit irá redirecionar ao site stackblitz, contendo os códigos de exemplo.
+
+Parte de API mostra como funciona a parte de import dos módulos.
+
+

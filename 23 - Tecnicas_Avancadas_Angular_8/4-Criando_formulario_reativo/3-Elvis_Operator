@@ -1,0 +1,6 @@
+3 - Elvis Operator / Navegação segura
+
+É representado pelo "?".
+Caso houver erros ele verifica a sentença a frente, se não houver erros ja retorna false.
+Garante que as propriedades que estamos acessando no HTML e se não existirem não irão estourar algum erro pois estamos tratando elas.
+

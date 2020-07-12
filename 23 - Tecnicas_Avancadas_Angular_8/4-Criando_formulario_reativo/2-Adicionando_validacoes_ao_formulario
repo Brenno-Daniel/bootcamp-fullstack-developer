@@ -1,0 +1,12 @@
+2 - Adicionando validações ao formulário
+
+
+No campo de data para evitar que o usuário digite algum teste e nos certificarmos que ao clicar será exibido o calendário podemos colocar o campo como readonly e colocar o metodo click chamando a variável picker: (click)="picker.open()"
+
+
+Adicionando mensagens de erro:
+O proprio angular material tem mensagens de erro padrão que podemos utilizar.
+Ao procurar na pagina material.angular.io vemos na parte de API que o selector é: mat-error
+Adicionando o *ngIf para que a mensagem de erro aconteça quando ocorrer algo específico.
+
+

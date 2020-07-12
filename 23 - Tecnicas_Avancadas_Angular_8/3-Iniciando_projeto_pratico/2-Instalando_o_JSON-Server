@@ -1,0 +1,11 @@
+2 - Instalando o JSON-Server
+
+JSON-Server cria como se fossem chamadas REST para um backend que nao existe em um arquivo db.json.
+
+npm install -g json-server = instalar json-server
+
+json-server --watch db.json = inicializar servidor, irá criar o arquivo db.json caso ainda não tenha criado.
+
+utilizar o postman para validar nossos metodos HTTP.
+
+

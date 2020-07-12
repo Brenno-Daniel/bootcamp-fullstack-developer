@@ -1,0 +1,9 @@
+1 - Clonando projeto inicial do GitHub
+
+git clone no projeto para clonar para nosso repositorio local.
+
+aplicar o npm install para baixar as dependencias que precisamos para o node_modules.
+
+iniciar o projeto com npm start, node aplica o comando ng serve que é o comando do angular.
+
+

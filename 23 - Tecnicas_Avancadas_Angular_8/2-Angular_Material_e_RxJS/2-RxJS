@@ -1,0 +1,21 @@
+2 - RxJS
+
+O RxJS é uma biblioteca para programação reativa usando Observables, para facilitar a composição de código assíncrono ou baseado em retorno de chamada.
+
+Dois sites importantes:
+
+- learn-rxjs:
+
+Explica como funciona o RxJs, exemplos praticos, como utilizar cada componente dele.
+Podemos utilizar também o site stackblitz.
+
+Métodos bastante utilizados:
+
+filter = filtragem.
+map = retorna array que passamos, mas podemos manipular o retorno antes da apresentação do mesmo.
+first = retorna o primeiro objeto do array.
+
+Observables precisam de subscribe para serem executados, para executar a chamada.
+
+
+

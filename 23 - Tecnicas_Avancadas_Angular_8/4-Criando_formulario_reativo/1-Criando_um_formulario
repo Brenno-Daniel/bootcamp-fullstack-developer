@@ -1,0 +1,25 @@
+1 - Criando um formulário
+
+
+FormBuilder = vai criar um formulario onde o angular vai conseguir manipular as informações la dentro.
+
+Utilizar um FormBuilder passando o metodo group para retornar um FormGroup
+FormGroup = 
+
+Validators = validações
+Validators.required = campo obrigatório
+Validators.min = valor minimo numerico
+Validators.minLength = valor minimo de caracteres
+Validators.max = valor maximo numerico
+Validators.maxLength = valor maximo de caracteres
+
+
+[matDatepicker] = pedindo qual a variavel onde esta o calendario que será exibido
+#picker = variavel onde aponta o [matDatepicker]
+
+
+(ngSubmit)="salvar()" = enviar informação para um metodo, no caso o metodo salvar.
+
+Se não declarar o tipo de privacidade (publico/privado) do metodo o Angular entende como publico.
+
+
