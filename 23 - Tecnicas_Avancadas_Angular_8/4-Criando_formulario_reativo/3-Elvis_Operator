@@ -4,3 +4,4 @@
 Caso houver erros ele verifica a sentença a frente, se não houver erros ja retorna false.
 Garante que as propriedades que estamos acessando no HTML e se não existirem não irão estourar algum erro pois estamos tratando elas.
 
+Elvis Operator ou operador de navegação segura serve para garantir que se a variável no HTML estiver null ou undefined o Angular não tente acessar o valor dela.

@@ -1,0 +1,11 @@
+6 - NG - template e melhoria de performance
+
+Para quebrar linhas via CSS podemos utilizar a propriedade: white-space: pre-line
+
+Melhora de performance com RxJS:
+Podemos usar a propriedades debounceTime()
+Importação manual: import { debouncerTime } from 'rxjs/operators';
+Utilizamos com o pipe: .pipe(debounceTime(400)).
+O debouncerTime da um intervalo de tempo definido e nesse intervalo ele não realiza a consulta.
+
+

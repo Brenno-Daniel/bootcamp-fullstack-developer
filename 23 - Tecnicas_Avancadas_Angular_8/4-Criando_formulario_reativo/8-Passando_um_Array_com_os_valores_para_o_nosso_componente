@@ -1,0 +1,10 @@
+8 - Passando um Array com os valores para o nosso componente
+
+autocomplete="off" = não deixar que o HTML exiba o autocomplete.
+novalidate = impedir a validação do próprio HTML 5, para evitar de entrar em conflito com as validações que fizemos.
+
+
+Fazendo o selet de opções de genero fiquem dinamicos.
+
+Utilizando o *ngFor, e criando um array de strings para os generos, onde o ngFor irá apresentar as opções de generos salvas no array.
+

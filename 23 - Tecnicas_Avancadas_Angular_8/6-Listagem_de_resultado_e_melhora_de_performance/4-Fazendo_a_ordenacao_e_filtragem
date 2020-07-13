@@ -1,0 +1,10 @@
+4 - Fazendo a ordenação e filtragem
+
+Para saber que alguém digitou em algum campo podemos utilizar as alterações do texto e do genero.
+
+metodo valueChanges() = fica observando o campo texto e quando tiver alguma alteração ele nos retorna.
+
+
+Para fazer a ordenação o JSON-server possui o _sort e o _order, para o sort o padrão de id e do order 'desc'.
+
+

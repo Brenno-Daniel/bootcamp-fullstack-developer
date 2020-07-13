@@ -1,0 +1,28 @@
+4 - Serviço para validação de erros
+
+
+Criar um service para centralizar todos os erros nesse serviço.
+
+
+Comando para criar nova para a validação dos campos:
+
+ng g s shared/components/campos/validarCampos
+(g = generate, s = service)
+
+Na primeira tentativa vai ocorrer o erro:
+
+Invalid rule result: Instance of class Promise.
+
+É necessário instalar a dependencia @schematics:
+
+npm install @schematics/angular@7.0.7 --save-dev
+
+--save-dev = dependencias de desenvolvimento, instalar a dependencia dentro do tempo de desenvolvimento.
+
+--nospec = para não gerar o arquivo de testes junto.
+
+Ao executar o comando e criar o componente de service para validar os campos automaticamente já vem injetado no root: @Injectable (...) provideIn: 'root', então qualquer lugar do sistema terá acesso a este serviço.
+
+método hasError retorna um boolean.
+
+

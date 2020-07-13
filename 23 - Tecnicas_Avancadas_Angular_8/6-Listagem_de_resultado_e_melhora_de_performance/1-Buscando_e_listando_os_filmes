@@ -1,0 +1,7 @@
+1 - Buscando e listando os filmes
+
+Criar uma consulta ao servidor backend através do core no componente service.
+
+Utilizando o metodo HTTP GET para buscar os filmes.
+
+

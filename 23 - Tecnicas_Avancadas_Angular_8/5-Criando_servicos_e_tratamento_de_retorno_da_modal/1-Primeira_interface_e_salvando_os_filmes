@@ -1,0 +1,33 @@
+1 - Primeira interface e salvando os filmes
+
+Criar a pasta core, essa pasta é reponsavel por armazenar todos os serviços que se comunicam com o backend.
+
+Criar a pasta: ng g s core/filmes --nospec
+
+Criar uma consulta Http client que será responsavel pelas consultas.
+
+Fazer o import do HttpClient.*
+
+Por conveniencia devemos colocar primeiro os imports do Angular, depois os imports de terceiros e por ultimo os nossos imports.
+Apenas por questão de organização.*
+
+
+Para criar uma interface:
+
+ng g i shared/models/filme
+
+Quando colocamos um campo com um ? na frente quer dizer que ele é opcional, ex: id?: number;
+
+
+É necessário criar as variavies com o mesmo nome do que esta salvo no banco, se colocarmos algum nome no campo como minusculo estaria divergente o formato dos arquivos, e ao tentar salvar ocorre erro informando que a interface especifica uma coisa e estamos enviando outra.
+
+Criamos a interface para garantir que os dois lados estejam com as mesmas informações.
+
+Observable somente realiza a chamada quando tem alguém aguardando, quando tiver alguém inscrito no retorno, por isso precisamos utilizar o subscribe obrigatóriamente, mesmo que não estivermos esperando um retorno.
+
+getRawValue() = retorna os campos que temos no FormGroup.
+
+
+Para que o HttpClient fique visivel precisamos importar no app.module.ts o HttpClientModule.
+
+

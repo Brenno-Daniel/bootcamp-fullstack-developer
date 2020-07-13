@@ -1,0 +1,5 @@
+7 - Deixando mensagens de erros dinâmicas
+
+Deixando as mensagens de erro dinâmicas com um totalizador, criando um metodo no nosso componente de serviços.
+
+

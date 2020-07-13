@@ -1,0 +1,21 @@
+2 - Scroll infinito
+
+No Angular material ja tem um scroll infinito.
+
+Iremos utilizar o infinite scroll do ngx.
+Instalar com o comando: npm install ngx-infinite-scroll --save
+
+(scrolled) = Quando o usuário chegar ao final da pagina irá carregar mais conteúdo.
+
+O próprio JSON-server possui recurso de paginação que podemos colocar um limite de registros por pagina.
+_page e o _limit, então precisamos passar o parametro pagina e a quantidade de paginas.
+
+
+O Angular possui por padrao a parte de parametros do proprio HttpClient que é o HttpParams.
+HttpParams só recebe uma instancia, então precisamos concatenar os dois parametros (_paga e _limit) para passar pelo HttpParams.
+
+variavel readonly = variavel para apenas leitura, garantimos que ninguem pode alterar.
+
+Precisamos adicionar os filmes na lista de filmes existentes, então utilizamos o .push() e dentro o Spread Operator ... : .push(...filmes).
+
+

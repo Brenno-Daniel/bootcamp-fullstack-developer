@@ -1,0 +1,16 @@
+2 - Componente de modal
+
+Modal funciona diferente dos componentes normais, ele recebe um dialog que é o formato de alertas ou modais que o Angular utiliza, e assim cinseguimos passar propriedades um pouco diferentes.
+
+entryComponents = componentes que não precisam ser instanciados para que eles existam.
+No momento em que a plicação sobe automaticamente ele é criado e qualquer um consegue acessá-lo de qualquer lugar do sistema.
+
+Ponto positivo:
+Consegue utilizar sem a necessidade de instanciar pois ele já foi instanciado no inicio da aplicação.
+
+Ponto negativo:
+Tem que cuidar para nao encher de entryComponents para não sobrecarregar a inicialização da aplicação.
+
+Na versao atual do angular ainda nao suporta a versao typescript que ja vem com o Elvis Operator.
+
+

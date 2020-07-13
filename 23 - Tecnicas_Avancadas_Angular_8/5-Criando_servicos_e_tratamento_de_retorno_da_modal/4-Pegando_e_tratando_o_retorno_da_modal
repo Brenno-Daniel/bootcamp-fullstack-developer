@@ -1,0 +1,7 @@
+4 - Pegando e tratando o retorno da modal
+
+Finalizando a parte de alerta e de cadastro.
+
+afterClosed() = depois de fechar, esta retornando um observer, para se inscrever e receber o resultado disso.
+
+

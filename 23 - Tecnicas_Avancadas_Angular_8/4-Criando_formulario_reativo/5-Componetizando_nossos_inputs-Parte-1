@@ -1,0 +1,31 @@
+5 - Componetizando nossos inputs - Parte 1
+
+A ideia do angular é componentizar as coisas para reutilizar, a ideia dessa aula é criar um componente para cada input, e quando precisarmos reutilizar o componente só precisamos utilizar o componente criado.
+
+
+Criar o componente pelo Angular CLI:
+
+ng g c shared/components/campos/input-text --nospec
+
+Porém ao executar o código acima ocorrerá um erro: 
+
+More than one module matches. Use skip-import option to skip importing the component ...
+
+Isso ocorre pois devemo criar o modulo onde será importado os nossos componentes, antes de criar o componente:
+
+ng g m shared/components/campos --nospec
+
+Após isto podemos criar o componente, as vezes o angular não consegue identificar o módulo então precisamos apontar ao mesmo utilizando:
+
+--module e passamos qual o caminho desse módulo.
+
+Ao criar o componente precisamos corrigir no selector temos que colocar o nosso código para deixar claro que esse componente é criado por nós e não por terceiros, no caso do exemplo devemos colocar o "dio" a frente do selector.
+
+
+Dois valores basicos que precisamos para criar qualquer coisa:
+
+@Input() formGroup: FormGroup;
+@Input() formControl: FormControl;
+
+
+

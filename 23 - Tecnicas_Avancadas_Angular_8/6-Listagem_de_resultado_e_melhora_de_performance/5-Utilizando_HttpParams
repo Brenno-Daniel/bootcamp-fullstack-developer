@@ -1,0 +1,13 @@
+5 - Utilizando HttpParams
+
+HttpParams:
+É uma classe responsável por passar parâmetros em consultas REST.
+
+Evitar de colocar muitas responsabilidades em um serviço como por exemplo o serviço de listagens realizar as validações, exemplo vamos segregar a responsabilidade das validações para um novo componente.
+
+Como passamos parâmetros para o HttpParams?
+
+Através do método set.
+
+
+
