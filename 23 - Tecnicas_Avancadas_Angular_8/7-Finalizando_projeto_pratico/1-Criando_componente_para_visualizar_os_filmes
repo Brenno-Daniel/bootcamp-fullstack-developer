@@ -1,0 +1,23 @@
+1 - Criando componente para visualizar os filmes
+
+Criar um componente responsavel pela exibição dos filmes.
+
+Por questão de organização primeiro colocamos os metodos publicos e depois os metodos privados.
+
+Quando colocando dois pontos nos arquivos de rota, indica ao angular o que estamos passando após os dois ponto é um parâmetro.
+
+Router é responsável por fazer as navegações, e as navegações iremos realizar através de URLs.
+
+Para pegar o parametro passado na rota podemos utilizar o ActivatedRoute.
+
+O proprio javascript ja entende que se colocamos o operador + entre uma string e um number ele entende que precisa concatenar.
+
+mat-list = basciamente nos fornece uma lista de itens, e com isso teremos um listagem por lista.
+
+target="_blank" = abrir em nova aba.
+
+Pipe do próprio angular para formatar data:
+
+| date: 'dd/MM/yyyy'
+
+Para listagem utilizamos o método HTTP GET.
