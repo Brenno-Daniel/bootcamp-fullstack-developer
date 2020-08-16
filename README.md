@@ -2,6 +2,7 @@
 Repositório para salvar minhas anotações e exemplos do Bootcamp Fullstack Developer da Digital Innovation One =)
 
 Tecnologias abordadas neste bootcamp:
+
 Front:
   - JavaScript (juntamente com HTML5 e CSS3);
   - Angular 8;
